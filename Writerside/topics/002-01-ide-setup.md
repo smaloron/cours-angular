@@ -222,24 +222,40 @@ Intégrons Prettier à notre projet `mon-app` pour garantir un formatage de code
 
 1. **(QCM)** Quelle extension VS Code est considérée comme essentielle car elle fournit l'auto-complétion et la
    détection d'erreurs dans les templates HTML d'Angular ?
+
    a) Prettier
+
    b) ESLint
+
    c) Angular Language Service
+
    d) Material Icon Theme
+   
 2. **(Question ouverte)** Expliquez avec vos propres mots la différence fondamentale de responsabilité entre un linter
    comme ESLint et un formateur comme Prettier.
+
 3. **(QCM)** Un collègue vous dit : "J'ai supprimé mon `package-lock.json` pour forcer la mise à jour des paquets, car
    mon projet ne marchait plus". Pourquoi est-ce une mauvaise idée ?
+
    a) Ce n'est pas une mauvaise idée, c'est la bonne procédure.
+   
    b) Parce que ce fichier contient le code source des dépendances.
+   
    c) Parce que cela rend le build non-reproductible et peut introduire des versions de paquets inattendues.
+
    d) Parce que cela supprime la configuration d'Angular CLI.
+
 4. **(Question ouverte)** Vous rejoignez une nouvelle équipe. Quel est le premier avantage que vous obtiendrez d'un
    projet qui utilise déjà Prettier et ESLint de manière rigoureuse ?
+
 5. **(QCM)** Dans quel fichier ajoutez-vous des raccourcis de commande comme `npm run format:check` ?
+
    a) `angular.json`
+
    b) `package.json`
+
    c) `tsconfig.json`
+
    d) `.prettierrc.json`
 
 ### Conclusion de ce chapitre

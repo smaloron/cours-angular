@@ -252,26 +252,50 @@ getFirstUser(): Observable<User> {
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** À quoi sert la méthode `.pipe()` d'un Observable ?
-2. **(QCM)** Quel opérateur utiliseriez-vous pour transformer un `Observable<User[]>` en un `Observable<number>` qui
-   émet uniquement le nombre total d'utilisateurs ?
-   a) `filter`
-   b) `switchMap`
-   c) `map`
-   d) `catchError`
-3. **(QCM)** Vous devez faire un premier appel pour récupérer un `id` de catégorie, puis un second appel pour récupérer
-   les produits de cette catégorie. Quel opérateur est le plus adapté pour enchaîner ces deux appels ?
-   a) `map`
-   b) `tap`
-   c) `switchMap`
-   d) `merge`
-4. **(Question ouverte)** Expliquez le rôle de l'opérateur `catchError`. Que doit-il retourner pour que l'Observable ne
-   se termine pas en erreur ?
-5. **(QCM)** Quelle est la principale différence de comportement entre `map` et `switchMap` ?
-   a) `map` transforme une valeur, tandis que `switchMap` filtre une valeur.
-   b) `map` retourne une valeur simple, tandis que `switchMap` doit retourner un nouvel Observable.
-   c) `switchMap` est plus rapide que `map`.
-   d) `map` peut être utilisé pour les erreurs, pas `switchMap`.
+---
+
+**1. (Question ouverte)**  
+À quoi sert la méthode `.pipe()` d'un Observable ?
+
+---
+
+**2. (QCM)**  
+Quel opérateur utiliseriez-vous pour transformer un `Observable<User[]>` en un `Observable<number>` qui émet uniquement le nombre total d'utilisateurs ?
+
+- a) `filter`
+- b) `switchMap`
+- c) `map`
+- d) `catchError`
+
+---
+
+**3. (QCM)**  
+Vous devez faire un premier appel pour récupérer un `id` de catégorie, puis un second appel pour récupérer les produits de cette catégorie.  
+Quel opérateur est le plus adapté pour enchaîner ces deux appels ?
+
+- a) `map`
+- b) `tap`
+- c) `switchMap`
+- d) `merge`
+
+---
+
+**4. (Question ouverte)**  
+Expliquez le rôle de l'opérateur `catchError`.  
+Que doit-il retourner pour que l'Observable ne se termine pas en erreur ?
+
+---
+
+**5. (QCM)**  
+Quelle est la principale différence de comportement entre `map` et `switchMap` ?
+
+- a) `map` transforme une valeur, tandis que `switchMap` filtre une valeur.
+- b) `map` retourne une valeur simple, tandis que `switchMap` doit retourner un nouvel Observable.
+- c) `switchMap` est plus rapide que `map`.
+- d) `map` peut être utilisé pour les erreurs, pas `switchMap`.
+
+---
+
 
 ### Conclusion de ce chapitre
 

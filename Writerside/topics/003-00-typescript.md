@@ -321,24 +321,40 @@ package "fr.formation.spring" {
 
 1. **(Question ouverte)** Quel est, selon vous, le principal bénéfice de TypeScript par rapport à JavaScript pour un
    développeur venant de l'écosystème Java ?
+
 2. **(QCM)** Comment déclarez-vous une constante en TypeScript dont la valeur ne peut pas être réassignée ?
+
    a) `let PI = 3.14;`
+
    b) `var PI = 3.14;`
+
    c) `final PI = 3.14;`
+   
    d) `const PI = 3.14;`
+
 3. **(QCM)** Quelle est la manière la plus concise et idiomatique en TypeScript de déclarer une propriété de classe et
    de l'initialiser via le constructeur ?
+
    a) Déclarer la propriété dans la classe, puis l'assigner dans le constructeur avec `this.prop = prop;`.
+
    b) Utiliser un modificateur d'accès (`public`, `private`...) sur le paramètre du constructeur.
+
    c) Ne pas utiliser de constructeur et assigner la propriété directement.
+
    d) Utiliser une méthode `init()`.
+
 4. **(Question ouverte)** Expliquez le rôle d'une interface en TypeScript et donnez un exemple de cas où vous en
    utiliseriez une.
+
 5. **(QCM)** Quel concept en Java est l'analogue le plus direct d'un Décorateur (`@Component`, `@Injectable`) en
    TypeScript/Angular ?
+
    a) Une classe abstraite
+
    b) Une interface
+
    c) Une annotation (`@Service`, `@Controller`)
+
    d) Un `enum`
 
 ### Conclusion de cette partie

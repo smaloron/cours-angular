@@ -346,25 +346,49 @@ package "fr.formation.spring" {
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Pourquoi l'approche des Formulaires Réactifs est-elle particulièrement bien adaptée aux
-   développeurs ayant une expérience en Java/backend ?
-2. **(QCM)** Quel module devez-vous importer pour utiliser les Formulaires Réactifs ?
-   a) `FormsModule`
-   b) `CommonModule`
-   c) `BrowserModule`
-   d) `ReactiveFormsModule`
-3. **(QCM)** Quelle directive lie une balise `<input>` à un `FormControl` spécifique dans un `FormGroup` ?
-   a) `[formGroup]`
-   b) `formControlName`
-   c) `[ngModel]`
-   d) `formName`
-4. **(Question ouverte)** Expliquez la différence entre les états `touched` et `dirty` d'un `FormControl`. Dans quel cas
-   utiliseriez-vous l'un plutôt que l'autre ?
-5. **(QCM)** Quel est le rôle principal du service `FormBuilder` ?
-   a) Gérer la soumission du formulaire au backend.
-   b) Fournir une syntaxe simplifiée pour créer des instances de `FormGroup` et `FormControl`.
-   c) Valider les données du formulaire.
-   d) Lier le modèle de formulaire au template HTML.
+---
+
+**1. (Question ouverte)**  
+Pourquoi l'approche des Formulaires Réactifs est-elle particulièrement bien adaptée aux développeurs ayant une expérience en Java/backend ?
+
+---
+
+**2. (QCM)**  
+Quel module devez-vous importer pour utiliser les Formulaires Réactifs ?
+
+- a) `FormsModule`
+- b) `CommonModule`
+- c) `BrowserModule`
+- d) `ReactiveFormsModule`
+
+---
+
+**3. (QCM)**  
+Quelle directive lie une balise `<input>` à un `FormControl` spécifique dans un `FormGroup` ?
+
+- a) `[formGroup]`
+- b) `formControlName`
+- c) `[ngModel]`
+- d) `formName`
+
+---
+
+**4. (Question ouverte)**  
+Expliquez la différence entre les états `touched` et `dirty` d'un `FormControl`.  
+Dans quel cas utiliseriez-vous l'un plutôt que l'autre ?
+
+---
+
+**5. (QCM)**  
+Quel est le rôle principal du service `FormBuilder` ?
+
+- a) Gérer la soumission du formulaire au backend.
+- b) Fournir une syntaxe simplifiée pour créer des instances de `FormGroup` et `FormControl`.
+- c) Valider les données du formulaire.
+- d) Lier le modèle de formulaire au template HTML.
+
+---
+
 
 ### Conclusion de cette partie
 

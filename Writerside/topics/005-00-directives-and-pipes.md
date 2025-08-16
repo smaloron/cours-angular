@@ -406,23 +406,39 @@ Pour le `[ngClass]`, j'ai ajouté une classe `out-of-stock` sur le `<li>` pour m
 
 1. **(Question ouverte)** Quelle est la différence fondamentale entre `*ngIf="false"` et l'utilisation de CSS
    `display: none;` sur un élément ?
+
 2. **(QCM)** Dans la directive `@for`, à quoi sert la partie `track` ?
+
    a) À suivre le nombre de clics sur un élément.
+
    b) À fournir un identifiant unique pour chaque élément afin d'optimiser les mises à jour du DOM.
+   
    c) À définir la vitesse de l'animation de la boucle.
+
    d) À lier un événement de tracking.
+
 3. **(QCM)** Quelle est la syntaxe correcte pour afficher une date de naissance (`birthDate`) au format "10 Mai 1990" ?
+
    a) `{{ birthDate | 'dd MMMM yyyy' }}`
+
    b) `{{ date: 'dd MMMM yyyy' | birthDate }}`
+
    c) `{{ birthDate | date:'dd MMMM yyyy' }}`
+
    d) `{{ birthDate.format('dd MMMM yyyy') }}`
+
 4. **(Question ouverte)** Qu'est-ce qu'un pipe ? Donnez deux exemples de cas d'utilisation où un pipe est plus approprié
    qu'une méthode dans le composant.
+
 5. **(QCM)** Comment appliquer dynamiquement la classe CSS `"highlight"` à un `<div>` si la variable `isSelected` est
-   `true` ?
+`true` ?
+
    a) `<div class.highlight="isSelected">`
+
    b) `<div [ngClass]="{ 'highlight': isSelected }">`
+
    c) `<div class="@highlight: isSelected;">`
+
    d) `<div ngClass="if isSelected then 'highlight'">`
 
 ### Conclusion de cette partie

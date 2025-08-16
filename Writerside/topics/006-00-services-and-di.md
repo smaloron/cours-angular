@@ -277,26 +277,49 @@ du composant. Votre mission est de refactoriser ce code pour utiliser un service
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** En termes d'architecture, quelle est la responsabilité principale d'un service Angular par
-   rapport à celle d'un composant ?
-2. **(QCM)** Que signifie `providedIn: 'root'` dans le décorateur `@Injectable` ?
-   a) Que le service ne peut être utilisé que par le composant racine (`AppComponent`).
-   b) Que le service est un singleton disponible dans toute l'application.
-   c) Que le service doit être importé dans le fichier `main.ts`.
-   d) Que le service a des privilèges d'administrateur.
-3. **(QCM)** Quelle est la manière standard d'obtenir une instance d'un service dans un composant ?
-   a) En l'instanciant avec `new MyService()`.
-   b) En l'important et en l'ajoutant au tableau `providers` du composant.
-   c) En le déclarant comme un paramètre du constructeur avec un modificateur d'accès.
-   d) En utilisant une méthode globale `getService(MyService)`.
-4. **(Question ouverte)** Vous avez deux composants, `ComponentA` et `ComponentB`, qui ne sont pas liés (ni parent, ni
-   enfant). Comment peuvent-ils partager une donnée commune (par exemple, le nom de l'utilisateur connecté) ?
-5. **(QCM)** Quel principe de conception est le mieux respecté lorsque vous déplacez la logique d'appel à une API depuis
-   un composant vers un service ?
-   a) DRY (Don't Repeat Yourself)
-   b) KISS (Keep It Simple, Stupid)
-   c) SRP (Single Responsibility Principle)
-   d) YAGNI (You Ain't Gonna Need It)
+---
+
+**1. (Question ouverte)**  
+En termes d'architecture, quelle est la responsabilité principale d'un **service Angular** par rapport à celle d'un composant ?
+
+---
+
+**2. (QCM)**  
+Que signifie `providedIn: 'root'` dans le décorateur `@Injectable` ?
+
+- a) Que le service ne peut être utilisé que par le composant racine (`AppComponent`).
+- b) Que le service est un singleton disponible dans toute l'application.
+- c) Que le service doit être importé dans le fichier `main.ts`.
+- d) Que le service a des privilèges d'administrateur.
+
+---
+
+**3. (QCM)**  
+Quelle est la manière standard d'obtenir une instance d'un service dans un composant ?
+
+- a) En l'instanciant avec `new MyService()`.
+- b) En l'important et en l'ajoutant au tableau `providers` du composant.
+- c) En le déclarant comme un paramètre du constructeur avec un modificateur d'accès.
+- d) En utilisant une méthode globale `getService(MyService)`.
+
+---
+
+**4. (Question ouverte)**  
+Vous avez deux composants, `ComponentA` et `ComponentB`, qui ne sont pas liés (ni parent, ni enfant).  
+Comment peuvent-ils partager une donnée commune (par exemple, le nom de l'utilisateur connecté) ?
+
+---
+
+**5. (QCM)**  
+Quel principe de conception est le mieux respecté lorsque vous déplacez la logique d'appel à une API depuis un composant vers un service ?
+
+- a) DRY (Don't Repeat Yourself)
+- b) KISS (Keep It Simple, Stupid)
+- c) SRP (Single Responsibility Principle)
+- d) YAGNI (You Ain't Gonna Need It)
+
+---
+
 
 ### Conclusion de cette partie
 

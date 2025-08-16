@@ -301,27 +301,49 @@ JSONPlaceholder.
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Quelle est la différence majeure entre une `Promise` et un `Observable` en termes de valeurs
-   émises ?
-2. **(QCM)** Quelle fonction devez-vous appeler dans `app.config.ts` pour pouvoir utiliser `HttpClient` ?
-   a) `importProvidersFrom(HttpClientModule)`
-   b) `provideHttp()`
-   c) `provideHttpClient()`
-   d) `enableHttp()`
-3. **(QCM)** Une méthode de service fait un appel `http.get()`. Que se passe-t-il si aucun composant n'appelle
-   `.subscribe()` sur l'Observable retourné ?
-   a) L'appel HTTP est fait, mais la réponse est ignorée.
-   b) L'appel HTTP n'est jamais fait.
-   c) L'appel HTTP est fait et réessayé jusqu'à ce qu'il y ait une souscription.
-   d) Angular lève une erreur.
-4. **(Question ouverte)** Dans un appel `.subscribe()`, quels sont les trois "canaux" (ou callbacks) que vous pouvez
-   écouter ?
-5. **(QCM)** Votre méthode `getUsers()` retourne un `Observable<User[]>`. Dans le callback `next` de `subscribe`, quel
-   sera le type du paramètre `data` ?
-   a) `Observable<User[]>`
-   b) `User`
-   c) `User[]`
-   d) `any`
+---
+
+**1. (Question ouverte)**  
+Quelle est la différence majeure entre une `Promise` et un `Observable` en termes de valeurs émises ?
+
+---
+
+**2. (QCM)**  
+Quelle fonction devez-vous appeler dans `app.config.ts` pour pouvoir utiliser `HttpClient` ?
+
+- a) `importProvidersFrom(HttpClientModule)`
+- b) `provideHttp()`
+- c) `provideHttpClient()`
+- d) `enableHttp()`
+
+---
+
+**3. (QCM)**  
+Une méthode de service fait un appel `http.get()`. Que se passe-t-il si aucun composant n'appelle `.subscribe()` sur l'Observable retourné ?
+
+- a) L'appel HTTP est fait, mais la réponse est ignorée.
+- b) L'appel HTTP n'est jamais fait.
+- c) L'appel HTTP est fait et réessayé jusqu'à ce qu'il y ait une souscription.
+- d) Angular lève une erreur.
+
+---
+
+**4. (Question ouverte)**  
+Dans un appel `.subscribe()`, quels sont les trois "canaux" (ou callbacks) que vous pouvez écouter ?
+
+---
+
+**5. (QCM)**  
+Votre méthode `getUsers()` retourne un `Observable<User[]>`.  
+Dans le callback `next` de `subscribe`, quel sera le type du paramètre `data` ?
+
+- a) `Observable<User[]>`
+- b) `User`
+- c) `User[]`
+- d) `any`
+
+---
+
 
 ### Conclusion de cette partie
 

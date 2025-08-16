@@ -302,26 +302,44 @@ package "fr.formation.spring" {
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Dans quel cas d'utilisation est-il préférable de créer un pipe personnalisé plutôt qu'une
-   méthode dans un composant ?
-2. **(QCM)** Vous créez un pipe `myPipe`. Pour l'utiliser avec un paramètre dans un template, quelle syntaxe est
-   correcte ?
-   a) `{{ data | myPipe(param) }}`
-   b) `{{ data | myPipe.param }}`
-   c) `{{ data | myPipe:param }}`
-   d) `{{ data.myPipe(param) }}`
-3. **(QCM)** Par défaut, un pipe personnalisé est :
-   a) Impur, car il doit se ré-exécuter souvent.
-   b) Pur, pour des raisons de performance.
-   c) Ni l'un ni l'autre, c'est à nous de le spécifier.
-   d) Statique, il ne peut pas être instancié.
-4. **(Question ouverte)** Quelle est la fonction du décorateur `@HostListener` dans une directive ?
-5. **(QCM)** Pour manipuler directement l'élément du DOM auquel une directive est attachée, quelle dépendance devez-vous
-   injecter dans son constructeur ?
-   a) `Renderer2`
-   b) `DOMElement`
-   c) `HostBinding`
-   d) `ElementRef`
+**1. (Question ouverte)**  
+Dans quel cas d'utilisation est-il préférable de créer un **pipe personnalisé** plutôt qu'une méthode dans un composant ?
+
+---
+
+**2. (QCM)**  
+Vous créez un pipe `myPipe`. Pour l'utiliser avec un paramètre dans un template, quelle syntaxe est correcte ?
+
+- a) `{{ data | myPipe(param) }}`
+- b) `{{ data | myPipe.param }}`
+- c) `{{ data | myPipe:param }}`
+- d) `{{ data.myPipe(param) }}`
+
+---
+
+**3. (QCM)**  
+Par défaut, un **pipe personnalisé** est :
+
+- a) Impur, car il doit se ré-exécuter souvent.
+- b) Pur, pour des raisons de performance.
+- c) Ni l'un ni l'autre, c'est à nous de le spécifier.
+- d) Statique, il ne peut pas être instancié.
+
+---
+
+**4. (Question ouverte)**  
+Quelle est la fonction du décorateur `@HostListener` dans une directive ?
+
+---
+
+**5. (QCM)**  
+Pour manipuler directement l'élément du DOM auquel une directive est attachée, quelle dépendance devez-vous injecter dans son constructeur ?
+
+- a) `Renderer2`
+- b) `DOMElement`
+- c) `HostBinding`
+- d) `ElementRef`
+
 
 ### Conclusion de ce chapitre
 

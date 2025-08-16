@@ -276,25 +276,49 @@ Créez un intercepteur qui affiche un spinner de chargement pendant les appels H
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Quelle est la différence majeure entre `ngOnInit` et `ngOnChanges` ?
-2. **(QCM)** Vous voulez optimiser un composant qui affiche simplement des données. Quelle stratégie de détection de
-   changement est la plus performante ?
-   a) `Default`
-   b) `OnPush`
-   c) `Optimized`
-   d) `Manual`
-3. **(QCM)** Quel est le rôle d'un intercepteur HTTP ?
-   a) Remplacer complètement `HttpClient`.
-   b) Se placer entre les appels HTTP et le backend pour les manipuler globalement.
-   c) Intercepter les erreurs JavaScript dans les templates.
-   d) Optimiser la taille des images.
-4. **(Question ouverte)** Dans un composant `OnPush`, citez deux conditions qui déclencheront une mise à jour de sa vue.
-5. **(QCM)** Dans quel dossier est-il recommandé de placer une directive personnalisée qui sera utilisée par de
-   nombreux "feature modules" ?
-   a) `core`
-   b) `shared`
-   c) `features`
-   d) `common`
+---
+
+**1. (Question ouverte)**  
+Quelle est la différence majeure entre `ngOnInit` et `ngOnChanges` ?
+
+---
+
+**2. (QCM)**  
+Vous voulez optimiser un composant qui affiche simplement des données.  
+Quelle stratégie de détection de changement est la plus performante ?
+
+- a) `Default`
+- b) `OnPush`
+- c) `Optimized`
+- d) `Manual`
+
+---
+
+**3. (QCM)**  
+Quel est le rôle d'un intercepteur HTTP ?
+
+- a) Remplacer complètement `HttpClient`.
+- b) Se placer entre les appels HTTP et le backend pour les manipuler globalement.
+- c) Intercepter les erreurs JavaScript dans les templates.
+- d) Optimiser la taille des images.
+
+---
+
+**4. (Question ouverte)**  
+Dans un composant `OnPush`, citez deux conditions qui déclencheront une mise à jour de sa vue.
+
+---
+
+**5. (QCM)**  
+Dans quel dossier est-il recommandé de placer une directive personnalisée qui sera utilisée par de nombreux "feature modules" ?
+
+- a) `core`
+- b) `shared`
+- c) `features`
+- d) `common`
+
+---
+
 
 ### Conclusion de ce chapitre
 

@@ -266,27 +266,39 @@ export class DashboardComponent {
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Expliquez la différence de comportement fondamentale entre `switchMap` et `concatMap`. Donnez
-   un cas d'usage pour chacun.
-2. **(QCM)** Vous voulez exécuter deux appels `GET` en parallèle et ne continuer que lorsque les deux sont terminés.
-   Quel opérateur utiliser ?
-   a) `combineLatest`
-   b) `mergeMap`
-   c) `forkJoin`
-   d) `zip`
-3. **(QCM)** Dans une barre de recherche, pour éviter de lancer une requête HTTP à chaque frappe de l'utilisateur,
-   quelle combinaison d'opérateurs est la plus pertinente ?
-   a) `tap` et `map`
-   b) `debounceTime` et `switchMap`
-   c) `delay` et `concatMap`
-   d) `filter` et `mergeMap`
-4. **(Question ouverte)** Qu'est-ce qu'un "Higher-Order Observable" et quel est le rôle des opérateurs d'aplatissement (
-   `switchMap`, `mergeMap`...) par rapport à ce concept ?
-5. **(QCM)** Quel opérateur est le plus adapté pour gérer les double-clics sur un bouton de soumission de formulaire ?
-   a) `switchMap` (annule)
-   b) `mergeMap` (exécute tout)
-   c) `concatMap` (met en file d'attente)
-   d) `exhaustMap` (ignore pendant l'exécution)
+---
+
+**1. (Question ouverte)**  
+Expliquez la différence de comportement fondamentale entre `switchMap` et `concatMap`.  
+Donnez un cas d'usage pour chacun.
+
+---
+
+**2. (QCM)**  
+Vous voulez exécuter deux appels `GET` en parallèle et ne continuer que lorsque les deux sont terminés.  
+Quel opérateur utiliser ?
+
+- a) `combineLatest`
+- b) `mergeMap`
+- c) `forkJoin`
+- d) `zip`
+
+---
+
+**3. (QCM)**  
+Dans une barre de recherche, pour éviter de lancer une requête HTTP à chaque frappe de l'utilisateur,  
+quelle combinaison d'opérateurs est la plus pertinente ?
+
+- a) `tap` et `map`
+- b) `debounceTime` et `switchMap`
+- c) `delay` et `concatMap`
+- d) `filter` et `mergeMap`
+
+---
+
+**4. (Question ouverte)**  
+Qu'est-ce qu'un "Higher-Order Observable" et quel est le rôle des opérateurs d'aplatissement (`switchMap`, `mergeMap`...) par rapport
+
 
 ### Conclusion de ce chapitre
 

@@ -311,24 +311,48 @@ Browser -> User: Affiche la vue du ProductDetailComponent
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Quel est le rôle de la directive `<router-outlet>` et où la place-t-on généralement ?
-2. **(QCM)** Quelle est la directive correcte pour créer un lien de navigation vers la page `/about` ?
-   a) `href="/about"`
-   b) `[linkTo]="'/about'"`
-   c) `(click)="/about"`
-   d) `[routerLink]="['/about']"`
-3. **(QCM)** Comment définiriez-vous une route pour capturer l'identifiant d'un livre (ex: `/books/abc-123`) ?
-   a) `path: 'books/:isbn'`
-   b) `path: 'books/#'`
-   c) `path: 'books?id='`
-   d) `path: 'books[isbn]'`
-4. **(Question ouverte)** Pourquoi est-il préférable d'utiliser `routerLink` plutôt qu'un attribut `href` standard dans
-   une application Angular ?
-5. **(QCM)** Quel service devez-vous injecter dans un composant pour lire les paramètres de l'URL active ?
-   a) `Router`
-   b) `Route`
-   c) `ActivatedRoute`
-   d) `UrlService`
+---
+
+**1. (Question ouverte)**  
+Quel est le rôle de la directive `<router-outlet>` et où la place-t-on généralement ?
+
+---
+
+**2. (QCM)**  
+Quelle est la directive correcte pour créer un lien de navigation vers la page `/about` ?
+
+- a) `href="/about"`
+- b) `[linkTo]="'/about'"`
+- c) `(click)="/about"`
+- d) `[routerLink]="['/about']"`
+
+---
+
+**3. (QCM)**  
+Comment définiriez-vous une route pour capturer l'identifiant d'un livre (ex: `/books/abc-123`) ?
+
+- a) `path: 'books/:isbn'`
+- b) `path: 'books/#'`
+- c) `path: 'books?id='`
+- d) `path: 'books[isbn]'`
+
+---
+
+**4. (Question ouverte)**  
+Pourquoi est-il préférable d'utiliser `routerLink` plutôt qu'un attribut `href` standard dans une application Angular ?
+
+---
+
+**5. (QCM)**  
+Quel service devez-vous injecter dans un composant pour lire les paramètres de l'URL active ?
+
+- a) `Router`
+- b) `Route`
+- c) `ActivatedRoute`
+- d) `UrlService`
+
+---
+
 
 ### Conclusion de cette partie
 

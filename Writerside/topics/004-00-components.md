@@ -344,23 +344,39 @@ package "fr.formation.angular" {
 
 1. **(Question ouverte)** Quelle est la différence fondamentale entre l'interpolation `{{ }}` et le property binding
    `[]` ? Quand utiliseriez-vous l'un plutôt que l'autre ?
+
 2. **(QCM)** Vous voulez appeler une méthode `saveData()` de votre composant quand un formulaire est soumis. Quelle est
    la syntaxe correcte ?
+
    a) `<form [submit]="saveData()">`
+
    b) `<form (ngSubmit)="saveData()">`
+
    c) `<form [(submit)]="saveData()">`
+
    d) `<form>{{ saveData() }}</form>`
+
 3. **(QCM)** Quel `import` est nécessaire dans votre composant ou votre configuration pour utiliser `[(ngModel)]` ?
+
    a) `CommonModule`
+
    b) `HttpClientModule`
+
    c) `RouterModule`
+
    d) `FormsModule`
+
 4. **(Question ouverte)** Expliquez ce que signifie "l'encapsulation de style" pour un composant Angular.
+
 5. **(QCM)** Si le décorateur d'un composant contient `selector: 'app-login-form'`, comment l'utiliseriez-vous dans un
    autre template ?
+
    a) `[app-login-form]`
+
    b) `(app-login-form)`
+
    c) `<app-login-form></app-login-form>`
+
    d) `{{ app-login-form }}`
 
 ### Conclusion de cette partie

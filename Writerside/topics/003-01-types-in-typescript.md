@@ -307,25 +307,41 @@ note "type AnyProduct = PhysicalProduct | DigitalProduct" as N1
 
 1. **(QCM)** Vous avez une variable `data` qui peut être soit un `User` soit `null`. Comment typeriez-vous cette
    variable ?
+
    a) `let data: User;`
+
    b) `let data: any;`
+
    c) `let data: User | null;`
+
    d) `let data: Partial<User>;`
+
 2. **(Question ouverte)** Expliquez la différence entre le type `any` et le type `unknown`. Pourquoi `unknown` est-il
    considéré comme plus sûr ?
+
 3. **(QCM)** Vous voulez créer une fonction générique `wrapInObject` qui prend une valeur de n'importe quel type et la
    retourne dans un objet `{ value: T }`. Quelle est la bonne signature ?
+
    a) `function wrapInObject(val: any): { value: any }`
+
    b) `function wrapInObject<T>(val: T): { value: T }`
+
    c) `function wrapInObject<T>(val: any): { value: T }`
+
    d) `function wrapInObject(val: T): { value: T }`
+
 4. **(Question ouverte)** Donnez un cas d'utilisation concret pour le "Utility Type" `Partial<T>` dans une application
    Angular.
+
 5. **(QCM)** Dans une fonction qui accepte un paramètre de type `string | number`, quelle est la garde de type la plus
    appropriée pour différencier les deux cas ?
+
    a) `if (param instanceof string)`
+
    b) `if (param.toUpperCase)`
+
    c) `if (typeof param === "string")`
+
    d) `if (param.length)`
 
 ### Conclusion de ce chapitre

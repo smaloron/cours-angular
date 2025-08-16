@@ -256,25 +256,50 @@ que votre nettoyage fonctionne.
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Pourquoi est-il considéré comme une mauvaise pratique de mettre la logique d'appel API dans le
-   `constructor` d'un composant ? Où devrait-elle être placée ?
-2. **(QCM)** Quel hook de cycle de vie est idéal pour se désabonner d'un Observable et éviter les fuites de mémoire ?
-   a) `ngOnInit`
-   b) `ngOnChanges`
-   c) `ngOnDestroy`
-   d) `ngAfterViewInit`
-3. **(QCM)** Quelle est la commande pour créer une version optimisée de votre application pour le déploiement ?
-   a) `ng serve --prod`
-   b) `ng build`
-   c) `ng deploy`
-   d) `ng package`
-4. **(Question ouverte)** Citez trois optimisations réalisées par la commande `ng build`.
-5. **(QCM)** Si vous avez un composant `ButtonComponent` et une directive `HighlightDirective` qui sont utilisés dans de
-   nombreuses parties de votre application, dans quel dossier serait-il le plus logique de les placer ?
-   a) `src/app/core`
-   b) `src/app/common`
-   c) `src/app/shared`
-   d) `src/app/utils`
+---
+
+**1. (Question ouverte)**  
+Pourquoi est-il considéré comme une mauvaise pratique de mettre la logique d'appel API dans le `constructor` d'un composant ?  
+Où devrait-elle être placée ?
+
+---
+
+**2. (QCM)**  
+Quel hook de cycle de vie est idéal pour se désabonner d'un Observable et éviter les fuites de mémoire ?
+
+- a) `ngOnInit`
+- b) `ngOnChanges`
+- c) `ngOnDestroy`
+- d) `ngAfterViewInit`
+
+---
+
+**3. (QCM)**  
+Quelle est la commande pour créer une version optimisée de votre application pour le déploiement ?
+
+- a) `ng serve --prod`
+- b) `ng build`
+- c) `ng deploy`
+- d) `ng package`
+
+---
+
+**4. (Question ouverte)**  
+Citez trois optimisations réalisées par la commande `ng build`.
+
+---
+
+**5. (QCM)**  
+Si vous avez un composant `ButtonComponent` et une directive `HighlightDirective` qui sont utilisés dans de nombreuses parties de votre application,  
+dans quel dossier serait-il le plus logique de les placer ?
+
+- a) `src/app/core`
+- b) `src/app/common`
+- c) `src/app/shared`
+- d) `src/app/utils`
+
+---
+
 
 ### Conclusion de cette partie
 

@@ -261,27 +261,49 @@ Vous devez créer une section "admin" pour votre application.
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Quel est le principal avantage du "lazy loading" et dans quel type de scénario est-il le plus
-   bénéfique ?
-2. **(QCM)** Vous avez une route `/settings` avec deux sous-sections, `/settings/profile` et `/settings/account`.
-   Comment le composant de la route `/settings` affiche-t-il les composants des sous-sections ?
-   a) En utilisant des `@Input()` et `@Output()`.
-   b) En utilisant `*ngIf`.
-   c) En plaçant un `<router-outlet>` dans son template.
-   d) Les routes enfants ne peuvent pas avoir de composant parent.
-3. **(QCM)** Quel type de garde de navigation utiliseriez-vous pour empêcher un utilisateur de quitter une page de
-   formulaire s'il a des modifications non enregistrées ?
-   a) `CanActivate`
-   b) `CanDeactivate`
-   c) `Resolve`
-   d) `CanLoad`
-4. **(Question ouverte)** Expliquez le rôle d'une garde `CanActivate`. Que doit-elle retourner pour autoriser, bloquer
-   ou rediriger une navigation ?
-5. **(QCM)** Quelle propriété de l'objet `Route` est utilisée pour implémenter le lazy loading ?
-   a) `component`
-   b) `children`
-   c) `loadChildren`
-   d) `lazyComponent`
+---
+
+**1. (Question ouverte)**  
+Quel est le principal avantage du "lazy loading" et dans quel type de scénario est-il le plus bénéfique ?
+
+---
+
+**2. (QCM)**  
+Vous avez une route `/settings` avec deux sous-sections, `/settings/profile` et `/settings/account`.  
+Comment le composant de la route `/settings` affiche-t-il les composants des sous-sections ?
+
+- a) En utilisant des `@Input()` et `@Output()`.
+- b) En utilisant `*ngIf`.
+- c) En plaçant un `<router-outlet>` dans son template.
+- d) Les routes enfants ne peuvent pas avoir de composant parent.
+
+---
+
+**3. (QCM)**  
+Quel type de garde de navigation utiliseriez-vous pour empêcher un utilisateur de quitter une page de formulaire s'il a des modifications non enregistrées ?
+
+- a) `CanActivate`
+- b) `CanDeactivate`
+- c) `Resolve`
+- d) `CanLoad`
+
+---
+
+**4. (Question ouverte)**  
+Expliquez le rôle d'une garde `CanActivate`. Que doit-elle retourner pour autoriser, bloquer ou rediriger une navigation ?
+
+---
+
+**5. (QCM)**  
+Quelle propriété de l'objet `Route` est utilisée pour implémenter le lazy loading ?
+
+- a) `component`
+- b) `children`
+- c) `loadChildren`
+- d) `lazyComponent`
+
+---
+
 
 ### Conclusion de ce chapitre
 

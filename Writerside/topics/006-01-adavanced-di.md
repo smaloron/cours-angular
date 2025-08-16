@@ -140,21 +140,27 @@ classe.
 <tabs>
 <tab title="useClass (défaut)">
 Indique quelle classe instancier pour un `token` donné.
+
 ```typescript
 // Fournir MyRealService quand on demande ILogger
 providers: [{ provide: ILogger, useClass: MyRealService }]
 ```
+
 </tab>
 <tab title="useValue">
 Lie un `token` à une valeur statique (objet, chaîne, nombre...). Idéal pour les constantes de configuration.
+
 ```typescript
 // Fournir une chaîne de caractères quand on demande API_URL
 providers: [{ provide: 'API_URL', useValue: 'https://api.monsite.com' }]
 ```
+
 </tab>
+
 <tab title="useFactory">
 Le plus puissant. Permet de définir une fonction "usine" qui créera l'instance du service. Parfait pour la logique conditionnelle.
 **Analogie Java:** Pensez à une méthode annotée `@Bean` dans une classe `@Configuration` de Spring.
+
 ```typescript
 // Crée un LoggerService différent si on est en mode debug.
 providers: [
@@ -169,13 +175,16 @@ providers: [
   }
 ]
 ```
+
 </tab>
 <tab title="useExisting">
 Permet de créer un alias. Demander `OldLogger` renverra l'instance existante de `NewLogger`.
+
 ```typescript
 // Pour la rétrocompatibilité
 providers: [NewLogger, { provide: OldLogger, useExisting: NewLogger }]
 ```
+
 </tab>
 </tabs>
 
@@ -381,25 +390,41 @@ Mettez en pratique `InjectionToken` et les fournisseurs au niveau composant.
 
 1. **(Question ouverte)** Quand est-il approprié de fournir un service au niveau d'un composant plutôt qu'à la racine (
    `root`) ? Donnez un exemple concret.
+
 2. **(QCM)** Vous voulez fournir un objet de configuration simple `{ version: '1.0' }` via l'injection de dépendances.
    Quel type de fournisseur est le plus adapté ?
+
    a) `useClass`
+
    b) `useValue`
+
    c) `useFactory`
+
    d) `useExisting`
+
 3. **(QCM)** Pour injecter une valeur fournie par un `InjectionToken` nommé `MY_TOKEN`, quelle est la syntaxe correcte
    dans le constructeur ?
+
    a) `constructor(private value: MY_TOKEN)`
+
    b) `constructor(private value: any)`
+
    c) `constructor(@Optional() private value: any, token: MY_TOKEN)`
+
    d) `constructor(@Inject(MY_TOKEN) private value: any)`
+
 4. **(Question ouverte)** Expliquez à quoi sert un fournisseur `useFactory`. Donnez un exemple de situation où il serait
    plus utile que `useClass` ou `useValue`.
+
 5. **(QCM)** Un composant a une dépendance `@Optional() private service: MyService | null;`. Si `MyService` n'est fourni
    nulle part dans l'application, que se passera-t-il lors de la création du composant ?
+
    a) Angular lèvera une erreur `NullInjectorError`.
+
    b) Le composant ne sera pas créé.
+
    c) Le composant sera créé et la propriété `service` sera `null`.
+
    d) Le composant sera créé et la propriété `service` sera `undefined`.
 
 ### Conclusion de ce chapitre

@@ -311,27 +311,49 @@ export class OrderFormComponent {
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Quelle est la différence entre un validateur appliqué à un `FormControl` et un validateur
-   appliqué à un `FormGroup` ? Donnez un exemple pour chacun.
-2. **(QCM)** Quelle classe utilisez-vous pour gérer une liste de champs de formulaire où l'utilisateur peut ajouter ou
-   supprimer des entrées ?
-   a) `FormList`
-   b) `FormControlList`
-   c) `FormArray`
-   d) `FormCollection`
-3. **(QCM)** Pour réagir à chaque frappe de l'utilisateur dans un champ de formulaire, quel `Observable`
-   utiliseriez-vous ?
-   a) `statusChanges`
-   b) `onkeyup`
-   c) `valueChanges`
-   d) `formEvents`
-4. **(Question ouverte)** Décrivez un scénario où vous utiliseriez l'observable `valueChanges` d'un `FormGroup` entier
-   plutôt que celui d'un seul `FormControl`.
-5. **(QCM)** Un validateur personnalisé synchrone doit retourner `null` dans quel cas ?
-   a) Quand le champ est invalide.
-   b) Quand le champ est valide.
-   c) Il ne doit jamais retourner `null`.
-   d) Uniquement quand le champ est vide.
+---
+
+**1. (Question ouverte)**  
+Quelle est la différence entre un validateur appliqué à un `FormControl` et un validateur appliqué à un `FormGroup` ?  
+Donnez un exemple pour chacun.
+
+---
+
+**2. (QCM)**  
+Quelle classe utilisez-vous pour gérer une liste de champs de formulaire où l'utilisateur peut ajouter ou supprimer des entrées ?
+
+- a) `FormList`
+- b) `FormControlList`
+- c) `FormArray`
+- d) `FormCollection`
+
+---
+
+**3. (QCM)**  
+Pour réagir à chaque frappe de l'utilisateur dans un champ de formulaire, quel `Observable` utiliseriez-vous ?
+
+- a) `statusChanges`
+- b) `onkeyup`
+- c) `valueChanges`
+- d) `formEvents`
+
+---
+
+**4. (Question ouverte)**  
+Décrivez un scénario où vous utiliseriez l'observable `valueChanges` d'un `FormGroup` entier plutôt que celui d'un seul `FormControl`.
+
+---
+
+**5. (QCM)**  
+Un validateur personnalisé synchrone doit retourner `null` dans quel cas ?
+
+- a) Quand le champ est invalide.
+- b) Quand le champ est valide.
+- c) Il ne doit jamais retourner `null`.
+- d) Uniquement quand le champ est vide.
+
+---
+
 
 ### Conclusion de ce chapitre
 

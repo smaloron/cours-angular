@@ -329,25 +329,50 @@ export class FeaturedProductsComponent {
 
 ### Auto-évaluation
 
-1. **(Question ouverte)** Quel est le rôle principal de la méthode `.pipe()` sur un Observable ?
-2. **(QCM)** Vous recevez un `Observable<string>` et vous voulez le transformer en `Observable<number>` qui émet la
-   longueur de la chaîne. Quel opérateur utiliser ?
-   a) `tap(str => str.length)`
-   b) `map(str => str.length)`
-   c) `filter(str => str.length > 0)`
-   d) `switchMap(str => of(str.length))`
-3. **(QCM)** Quel est le principal avantage du pipe `async` par rapport à un appel manuel à `.subscribe()` ?
-   a) Il rend le code plus rapide.
-   b) Il gère automatiquement la désinscription, prévenant les fuites de mémoire.
-   c) Il gère automatiquement les erreurs HTTP.
-   d) Il permet d'utiliser plusieurs Observables à la fois.
-4. **(Question ouverte)** Vous voulez afficher un message dans la console chaque fois qu'un Observable émet une valeur,
-   sans changer cette valeur. Quel opérateur est le plus approprié et pourquoi ?
-5. **(QCM)** Comment se nomme la convention de nommage pour une variable qui contient un Observable ?
-   a) On la préfixe avec `obs_`.
-   b) On la met en majuscules.
-   c) On la suffixe avec un `$`.
-   d) Il n'y a pas de convention.
+---
+
+**1. (Question ouverte)**  
+Quel est le rôle principal de la méthode `.pipe()` sur un Observable ?
+
+---
+
+**2. (QCM)**  
+Vous recevez un `Observable<string>` et vous voulez le transformer en `Observable<number>` qui émet la longueur de la chaîne.  
+Quel opérateur utiliser ?
+
+- a) `tap(str => str.length)`
+- b) `map(str => str.length)`
+- c) `filter(str => str.length > 0)`
+- d) `switchMap(str => of(str.length))`
+
+---
+
+**3. (QCM)**  
+Quel est le principal avantage du pipe `async` par rapport à un appel manuel à `.subscribe()` ?
+
+- a) Il rend le code plus rapide.
+- b) Il gère automatiquement la désinscription, prévenant les fuites de mémoire.
+- c) Il gère automatiquement les erreurs HTTP.
+- d) Il permet d'utiliser plusieurs Observables à la fois.
+
+---
+
+**4. (Question ouverte)**  
+Vous voulez afficher un message dans la console chaque fois qu'un Observable émet une valeur, sans changer cette valeur.  
+Quel opérateur est le plus approprié et pourquoi ?
+
+---
+
+**5. (QCM)**  
+Comment se nomme la convention de nommage pour une variable qui contient un Observable ?
+
+- a) On la préfixe avec `obs_`.
+- b) On la met en majuscules.
+- c) On la suffixe avec un `$`.
+- d) Il n'y a pas de convention.
+
+---
+
 
 ### Conclusion de cette partie
 

@@ -296,25 +296,42 @@ note on link: via son sélecteur <app-header> dans le template
 
 1. **(Question ouverte)** En utilisant une analogie avec l'écosystème Java/Maven, expliquez les rôles respectifs de
    `npm`, `package.json` et du dossier `node_modules`.
+
 2. **(QCM)** Quelle commande de l'Angular CLI utiliseriez-vous pour démarrer le serveur de développement local ?
+
    a) `ng build`
+
    b) `ng start`
+
    c) `ng serve`
+
    d) `npm run dev`
+
 3. **(QCM)** Dans quel fichier principal se trouve la liste des dépendances de votre projet (comme les bibliothèques
    tierces) ?
+
    a) `angular.json`
+
    b) `main.ts`
+
    c) `package.json`
+
    d) `app.config.ts`
+
 4. **(Question ouverte)** Quel est l'avantage principal de la commande `ng serve` pendant le développement, par rapport
    à un cycle classique "compiler-déployer-rafraîchir" ?
+
 5. **(QCM)** Si vous créez un composant avec le sélecteur `selector: 'app-user-card'`, quelle balise HTML
    utiliserez-vous pour l'afficher dans un autre composant ?
+
    a) `<component>app-user-card</component>`
+
    b) `<app-user-card></app-user-card>`
+
    c) `[app-user-card]`
+
    d) `{{ app-user-card }}`
+
 
 ### Conclusion de cette partie
 

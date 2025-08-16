@@ -388,24 +388,40 @@ Out2 --> Parent : (deleteTodo)="handleDelete($event)"
 
 1. **(QCM)** Pour permettre à un composant parent de passer un objet `product` à un composant enfant
    `ProductDetailComponent`, quelle est la syntaxe correcte dans le `ProductDetailComponent` ?
+
    a) `@Output() product: Product;`
+
    b) `product: Product;`
+
    c) `@Input() product: Product;`
+
    d) `@Injectable() product: Product;`
+
 2. **(Question ouverte)** Expliquez avec vos propres mots le principe de "props down, events up". Pourquoi est-ce une
    bonne pratique ?
+
 3. **(QCM)** Dans le template du parent, comment écoutez-vous un `@Output()` nommé `itemSelected` et appelez-vous une
    méthode `onItemSelect` en lui passant la donnée émise ?
+
    a) `[itemSelected]="onItemSelect()"`
+
    b) `(itemSelected)="onItemSelect($event)"`
+
    c) `{{ itemSelected }}`
+
    d) `<itemSelected (event)="onItemSelect()"/>`
+
 4. **(Question ouverte)** Donnez un exemple concret de cas d'utilisation pour la projection de contenu avec
    `<ng-content>`.
+
 5. **(QCM)** Quelle classe Angular est utilisée avec `@Output()` pour émettre des événements personnalisés ?
+
    a) `Event`
+
    b) `Subject`
+
    c) `EventEmitter`
+
    d) `OutputManager`
 
 ### Conclusion de ce chapitre

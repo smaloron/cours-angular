@@ -175,23 +175,39 @@ en 1 ou 2 phrases.
 ### Auto-évaluation
 
 1. **(QCM)** Quel est le principal avantage du Server-Side Rendering (SSR) par rapport à une SPA standard ?
+   
    a) Il simplifie le code des composants.
+
    b) Il améliore le SEO et le temps de premier affichage.
+
    c) Il élimine le besoin d'une API backend.
+
    d) Il permet d'écrire l'application en Java.
+
 2. **(Question ouverte)** Dans quel scénario concret serait-il préférable d'utiliser React plutôt qu'Angular ?
+
 3. **(QCM)** Vous construisez un site de documentation pour une bibliothèque open-source. Quelle stratégie de rendu
    serait la plus performante et la plus appropriée ?
+
    a) SPA (Single Page Application)
+
    b) SSR (Server-Side Rendering)
+
    c) SSG (Static Site Generation)
+
    d) Aucune, un simple fichier HTML suffit.
+
 4. **(Question ouverte)** Qu'est-ce que "l'hydratation" dans le contexte du SSR ?
+
 5. **(QCM)** Si vous devez ajouter un ensemble de composants UI (boutons, tables, modales) cohérents à votre projet
    Angular sans vouloir tout réinventer, quelle bibliothèque officielle serait le choix le plus évident ?
+
    a) RxJS
+
    b) Angular CLI
+
    c) Angular Material
+
    d) NgRx
 
 ### Conclusion de ce chapitre

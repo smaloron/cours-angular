@@ -253,24 +253,40 @@ qui seront fournies à la fin du cours.
 
 1. **(Question ouverte)** Avec vos propres mots, expliquez la différence fondamentale de responsabilité du serveur entre
    une architecture "multi-page" avec Thymeleaf et une architecture SPA avec une API REST.
+
 2. **(QCM)** Quel concept en Angular est l'analogie la plus proche de l'Injection de Dépendances de Spring ?
+
    a) Le Data Binding
+
    b) Les Composants
+
    c) Les Services et le système d'Injection de Dépendances
+
    d) Le Routage
+
 3. **(QCM)** Qu'est-ce qui caractérise principalement une Single Page Application (SPA) du point de vue de
    l'utilisateur ?
+
    a) Elle ne fonctionne que sur une seule page et ne peut pas afficher d'autres contenus.
+
    b) Elle se recharge entièrement à chaque fois que l'utilisateur clique sur un lien.
+
    c) Les interactions semblent instantanées car le contenu est mis à jour dynamiquement sans rechargement de page.
+
    d) Elle est entièrement construite en Java.
+
 4. **(Question ouverte)** Quel est, selon vous, le principal avantage des composants "Standalone" pour un développeur
    qui débute avec Angular ?
+
 5. **(QCM)** Dans une architecture avec une SPA Angular, quel est le rôle principal du backend (par exemple, Spring
    Boot) après le chargement initial de l'application ?
+
    a) Générer et envoyer de nouvelles pages HTML complètes.
+
    b) Fournir des données brutes (généralement en JSON) via une API.
+
    c) Exécuter la logique de l'interface utilisateur.
+
    d) Gérer les animations et le style CSS.
 
 ### Conclusion de cette partie
