@@ -1,0 +1,162 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:34.090335"><title>Module 5 : Pour aller plus loin - Cr&eacute;er vos Propres Pipes et Directives | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-devenir-un-artisan-outilleur","level":0,"title":"Introduction : Devenir un artisan-outilleur","anchor":"#introduction-devenir-un-artisan-outilleur"},{"id":"1-cr-er-un-pipe-personnalis","level":0,"title":"1. Créer un Pipe Personnalisé","anchor":"#1-cr-er-un-pipe-personnalis"},{"id":"2-pipes-purs-pure-vs-impurs-impure","level":0,"title":"2. Pipes Purs (Pure) vs. Impurs (Impure)","anchor":"#2-pipes-purs-pure-vs-impurs-impure"},{"id":"3-cr-er-une-directive-d-attribut-personnalis-e","level":0,"title":"3. Créer une Directive d\u0027Attribut Personnalisée","anchor":"#3-cr-er-une-directive-d-attribut-personnalis-e"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 5 : Pour aller plus loin - Cr&eacute;er vos Propres Pipes et Directives | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/005-01-custom-pipes-and-directives.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 5 : Pour aller plus loin - Cr&eacute;er vos Propres Pipes et Directives | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/005-01-custom-pipes-and-directives.html#webpage",
+    "url": "writerside-documentation/005-01-custom-pipes-and-directives.html",
+    "name": "Module 5 : Pour aller plus loin - Cr&eacute;er vos Propres Pipes et Directives | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="005-01-custom-pipes-and-directives" data-main-title="Module 5 : Pour aller plus loin - Créer vos Propres Pipes et Directives" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="005-00-directives-and-pipes.md|Module 5 : L'essentiel - Donner vie à vos vues avec les Directives et les Pipes"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="005-01-custom-pipes-and-directives" id="005-01-custom-pipes-and-directives.md">Module 5 : Pour aller plus loin - Créer vos Propres Pipes et Directives</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="d0fpt7_11">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="d0fpt7_12"><li class="list__item" id="d0fpt7_13"><p id="d0fpt7_17"><span class="control" id="d0fpt7_18">Cr&eacute;er</span> un pipe personnalis&eacute; pour encapsuler une logique de transformation de donn&eacute;es r&eacute;utilisable.</p></li><li class="list__item" id="d0fpt7_14"><p id="d0fpt7_19"><span class="control" id="d0fpt7_20">Utiliser</span> des param&egrave;tres dans un pipe personnalis&eacute; pour le rendre plus flexible.</p></li><li class="list__item" id="d0fpt7_15"><p id="d0fpt7_21"><span class="control" id="d0fpt7_22">Comprendre</span> la diff&eacute;rence entre un pipe &quot;pur&quot; (pure) et &quot;impur&quot; (impure) et leurs impacts sur la performance.</p></li><li class="list__item" id="d0fpt7_16"><p id="d0fpt7_23"><span class="control" id="d0fpt7_24">Cr&eacute;er</span> une directive d'attribut personnalis&eacute;e pour encapsuler un comportement DOM complexe.</p></li></ul></section><section class="chapter"><h2 id="introduction-devenir-un-artisan-outilleur" data-toc="introduction-devenir-un-artisan-outilleur">Introduction : Devenir un artisan-outilleur</h2><p id="d0fpt7_25">Vous avez appris &agrave; utiliser les outils fournis dans la bo&icirc;te &agrave; outils d'Angular : des pipes pour formater, des directives pour structurer. C'est tr&egrave;s bien, mais que se passe-t-il lorsque vous avez un besoin tr&egrave;s sp&eacute;cifique que les outils de base ne couvrent pas ? Faut-il r&eacute;p&eacute;ter la m&ecirc;me logique complexe dans plusieurs composants ? Certainement pas.</p><p id="d0fpt7_26">Un v&eacute;ritable artisan ne se contente pas d'utiliser les outils qu'on lui donne ; il est capable de forger les siens. Cette section vous apprendra &agrave; devenir cet artisan. Vous allez cr&eacute;er vos propres pipes pour des transformations de donn&eacute;es uniques &agrave; votre application, et vos propres directives pour des manipulations du DOM r&eacute;utilisables.</p><p id="d0fpt7_27">C'est une &eacute;tape cruciale pour &eacute;crire un code DRY (Don't Repeat Yourself), propre et maintenable. Vous allez cr&eacute;er des &quot; briques de comportement&quot; que vous et votre &eacute;quipe pourrez r&eacute;utiliser dans toute l'application.</p></section><section class="chapter"><h2 id="1-cr-er-un-pipe-personnalis" data-toc="1-cr-er-un-pipe-personnalis">1. Cr&eacute;er un Pipe Personnalis&eacute;</h2><p id="d0fpt7_28">Un pipe n'est rien de plus qu'une classe TypeScript qui impl&eacute;mente l'interface <code class="code" id="d0fpt7_32">PipeTransform</code> et qui est d&eacute;cor&eacute;e avec <code class="code" id="d0fpt7_33">@Pipe</code>.</p><p id="d0fpt7_29">L'interface <code class="code" id="d0fpt7_34">PipeTransform</code> vous oblige &agrave; impl&eacute;menter une seule m&eacute;thode : <code class="code" id="d0fpt7_35">transform(value: any, ...args: any[]): any</code>.</p><p id="d0fpt7_30"><span class="control" id="d0fpt7_36">Sc&eacute;nario :</span> Dans notre application, nous devons souvent tronquer des textes longs pour les afficher dans des cartes. Cr&eacute;ons un pipe <code class="code" id="d0fpt7_37">truncate</code>.</p><section class="procedure-steps"><h3 id="create-truncate-pipe" data-toc="create-truncate-pipe">Création du Pipe 'truncate'</h3><ol class="list _decimal"><li class="list__item" id="d0fpt7_38"><p><b id="d0fpt7_41">G&eacute;n&eacute;rer le pipe avec la CLI :</b></p><p id="d0fpt7_42">L'Angular CLI a, bien s&ucirc;r, une commande pour &ccedil;a.</p><p> <code class="code" id="d0fpt7_43">ng generate pipe shared/pipes/truncate # Ou en version courte : ng g p shared/pipes/truncate</code></p><p id="d0fpt7_44">Cela cr&eacute;e le fichier <code class="code" id="d0fpt7_45">truncate.pipe.ts</code> et son fichier de test dans un dossier bien organis&eacute;.</p></li><li class="list__item" id="d0fpt7_39"><p><b id="d0fpt7_46">Impl&eacute;menter la logique de transformation :</b></p><p id="d0fpt7_47">Ouvrez le fichier <code class="code" id="d0fpt7_49">truncate.pipe.ts</code> et modifiez-le.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/pipes/truncate.pipe.ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'truncate', // Le nom qu'on utilisera dans le template
+  standalone: true // Les pipes aussi peuvent être standalone !
+})
+export class TruncatePipe implements PipeTransform {
+
+  // 'value' est la donnée à gauche du pipe |
+  // 'args' sont les paramètres passés après :
+  transform(value: string, limit: number = 20, trail: string = '...'): string {
+    if (!value) {
+      return '';
+    }
+    
+    return value.length &gt; limit ? value.substring(0, limit) + trail : value;
+  }
+}
+</div></li><li class="list__item" id="d0fpt7_40"><p><b id="d0fpt7_50">Utiliser le pipe dans un composant :</b></p><p id="d0fpt7_51">Pour utiliser notre pipe, il suffit de l'importer dans le composant qui en a besoin.</p><div class="code-block" data-lang="ts">
+// Fichier: article-preview.component.ts
+import { Component } from '@angular/core';
+import { TruncatePipe } from '../shared/pipes/truncate.pipe'; // Importer
+
+@Component({
+  selector: 'app-article-preview',
+  standalone: true,
+  imports: [TruncatePipe], // Et ajouter aux imports
+  template: `
+    &lt;h2&gt;{{ articleTitle }}&lt;/h2&gt;
+    &lt;!-- Utilisation simple --&gt;
+    &lt;p&gt;{{ longDescription | truncate }}&lt;/p&gt;
+
+    &lt;!-- Utilisation avec un paramètre pour la limite --&gt;
+    &lt;p&gt;{{ longDescription | truncate:50 }}&lt;/p&gt;
+
+    &lt;!-- Utilisation avec deux paramètres (limite et suffixe) --&gt;
+    &lt;p&gt;{{ longDescription | truncate:50:' -&gt;' }}&lt;/p&gt;
+  `
+})
+export class ArticlePreviewComponent {
+  articleTitle = &quot;Mon super article&quot;;
+  longDescription = &quot;Ceci est une très longue description qui a besoin d'être tronquée pour ne pas prendre trop de place dans la prévisualisation de l'article sur la page d'accueil.&quot;;
+}
+</div></li></ol></section></section><section class="chapter"><h2 id="2-pipes-purs-pure-vs-impurs-impure" data-toc="2-pipes-purs-pure-vs-impurs-impure">2. Pipes Purs (Pure) vs. Impurs (Impure)</h2><p id="d0fpt7_53">Par d&eacute;faut, tous les pipes que vous cr&eacute;ez sont <span class="control" id="d0fpt7_56">purs</span> (<code class="code" id="d0fpt7_57">pure: true</code>). C'est un concept d'optimisation tr&egrave;s important.</p><ul class="list _bullet" id="d0fpt7_54"><li class="list__item" id="d0fpt7_58"><p id="d0fpt7_60"><span class="control" id="d0fpt7_62">Pipe Pur :</span> Angular n'ex&eacute;cute le pipe <span class="control" id="d0fpt7_63">que si ses entr&eacute;es (la valeur ou les param&egrave;tres) changent</span>. Si vous passez une cha&icirc;ne de caract&egrave;res, Angular ex&eacute;cute le pipe. Si vous passez la m&ecirc;me cha&icirc;ne de caract&egrave;res, Angular ne le r&eacute;-ex&eacute;cute pas, il r&eacute;utilise le r&eacute;sultat pr&eacute;c&eacute;dent. C'est tr&egrave;s performant.</p><ul class="list _bullet" id="d0fpt7_61"><li class="list__item" id="d0fpt7_64"><p id="d0fpt7_65"><span class="control" id="d0fpt7_66">Analogie :</span> Une fonction math&eacute;matique pure comme <code class="code" id="d0fpt7_67">add(2, 3)</code>. Le r&eacute;sultat sera toujours 5. Inutile de recalculer.</p></li></ul></li><li class="list__item" id="d0fpt7_59"><p id="d0fpt7_68"><span class="control" id="d0fpt7_70">Pipe Impur :</span> Un pipe impur (<code class="code" id="d0fpt7_71">pure: false</code>) est r&eacute;-ex&eacute;cut&eacute; <span class="control" id="d0fpt7_72">&agrave; chaque cycle de d&eacute;tection de changement d'Angular</span>, que les entr&eacute;es aient chang&eacute; ou non. C'est beaucoup plus co&ucirc;teux en performance.</p><ul class="list _bullet" id="d0fpt7_69"><li class="list__item" id="d0fpt7_73"><p id="d0fpt7_74"><span class="control" id="d0fpt7_75">Analogie :</span> Une fonction qui d&eacute;pend de l'heure actuelle, comme <code class="code" id="d0fpt7_76">getCurrentTime()</code>. Le r&eacute;sultat change tout le temps, m&ecirc;me avec les m&ecirc;mes entr&eacute;es.</p></li></ul></li></ul><aside class="prompt" data-type="warning" data-title="" id="d0fpt7_55"><p>**Quand utiliser un pipe impur ?** Tr&egrave;s rarement. Un cas d'usage est un pipe qui d&eacute;pend d'un &eacute;tat global non pass&eacute; en param&egrave;tre (comme une traduction qui d&eacute;pend de la langue s&eacute;lectionn&eacute;e dans un service). Le pipe `async` d'Angular est l'exemple le plus connu de pipe impur, car il doit &quot;&eacute;couter&quot; en permanence si un Observable &eacute;met une nouvelle valeur. **R&egrave;gle d'or :** Ne rendez un pipe impur que si vous avez une excellente raison de le faire et que vous comprenez les implications sur les performances.</p></aside></section><section class="chapter"><h2 id="3-cr-er-une-directive-d-attribut-personnalis-e" data-toc="3-cr-er-une-directive-d-attribut-personnalis-e">3. Cr&eacute;er une Directive d'Attribut Personnalis&eacute;e</h2><p id="d0fpt7_77">Une directive est comme un composant, mais sans template. C'est une classe qui peut &eacute;couter les &eacute;v&eacute;nements de l'&eacute;l&eacute;ment auquel elle est attach&eacute;e et le manipuler.</p><p id="d0fpt7_78"><span class="control" id="d0fpt7_80">Sc&eacute;nario :</span> Nous voulons cr&eacute;er une directive <code class="code" id="d0fpt7_81">appHighlight</code> qui surligne le fond d'un &eacute;l&eacute;ment quand la souris passe dessus.</p><section class="procedure-steps"><h3 id="create-highlight-directive" data-toc="create-highlight-directive">Création de la Directive 'highlight'</h3><ol class="list _decimal"><li class="list__item" id="d0fpt7_82"><p><b id="d0fpt7_85">G&eacute;n&eacute;rer la directive avec la CLI :</b> <code class="code" id="d0fpt7_86">ng generate directive shared/directives/highlight # Ou : ng g d shared/directives/highlight</code></p></li><li class="list__item" id="d0fpt7_83"><p><b id="d0fpt7_87">Impl&eacute;menter la logique de la directive :</b></p><p id="d0fpt7_88">Une directive a besoin d'acc&eacute;der &agrave; l'&eacute;l&eacute;ment du DOM auquel elle est attach&eacute;e. Pour cela, on injecte <code class="code" id="d0fpt7_90">ElementRef</code>. Pour &eacute;couter les &eacute;v&eacute;nements du DOM, on utilise le d&eacute;corateur <code class="code" id="d0fpt7_91">@HostListener</code>.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/directives/highlight.directive.ts
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]', // On l'utilisera comme un attribut
+  standalone: true,
+})
+export class HighlightDirective {
+  // On injecte une référence à l'élément du DOM hôte
+  constructor(private el: ElementRef) {}
+
+  // On peut même passer une couleur par défaut via un @Input
+  @Input() appHighlight: string = 'yellow'; // Le nom doit être le même que le sélecteur
+  @Input() defaultColor: string = '';
+
+  // @HostListener écoute un événement sur l'élément hôte
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight(this.appHighlight || this.defaultColor);
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(this.defaultColor);
+  }
+
+  private highlight(color: string): void {
+    // On manipule directement le style de l'élément
+    this.el.nativeElement.style.backgroundColor = color;
+  }
+}
+</div></li><li class="list__item" id="d0fpt7_84"><p><b id="d0fpt7_92">Utiliser la directive :</b></p><p id="d0fpt7_93">On l'importe dans notre composant et on l'applique comme un simple attribut HTML.</p><div class="code-block" data-lang="ts">
+// Fichier: some-component.ts
+import { HighlightDirective } from '../shared/directives/highlight.directive';
+
+@Component({
+  // ...
+  imports: [HighlightDirective]
+})
+export class SomeComponent {}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- Fichier: some-component.html --&gt;
+
+&lt;p appHighlight&gt;
+  Passez la souris sur moi pour me surligner en jaune (défaut).
+&lt;/p&gt;
+
+&lt;!-- On peut passer une couleur en utilisant le property binding --&gt;
+&lt;p [appHighlight]=&quot;'lightblue'&quot;&gt;
+  Passez la souris sur moi pour me surligner en bleu clair.
+&lt;/p&gt;
+
+&lt;!-- On peut aussi ne pas surligner par défaut --&gt;
+&lt;div [appHighlight]=&quot;'#f0f0f0'&quot; [defaultColor]=&quot;'transparent'&quot;&gt;
+  Ce bloc ne sera pas surligné par défaut.
+&lt;/div&gt;
+</div></li></ol></section></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-3-cr-er-un-pipe-de-temps-coul" data-toc="exercice-3-cr-er-un-pipe-de-temps-coul">Exercice 3 : Cr&eacute;er un pipe de &quot;temps &eacute;coul&eacute;&quot;</h3><p id="d0fpt7_98">Cr&eacute;ez un pipe <code class="code" id="d0fpt7_100">timeAgo</code> qui prend une <code class="code" id="d0fpt7_101">Date</code> en entr&eacute;e et retourne une cha&icirc;ne de caract&egrave;res conviviale comme &quot;il y a 5 minutes&quot;, &quot;il y a 2 heures&quot;, &quot;hier&quot;, &quot;le 10/05/2023&quot;.</p><ol class="list _decimal" id="d0fpt7_99" type="1"><li class="list__item" id="d0fpt7_102"><p id="d0fpt7_105">G&eacute;n&eacute;rez un pipe <code class="code" id="d0fpt7_106">timeAgo</code>.</p></li><li class="list__item" id="d0fpt7_103"><p id="d0fpt7_107">Impl&eacute;mentez la logique. Ne vous souciez pas de faire quelque chose de parfait, g&eacute;rez seulement quelques cas :</p><ul class="list _bullet" id="d0fpt7_108"><li class="list__item" id="d0fpt7_109"><p id="d0fpt7_114">Moins d'une minute -&gt; &quot;&agrave; l'instant&quot;</p></li><li class="list__item" id="d0fpt7_110"><p id="d0fpt7_115">Moins d'une heure -&gt; &quot;il y a X minutes&quot;</p></li><li class="list__item" id="d0fpt7_111"><p id="d0fpt7_116">Aujourd'hui, mais il y a plus d'une heure -&gt; &quot;il y a X heures&quot;</p></li><li class="list__item" id="d0fpt7_112"><p id="d0fpt7_117">Hier -&gt; &quot;hier&quot;</p></li><li class="list__item" id="d0fpt7_113"><p id="d0fpt7_118">Sinon -&gt; la date format&eacute;e <code class="code" id="d0fpt7_119">dd/MM/yyyy</code> (vous pouvez m&ecirc;me utiliser le <code class="code" id="d0fpt7_120">DatePipe</code> &agrave; l'int&eacute;rieur de votre pipe !).</p></li></ul></li><li class="list__item" id="d0fpt7_104"><p id="d0fpt7_121">Utilisez-le pour afficher la date de publication d'un commentaire.</p></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-3" data-toc="correction-exercice-3">Correction exercice 3</h3></div><div class="collapse__content"><ol class="list _decimal" id="d0fpt7_122" type="1"><li class="list__item" id="d0fpt7_124"><p id="d0fpt7_127"><span class="control" id="d0fpt7_128">G&eacute;n&eacute;ration :</span> <code class="code" id="d0fpt7_129">ng g p shared/pipes/time-ago</code></p></li><li class="list__item" id="d0fpt7_125"><p id="d0fpt7_130"><span class="control" id="d0fpt7_132"><code class="code" id="d0fpt7_133">time-ago.pipe.ts</code>:</span></p><div class="code-block" data-lang="ts">
+import { Pipe, PipeTransform } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
+@Pipe({
+  name: 'timeAgo',
+  standalone: true
+})
+export class TimeAgoPipe implements PipeTransform {
+
+  transform(value: Date | string): string {
+    if (!value) return '';
+
+    const dateValue = typeof value === 'string' ? new Date(value) : value;
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - dateValue.getTime()) / 1000);
+
+    if (seconds &lt; 60) {
+      return &quot;à l'instant&quot;;
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    if (minutes &lt; 60) {
+      return `il y a ${minutes} minute${minutes &gt; 1 ? 's' : ''}`;
+    }
+
+    const hours = Math.floor(minutes / 60);
+    // On vérifie aussi si c'était bien le même jour
+    if (hours &lt; 24 &amp;&amp; dateValue.getDate() === now.getDate()) {
+      return `il y a ${hours} heure${hours &gt; 1 ? 's' : ''}`;
+    }
+
+    const yesterday = new Date();
+    yesterday.setDate(now.getDate() - 1);
+    if (dateValue.getDate() === yesterday.getDate() &amp;&amp;
+        dateValue.getMonth() === yesterday.getMonth() &amp;&amp;
+        dateValue.getFullYear() === yesterday.getFullYear()) {
+      return &quot;hier&quot;;
+    }
+
+    // Pour le reste, on utilise le DatePipe d'Angular
+    return new DatePipe('en-US').transform(dateValue, 'dd/MM/yyyy') || '';
+  }
+}
+</div></li><li class="list__item" id="d0fpt7_126"><p id="d0fpt7_134"><span class="control" id="d0fpt7_136">Utilisation dans un composant :</span></p><div class="code-block" data-lang="markup">
+&lt;p&gt;Posté {{ postDate | timeAgo }}&lt;/p&gt;
+</div></li></ol><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="299px" preserveAspectRatio="none" style="width:369px;height:299px;background:#FFFFFF;" version="1.1" viewBox="0 0 369 299" width="369px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="101" x="127" y="23.5352">Pipe TimeAgo</text><!--cluster fr--><g id="cluster_fr"><path d="M9.5,43.4883 L20.5,43.4883 A5.25,5.25 0 0 1 24,46.9883 L31,65.9766 L358.5,65.9766 A3.5,3.5 0 0 1 362,69.4766 L362,289.4783 A3.5,3.5 0 0 1 358.5,292.9783 L9.5,292.9783 A3.5,3.5 0 0 1 6,289.4783 L6,46.9883 A3.5,3.5 0 0 1 9.5,43.4883 " fill="none" style="stroke:#696969;stroke-width:1.0;"/><line style="stroke:#696969;stroke-width:1.0;" x1="6" x2="31" y1="65.9766" y2="65.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="12" x="10" y="59.0234">fr</text></g><!--cluster formation--><g id="cluster_formation"><path d="M33.5,86.4883 L104.5,86.4883 A5.25,5.25 0 0 1 108,89.9883 L115,108.9766 L334.5,108.9766 A3.5,3.5 0 0 1 338,112.4766 L338,265.4783 A3.5,3.5 0 0 1 334.5,268.9783 L33.5,268.9783 A3.5,3.5 0 0 1 30,265.4783 L30,89.9883 A3.5,3.5 0 0 1 33.5,86.4883 " fill="none" style="stroke:#696969;stroke-width:1.0;"/><line style="stroke:#696969;stroke-width:1.0;" x1="30" x2="115" y1="108.9766" y2="108.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="72" x="34" y="102.0234">formation</text></g><!--cluster spring--><g id="cluster_spring"><path d="M57.5,129.4883 L102.5,129.4883 A5.25,5.25 0 0 1 106,132.9883 L113,151.9766 L310.5,151.9766 A3.5,3.5 0 0 1 314,155.4766 L314,241.4783 A3.5,3.5 0 0 1 310.5,244.9783 L57.5,244.9783 A3.5,3.5 0 0 1 54,241.4783 L54,132.9883 A3.5,3.5 0 0 1 57.5,129.4883 " fill="none" style="stroke:#696969;stroke-width:1.0;"/><line style="stroke:#696969;stroke-width:1.0;" x1="54" x2="113" y1="151.9766" y2="151.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="46" x="58" y="145.0234">spring</text></g><!--class TimeAgoPipe--><g id="elem_TimeAgoPipe"><rect codeLine="6" fill="#F1F1F1" height="64.4883" id="TimeAgoPipe" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="227" x="70.5" y="164.4883"/><ellipse cx="134.25" cy="180.4883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M137.2231,186.1313 Q136.6421,186.4302 136.0029,186.5796 Q135.3638,186.729 134.6582,186.729 Q132.1514,186.729 130.8315,185.0771 Q129.5117,183.4253 129.5117,180.3042 Q129.5117,177.1748 130.8315,175.5229 Q132.1514,173.8711 134.6582,173.8711 Q135.3638,173.8711 136.0112,174.0205 Q136.6587,174.1699 137.2231,174.4688 L137.2231,177.1914 Q136.5923,176.6104 135.9988,176.3406 Q135.4053,176.0708 134.7744,176.0708 Q133.4297,176.0708 132.7449,177.1375 Q132.0601,178.2041 132.0601,180.3042 Q132.0601,182.396 132.7449,183.4626 Q133.4297,184.5293 134.7744,184.5293 Q135.4053,184.5293 135.9988,184.2595 Q136.5923,183.9897 137.2231,183.4087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="154.75" y="185.7793">TimeAgoPipe</text><line style="stroke:#181818;stroke-width:0.5;" x1="71.5" x2="296.5" y1="196.4883" y2="196.4883"/><line style="stroke:#181818;stroke-width:0.5;" x1="71.5" x2="296.5" y1="204.4883" y2="204.4883"/><ellipse cx="81.5" cy="218.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="201" x="90.5" y="222.0234">transform(value: Date): string</text></g><!--SRC=[DOmx3i9030Lxdy9i1KBA0T95uW0KNC14pc9bVrgRD2XtPpU8AKTltibU71atULPA1YOM6DrT2kD38ay-Eu12yqg- -QKEIwwHJ78Qj5H9tk47i347KlqtH__pdIjQUzUUdZSARnxnHiQN4TNwnp7SOVy2]--></g></svg></div></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="d0fpt7_137" type="1"><li class="list__item" id="d0fpt7_138"><p id="d0fpt7_143"><span class="control" id="d0fpt7_144">(Question ouverte)</span> Dans quel cas d'utilisation est-il pr&eacute;f&eacute;rable de cr&eacute;er un pipe personnalis&eacute; plut&ocirc;t qu'une m&eacute;thode dans un composant ?</p></li><li class="list__item" id="d0fpt7_139"><p id="d0fpt7_145"><span class="control" id="d0fpt7_146">(QCM)</span> Vous cr&eacute;ez un pipe <code class="code" id="d0fpt7_147">myPipe</code>. Pour l'utiliser avec un param&egrave;tre dans un template, quelle syntaxe est correcte ? a) <code class="code" id="d0fpt7_148">{{ data | myPipe(param) }}</code> b) <code class="code" id="d0fpt7_149">{{ data | myPipe.param }}</code> c) <code class="code" id="d0fpt7_150">{{ data | myPipe:param }}</code> d) <code class="code" id="d0fpt7_151">{{ data.myPipe(param) }}</code></p></li><li class="list__item" id="d0fpt7_140"><p id="d0fpt7_152"><span class="control" id="d0fpt7_153">(QCM)</span> Par d&eacute;faut, un pipe personnalis&eacute; est : a) Impur, car il doit se r&eacute;-ex&eacute;cuter souvent. b) Pur, pour des raisons de performance. c) Ni l'un ni l'autre, c'est &agrave; nous de le sp&eacute;cifier. d) Statique, il ne peut pas &ecirc;tre instanci&eacute;.</p></li><li class="list__item" id="d0fpt7_141"><p id="d0fpt7_154"><span class="control" id="d0fpt7_155">(Question ouverte)</span> Quelle est la fonction du d&eacute;corateur <code class="code" id="d0fpt7_156">@HostListener</code> dans une directive ?</p></li><li class="list__item" id="d0fpt7_142"><p id="d0fpt7_157"><span class="control" id="d0fpt7_158">(QCM)</span> Pour manipuler directement l'&eacute;l&eacute;ment du DOM auquel une directive est attach&eacute;e, quelle d&eacute;pendance devez-vous injecter dans son constructeur ? a) <code class="code" id="d0fpt7_159">Renderer2</code> b) <code class="code" id="d0fpt7_160">DOMElement</code> c) <code class="code" id="d0fpt7_161">HostBinding</code> d) <code class="code" id="d0fpt7_162">ElementRef</code></p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="d0fpt7_163">F&eacute;licitations, vous avez atteint un nouveau niveau de ma&icirc;trise ! Vous n'&ecirc;tes plus seulement un consommateur d'outils, vous &ecirc;tes un cr&eacute;ateur. Vous savez d&eacute;sormais comment encapsuler des logiques de transformation complexes et r&eacute;utilisables dans des <span class="control" id="d0fpt7_167">pipes personnalis&eacute;s</span>, tout en comprenant les implications de performance des pipes <span class="control" id="d0fpt7_168">purs et impurs</span>.</p><p id="d0fpt7_164">Vous avez &eacute;galement appris &agrave; cr&eacute;er des <span class="control" id="d0fpt7_169">directives d'attribut</span> pour ajouter des comportements riches et interactifs &agrave; n'importe quel &eacute;l&eacute;ment du DOM, rendant votre code plus d&eacute;claratif et plus propre.</p><p id="d0fpt7_165">Ces comp&eacute;tences sont le signe d'un d&eacute;veloppeur Angular exp&eacute;riment&eacute;, capable de construire des solutions &eacute;l&eacute;gantes et maintenables.</p><p id="d0fpt7_166">Nous avons maintenant tous les outils pour cr&eacute;er des interfaces utilisateur riches et dynamiques. Mais il nous manque encore un &eacute;l&eacute;ment central : comment organiser et partager la logique m&eacute;tier ? Comment aller chercher les donn&eacute;es sur un serveur ? C'est le r&ocirc;le des <span class="control" id="d0fpt7_170">Services</span> et de l' <span class="control" id="d0fpt7_171">Injection de D&eacute;pendances</span>, un chapitre o&ugrave; votre exp&eacute;rience Java/Spring sera un atout majeur.</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="005-00-directives-and-pipes.html" class="navigation-links__prev">Module 5 : L'essentiel - Donner vie &agrave; vos vues avec les Directives et les Pipes</a><a href="006-00-services-and-di.html" class="navigation-links__next">Module 6 : L'essentiel - Services et Injection de D&eacute;pendances</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

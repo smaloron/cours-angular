@@ -1,0 +1,213 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:34.088628"><title>Module 4 : Pour aller plus loin - Composants Avanc&eacute;s : Communication et R&eacute;utilisabilit&eacute; | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-des-briques-isol-es-un-mur-communicant","level":0,"title":"Introduction : Des briques isolées à un mur communicant","anchor":"#introduction-des-briques-isol-es-un-mur-communicant"},{"id":"1-input-rendre-les-composants-configurables","level":0,"title":"1. @Input() : Rendre les Composants Configurables","anchor":"#1-input-rendre-les-composants-configurables"},{"id":"2-output-notifier-le-parent-d-un-v-nement","level":0,"title":"2. @Output() : Notifier le Parent d\u0027un Événement","anchor":"#2-output-notifier-le-parent-d-un-v-nement"},{"id":"3-projection-de-contenu-avec-ng-content","level":0,"title":"3. Projection de Contenu avec \u003cng-content\u003e","anchor":"#3-projection-de-contenu-avec-ng-content"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 4 : Pour aller plus loin - Composants Avanc&eacute;s : Communication et R&eacute;utilisabilit&eacute; | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/004-01-advanced-components.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 4 : Pour aller plus loin - Composants Avanc&eacute;s : Communication et R&eacute;utilisabilit&eacute; | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/004-01-advanced-components.html#webpage",
+    "url": "writerside-documentation/004-01-advanced-components.html",
+    "name": "Module 4 : Pour aller plus loin - Composants Avanc&eacute;s : Communication et R&eacute;utilisabilit&eacute; | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="004-01-advanced-components" data-main-title="Module 4 : Pour aller plus loin - Composants Avancés : Communication et Réutilisabilité" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="004-00-components.md|Module 4 : L'essentiel - Le Cœur d'Angular, les Composants"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="004-01-advanced-components" id="004-01-advanced-components.md">Module 4 : Pour aller plus loin - Composants Avancés : Communication et Réutilisabilité</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="ar9kav_11">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="ar9kav_12"><li class="list__item" id="ar9kav_13"><p id="ar9kav_17"><span class="control" id="ar9kav_18">Cr&eacute;er</span> des composants r&eacute;utilisables en leur passant des donn&eacute;es depuis un parent avec le d&eacute;corateur <code class="code" id="ar9kav_19">@Input()</code>.</p></li><li class="list__item" id="ar9kav_14"><p id="ar9kav_20"><span class="control" id="ar9kav_21">Permettre</span> &agrave; un composant enfant de notifier son parent d'un &eacute;v&eacute;nement avec le d&eacute;corateur <code class="code" id="ar9kav_22">@Output()</code> et <code class="code" id="ar9kav_23">EventEmitter</code>.</p></li><li class="list__item" id="ar9kav_15"><p id="ar9kav_24"><span class="control" id="ar9kav_25">Comprendre</span> le flux de donn&eacute;es unidirectionnel et le principe de &quot;props down, events up&quot;.</p></li><li class="list__item" id="ar9kav_16"><p id="ar9kav_26"><span class="control" id="ar9kav_27">Utiliser</span> la projection de contenu avec <code class="code" id="ar9kav_28">&lt;ng-content&gt;</code> pour cr&eacute;er des composants &quot;wrapper&quot; flexibles.</p></li></ul></section><section class="chapter"><h2 id="introduction-des-briques-isol-es-un-mur-communicant" data-toc="introduction-des-briques-isol-es-un-mur-communicant">Introduction : Des briques isol&eacute;es &agrave; un mur communicant</h2><p id="ar9kav_29">Dans la partie &quot;L'essentiel&quot;, nous avons cr&eacute;&eacute; une <code class="code" id="ar9kav_32">UserCardComponent</code>. C'&eacute;tait une excellente premi&egrave;re &eacute;tape, mais elle avait un d&eacute;faut majeur : toutes ses donn&eacute;es &eacute;taient &quot;en dur&quot; &agrave; l'int&eacute;rieur de la classe. Si nous voulions afficher dix utilisateurs diff&eacute;rents, nous devrions cr&eacute;er dix composants diff&eacute;rents. Ce n'est absolument pas viable !</p><p id="ar9kav_30">Un composant ne r&eacute;v&egrave;le sa vraie puissance que lorsqu'il devient une <span class="control" id="ar9kav_33">bo&icirc;te noire r&eacute;utilisable</span>. Il doit pouvoir recevoir des instructions (des donn&eacute;es) et notifier l'ext&eacute;rieur lorsque quelque chose d'important se produit &agrave; l'int&eacute;rieur.</p><p id="ar9kav_31">Cette section va vous apprendre &agrave; faire communiquer les composants entre eux. Nous allons transformer notre <code class="code" id="ar9kav_34">UserCard</code> statique en un composant dynamique et r&eacute;utilisable que nous pourrons configurer de l'ext&eacute;rieur. C'est la comp&eacute;tence cl&eacute; qui vous permettra de passer de la cr&eacute;ation de &quot;widgets&quot; &agrave; la conception d'applications complexes et bien structur&eacute;es.</p></section><section class="chapter"><h2 id="1-input-rendre-les-composants-configurables" data-toc="1-input-rendre-les-composants-configurables">1. <code class="code" id="ar9kav_47">@Input()</code>: Rendre les Composants Configurables</h2><p id="ar9kav_36">Le d&eacute;corateur <code class="code" id="ar9kav_48">@Input()</code> permet de marquer une propri&eacute;t&eacute; d'un composant comme &eacute;tant une &quot;entr&eacute;e&quot;. Cela signifie que sa valeur peut &ecirc;tre fournie par le composant parent qui l'utilise.</p><p id="ar9kav_37">C'est le m&eacute;canisme pour <span class="control" id="ar9kav_49">faire passer des donn&eacute;es du parent vers l'enfant</span>.</p><p id="ar9kav_38">Reprenons notre <code class="code" id="ar9kav_50">UserCardComponent</code>. Au lieu de contenir les donn&eacute;es, il va les <span class="emphasis" id="ar9kav_51">recevoir</span>.</p><div class="code-block" data-lang="ts">
+// Fichier : src/app/shared/models/user.model.ts
+// Créons un modèle pour représenter un utilisateur
+export interface User {
+    id: number;
+    name: string;
+    jobTitle: string;
+    avatarUrl: string;
+}
+</div><div class="code-block" data-lang="ts">
+// Fichier : src/app/user-card/user-card.component.ts
+import {Component, Input} from '@angular/core'; // 1. Importer Input
+import {User} from '../shared/models/user.model'; // Importer notre modèle
+
+@Component({ /* ... */})
+export class UserCardComponent {
+    // 2. Déclarer une propriété comme étant une entrée
+    // On utilise '!' pour dire à TypeScript: &quot;fais-moi confiance, 
+    // cette propriété sera initialisée par le parent&quot;.
+    @Input() public user!: User;
+}
+</div><p id="ar9kav_41">Maintenant, le composant parent (<code class="code" id="ar9kav_52">AppComponent</code>) peut cr&eacute;er des donn&eacute;es et les &quot;passer&quot; au <code class="code" id="ar9kav_53">UserCardComponent</code> via le property binding <code class="code" id="ar9kav_54">[]</code> que nous connaissons d&eacute;j&agrave;.</p><div class="code-block" data-lang="ts">
+// Fichier : src/app/app.component.ts
+import {Component} from '@angular/core';
+import {User} from './shared/models/user.model';
+
+// ...
+
+@Component({ /* ... */})
+export class AppComponent {
+    public mainUser: User = {
+        id: 1,
+        name: 'Jeanne Martin',
+        jobTitle: 'Développeuse Full-Stack',
+        avatarUrl: 'https://i.pravatar.cc/150?u=jeanne'
+    };
+}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- Fichier : src/app/app.component.html --&gt;
+
+&lt;!-- On utilise le property binding pour passer l'objet 'mainUser'
+     à la propriété 'user' de notre composant enfant. --&gt;
+&lt;app-user-card [user]=&quot;mainUser&quot;&gt;&lt;/app-user-card&gt;
+</div><p id="ar9kav_44">Le template <code class="code" id="ar9kav_55">user-card.component.html</code> doit bien s&ucirc;r &ecirc;tre mis &agrave; jour pour utiliser l'objet <code class="code" id="ar9kav_56">user</code>:</p><div class="code-block" data-lang="markup">
+&lt;!-- Fichier : src/app/user-card/user-card.component.html --&gt;
+&lt;img [src]=&quot;user.avatarUrl&quot; alt=&quot;Avatar de {{ user.name }}&quot;&gt;
+&lt;h2&gt;{{ user.name }}&lt;/h2&gt;
+&lt;p&gt;{{ user.jobTitle }}&lt;/p&gt;
+</div><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="309px" preserveAspectRatio="none" style="width:351px;height:309px;background:#FFFFFF;" version="1.1" viewBox="0 0 351 309" width="351px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="208" x="64.5" y="23.5352">Flux de donn&#233;es avec @Input</text><!--cluster AppComponent (Parent)--><g id="cluster_AppComponent (Parent)"><rect fill="none" height="87.49" rx="3.5" ry="3.5" style="stroke:#696969;stroke-width:1.0;" width="188" x="29" y="44.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="172" x="37" y="60.0234">AppComponent (Parent)</text></g><!--cluster UserCardComponent (Enfant)--><g id="cluster_UserCardComponent (Enfant)"><rect fill="none" height="87.49" rx="3.5" ry="3.5" style="stroke:#696969;stroke-width:1.0;" width="225" x="7" y="215.9783"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="209" x="15" y="231.5134">UserCardComponent (Enfant)</text></g><g id="elem_ParentData"><rect fill="#F1F1F1" height="36.4883" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="52" y="79.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="59" y="95.0234">mainUser: User</text><line style="stroke:#181818;stroke-width:0.5;" x1="53" x2="169" y1="99.9766" y2="99.9766"/></g><g id="elem_ChildProp"><rect fill="#F1F1F1" height="36.4883" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="38.5" y="250.9783"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="45.5" y="266.5134">@Input() user: User</text><line style="stroke:#181818;stroke-width:0.5;" x1="39.5" x2="182.5" y1="271.4666" y2="271.4666"/></g><!--link ParentData to ChildProp--><g id="link_ParentData_ChildProp"><path codeLine="13" d="M111,116.2383 C111,148.7183 111,211.9683 111,244.5683 " fill="none" id="ParentData-to-ChildProp" style="stroke:#454645;stroke-width:1.0;"/><polygon fill="#454645" points="111,250.5683,115,241.5683,111,245.5683,107,241.5683,111,250.5683" style="stroke:#454645;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="231" x="112" y="161.5466">&lt;app-user-card [user]="mainUser"&gt;</text><path d="M165.5,173.7888 L165.5,191.7888 A3.5,3.5 0 0 0 169,195.2888 L286,195.2888 A3.5,3.5 0 0 0 289.5,191.7888 L289.5,180.2888 L279.5,170.2888 L169,170.2888 A3.5,3.5 0 0 0 165.5,173.7888 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><path d="M279.5,170.2888 L279.5,178.5388 A1.75,1.75 0 0 0 281.25,180.2888 L289.5,180.2888 L279.5,170.2888 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="103" x="171.5" y="187.8572">Property Binding</text></g><!--SRC=[POv1Ri9034NtSuhFh62H2qGKjOGYiMF32dLXCYuCJJoZYOEAAWx4ENgnPeHKYhgnBVd_z_z83zmoJdwNIDIeruPXbqt_2STmGUJxoXten3MULn9xjSOahfLadvKlCLQXZK5O5ECrfM5FBBuC47R7GGVRafTDnwb4dXRKuQPRa9AvFE2oegBa_Z1VvPt-CMzLnXFqZ-3gu1ktJY5cxZq5HJ6x_r1YIZ4MsLlKGngs-Nnx-grgPqQ2CeAWyV9H8jiuwHbpByxBtlm0]--></g></svg></div></section><section class="chapter"><h2 id="2-output-notifier-le-parent-d-un-v-nement" data-toc="2-output-notifier-le-parent-d-un-v-nement">2. <code class="code" id="ar9kav_70">@Output()</code>: Notifier le Parent d'un &Eacute;v&eacute;nement</h2><p id="ar9kav_58">Ok, l'enfant peut recevoir des donn&eacute;es. Mais comment peut-il communiquer en retour ? Par exemple, si l'on ajoute un bouton &quot;Supprimer&quot; sur la carte utilisateur, ce n'est pas au composant <code class="code" id="ar9kav_71">UserCard</code> de g&eacute;rer la suppression de la liste ( qui se trouve dans le parent). Il doit simplement <span class="control" id="ar9kav_72">&eacute;mettre un &eacute;v&eacute;nement</span> pour dire : &quot;H&eacute; parent, on m'a demand&eacute; de me supprimer ! Mon ID est le X.&quot;</p><p id="ar9kav_59">C'est le r&ocirc;le de <code class="code" id="ar9kav_73">@Output()</code>, qui est presque toujours utilis&eacute; avec <code class="code" id="ar9kav_74">EventEmitter</code>.</p><ul class="list _bullet" id="ar9kav_60"><li class="list__item" id="ar9kav_75"><p id="ar9kav_77"><code class="code" id="ar9kav_78">@Output()</code> marque une propri&eacute;t&eacute; comme une &quot;sortie&quot;, un canal d'&eacute;v&eacute;nement.</p></li><li class="list__item" id="ar9kav_76"><p id="ar9kav_79"><code class="code" id="ar9kav_80">EventEmitter</code> est une classe qui permet de cr&eacute;er et d'&eacute;mettre des &eacute;v&eacute;nements personnalis&eacute;s.</p></li></ul><p id="ar9kav_61">C'est le m&eacute;canisme pour <span class="control" id="ar9kav_81">faire remonter des &eacute;v&eacute;nements de l'enfant vers le parent</span>.</p><p id="ar9kav_62">Ajoutons cette fonctionnalit&eacute; &agrave; <code class="code" id="ar9kav_82">UserCardComponent</code>.</p><div class="code-block" data-lang="ts">
+// Fichier : src/app/user-card/user-card.component.ts
+import {Component, Input, Output, EventEmitter} from '@angular/core'; // 1. Importer Output et EventEmitter
+
+@Component({ /* ... */})
+export class UserCardComponent {
+    @Input() public user!: User;
+
+    // 2. Déclarer une sortie. Le type générique &lt;number&gt; indique
+    //    que nous allons émettre un nombre (l'ID de l'utilisateur).
+    @Output() public deleteRequest = new EventEmitter&lt;number&gt;();
+
+    // 3. Une méthode qui sera appelée par un clic
+    public onDeleteClick(): void {
+        console.log(`Demande de suppression pour l'utilisateur ${this.user.id}`);
+        // 4. Émettre l'événement avec l'ID de l'utilisateur comme &quot;payload&quot;
+        this.deleteRequest.emit(this.user.id);
+    }
+}
+</div><p id="ar9kav_64">Dans le template de l'enfant, on lie le clic du bouton &agrave; cette nouvelle m&eacute;thode.</p><div class="code-block" data-lang="markup">
+&lt;!-- Fichier : src/app/user-card/user-card.component.html --&gt;
+&lt;!-- ... reste du template ... --&gt;
+&lt;button (click)=&quot;onDeleteClick()&quot;&gt;Supprimer&lt;/button&gt;
+</div><p id="ar9kav_66">Maintenant, le parent peut &eacute;couter cet &eacute;v&eacute;nement personnalis&eacute; <code class="code" id="ar9kav_83">deleteRequest</code> avec la syntaxe d'event binding <code class="code" id="ar9kav_84">()</code> que nous connaissons. La donn&eacute;e &eacute;mise est accessible via la variable magique <code class="code" id="ar9kav_85">$event</code>.</p><div class="code-block" data-lang="markup">
+&lt;!-- Fichier : src/app/app.component.html --&gt;
+&lt;app-user-card
+        [user]=&quot;mainUser&quot;
+        (deleteRequest)=&quot;handleUserDelete($event)&quot;&gt;
+&lt;/app-user-card&gt;
+</div><div class="code-block" data-lang="ts">
+// Fichier : src/app/app.component.ts
+@Component({ /* ... */})
+export class AppComponent {
+    public mainUser: User = { /* ... */};
+
+    public handleUserDelete(userId: number): void {
+        alert(`Le parent a reçu une demande de suppression pour l'utilisateur avec l'ID : ${userId}`);
+        // Ici, on mettrait la logique pour supprimer l'utilisateur de notre liste.
+    }
+}
+</div><aside class="prompt" data-type="tip" data-title="Props down, Events up !" id="ar9kav_69"><p>C'est le mantra de la communication entre composants. Les propri&eacute;t&eacute;s (props) descendent du parent vers l'enfant via `[input]`. Les &eacute;v&eacute;nements (events) remontent de l'enfant vers le parent via `(output)`. Ce flux de donn&eacute;es unidirectionnel rend les applications beaucoup plus pr&eacute;dictibles et faciles &agrave; d&eacute;boguer.</p></aside></section><section class="chapter"><h2 id="3-projection-de-contenu-avec-ng-content" data-toc="3-projection-de-contenu-avec-ng-content">3. Projection de Contenu avec <code class="code" id="ar9kav_93">&lt;ng-content&gt;</code></h2><p id="ar9kav_87">Et si l'on voulait cr&eacute;er un composant &quot;cadre&quot; ou &quot;panneau&quot; et laisser le parent d&eacute;cider de ce qu'il y a <span class="emphasis" id="ar9kav_94">&agrave; l'int&eacute;rieur</span>? C'est ce qu'on appelle la <span class="control" id="ar9kav_95">projection de contenu</span> (ou transclusion).</p><p id="ar9kav_88">Le tag <code class="code" id="ar9kav_96">&lt;ng-content&gt;</code> agit comme une fente dans le template de votre composant, o&ugrave; le HTML fourni par le parent sera ins&eacute;r&eacute;.</p><p id="ar9kav_89">Cr&eacute;ons un composant <code class="code" id="ar9kav_97">PanelComponent</code> tr&egrave;s simple.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/panel/panel.component.ts
+@Component({
+    selector: 'app-panel',
+    standalone: true,
+    template: `
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;div class=&quot;panel-header&quot;&gt;Titre du Panneau&lt;/div&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+        &lt;ng-content&gt;&lt;/ng-content&gt; &lt;!-- C'est ici que le contenu sera projeté --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  `,
+    styles: [`.panel { border: 1px solid #ccc; border-radius: 5px; margin: 10px; } 
+           .panel-header { background: #f0f0f0; padding: 10px; }
+           .panel-body { padding: 10px; }`]
+})
+export class PanelComponent {
+}
+</div><p id="ar9kav_91">Maintenant, dans <code class="code" id="ar9kav_98">AppComponent</code>, on peut utiliser <code class="code" id="ar9kav_99">&lt;app-panel&gt;</code> et mettre n'importe quoi entre les balises. Ce contenu sera inject&eacute; &agrave; la place de <code class="code" id="ar9kav_100">&lt;ng-content&gt;</code>.</p><div class="code-block" data-lang="markup">
+&lt;!-- Fichier: src/app/app.component.html --&gt;
+&lt;app-panel&gt;
+    &lt;!-- Tout ce qui se trouve ici sera projeté --&gt;
+    &lt;h4&gt;Contenu Personnalisé&lt;/h4&gt;
+    &lt;p&gt;On peut même y mettre un autre composant !&lt;/p&gt;
+    &lt;app-user-card [user]=&quot;mainUser&quot;&gt;&lt;/app-user-card&gt;
+&lt;/app-panel&gt;
+</div></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-2-la-to-do-list-interactive" data-toc="exercice-2-la-to-do-list-interactive">Exercice 2 : La To-Do List Interactive</h3><p id="ar9kav_103">Vous allez construire une petite application de liste de t&acirc;ches qui met en pratique <code class="code" id="ar9kav_105">@Input</code> et <code class="code" id="ar9kav_106">@Output</code>.</p><ol class="list _decimal" id="ar9kav_104" type="1"><li class="list__item" id="ar9kav_107"><p id="ar9kav_110"><span class="control" id="ar9kav_111">Le mod&egrave;le :</span> Cr&eacute;ez une interface <code class="code" id="ar9kav_112">Todo</code> avec <code class="code" id="ar9kav_113">id</code> (number), <code class="code" id="ar9kav_114">title</code> (string) et <code class="code" id="ar9kav_115">isCompleted</code> (boolean).</p></li><li class="list__item" id="ar9kav_108"><p id="ar9kav_116"><span class="control" id="ar9kav_118">Le composant enfant <code class="code" id="ar9kav_119">TodoItemComponent</code>:</span></p><ul class="list _bullet" id="ar9kav_117"><li class="list__item" id="ar9kav_120"><p id="ar9kav_125">Il doit recevoir un objet <code class="code" id="ar9kav_126">Todo</code> via un <code class="code" id="ar9kav_127">@Input</code>.</p></li><li class="list__item" id="ar9kav_121"><p id="ar9kav_128">Il doit afficher le titre de la t&acirc;che et une case &agrave; cocher (<code class="code" id="ar9kav_129">&lt;input type=&quot;checkbox&quot;&gt;</code>).</p></li><li class="list__item" id="ar9kav_122"><p id="ar9kav_130">La case &agrave; cocher doit &ecirc;tre li&eacute;e &agrave; la propri&eacute;t&eacute; <code class="code" id="ar9kav_131">isCompleted</code> de la t&acirc;che.</p></li><li class="list__item" id="ar9kav_123"><p id="ar9kav_132">Il doit avoir un bouton &quot;Supprimer&quot;.</p></li><li class="list__item" id="ar9kav_124"><p id="ar9kav_133">Il doit avoir deux <code class="code" id="ar9kav_135">@Output</code>:</p><ul class="list _bullet" id="ar9kav_134"><li class="list__item" id="ar9kav_136"><p id="ar9kav_138"><code class="code" id="ar9kav_139">toggleCompletion</code> qui &eacute;met l'objet <code class="code" id="ar9kav_140">Todo</code> complet quand on coche/d&eacute;coche la case.</p></li><li class="list__item" id="ar9kav_137"><p id="ar9kav_141"><code class="code" id="ar9kav_142">deleteTodo</code> qui &eacute;met l'ID (<code class="code" id="ar9kav_143">number</code>) de la t&acirc;che quand on clique sur &quot;Supprimer&quot;.</p></li></ul></li></ul></li><li class="list__item" id="ar9kav_109"><p id="ar9kav_144"><span class="control" id="ar9kav_146">Le composant parent <code class="code" id="ar9kav_147">TodoListComponent</code>:</span></p><ul class="list _bullet" id="ar9kav_145"><li class="list__item" id="ar9kav_148"><p id="ar9kav_152">Il doit avoir une liste (un tableau) d'objets <code class="code" id="ar9kav_153">Todo</code>.</p></li><li class="list__item" id="ar9kav_149"><p id="ar9kav_154">Il doit utiliser <code class="code" id="ar9kav_155">*ngFor</code> (nous verrons le d&eacute;tail au prochain module, mais la syntaxe est simple : <code class="code" id="ar9kav_156">&lt;app-todo-item *ngFor=&quot;let todo of todos&quot; ...&gt;</code>) pour afficher un <code class="code" id="ar9kav_157">TodoItemComponent</code> pour chaque t&acirc;che de sa liste.</p></li><li class="list__item" id="ar9kav_150"><p id="ar9kav_158">Il doit passer chaque <code class="code" id="ar9kav_159">todo</code> &agrave; l'input du <code class="code" id="ar9kav_160">TodoItemComponent</code>.</p></li><li class="list__item" id="ar9kav_151"><p id="ar9kav_161">Il doit &eacute;couter les &eacute;v&eacute;nements <code class="code" id="ar9kav_162">toggleCompletion</code> et <code class="code" id="ar9kav_163">deleteTodo</code> et impl&eacute;menter les m&eacute;thodes pour mettre &agrave; jour ou supprimer la t&acirc;che de son tableau.</p></li></ul></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><ol class="list _decimal" id="ar9kav_164" type="1"><li class="list__item" id="ar9kav_169"><p id="ar9kav_172"><span class="control" id="ar9kav_175">G&eacute;n&eacute;ration et Mod&egrave;le :</span></p><div class="code-block" data-lang="bash">
+ng g c todo-list
+ng g c todo-item
+</div><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/models/todo.model.ts
+export interface Todo {
+  id: number;
+  title: string;
+  isCompleted: boolean;
+}
+</div></li><li class="list__item" id="ar9kav_170"><p id="ar9kav_176"><span class="control" id="ar9kav_181"><code class="code" id="ar9kav_182">TodoItemComponent.ts</code></span></p><div class="code-block" data-lang="ts">
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Todo } from '../shared/models/todo.model';
+
+@Component({
+  selector: 'app-todo-item',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './todo-item.component.html',
+  styleUrl: './todo-item.component.css'
+})
+export class TodoItemComponent {
+  @Input() public todo!: Todo;
+  @Output() public toggleCompletion = new EventEmitter&lt;Todo&gt;();
+  @Output() public deleteTodo = new EventEmitter&lt;number&gt;();
+
+  public onToggle(): void {
+    this.toggleCompletion.emit(this.todo);
+  }
+
+  public onDelete(): void {
+    this.deleteTodo.emit(this.todo.id);
+  }
+}
+</div><p id="ar9kav_178"><span class="control" id="ar9kav_183"><code class="code" id="ar9kav_184">TodoItemComponent.html</code></span></p><div class="code-block" data-lang="markup">
+&lt;div&gt;
+  &lt;input 
+    type=&quot;checkbox&quot; 
+    [checked]=&quot;todo.isCompleted&quot; 
+    (change)=&quot;onToggle()&quot;&gt;
+  &lt;span [class.completed]=&quot;todo.isCompleted&quot;&gt;{{ todo.title }}&lt;/span&gt;
+  &lt;button (click)=&quot;onDelete()&quot;&gt;X&lt;/button&gt;
+&lt;/div&gt;
+</div><p id="ar9kav_180">(N'oubliez pas d'ajouter une classe <code class="code" id="ar9kav_185">.completed { text-decoration: line-through; }</code> dans le CSS)</p></li><li class="list__item" id="ar9kav_171"><p id="ar9kav_186"><span class="control" id="ar9kav_187"><code class="code" id="ar9kav_188">TodoListComponent.ts</code></span></p></li></ol><div class="code-block" data-lang="ts">
+   import { Component } from '@angular/core';
+   import { CommonModule } from '@angular/common';
+   import { Todo } from '../shared/models/todo.model';
+   import { TodoItemComponent } from '../todo-item/todo-item.component';
+
+   @Component({
+     selector: 'app-todo-list',
+     standalone: true,
+     imports: [CommonModule, TodoItemComponent],
+     templateUrl: './todo-list.component.html'
+   })
+   export class TodoListComponent {
+     public todos: Todo[] = [
+       { id: 1, title: 'Apprendre Angular', isCompleted: true },
+       { id: 2, title: 'Faire les exercices', isCompleted: false },
+       { id: 3, title: 'Boire un café', isCompleted: false },
+     ];
+
+     public handleToggle(toggledTodo: Todo): void {
+       const todo = this.todos.find(t =&gt; t.id === toggledTodo.id);
+       if (todo) {
+         todo.isCompleted = !todo.isCompleted;
+       }
+     }
+
+     public handleDelete(todoId: number): void {
+       this.todos = this.todos.filter(t =&gt; t.id !== todoId);
+     }
+   }
+</div><p id="ar9kav_166"><span class="control" id="ar9kav_189"><code class="code" id="ar9kav_190">TodoListComponent.html</code></span></p><div class="code-block" data-lang="markup">
+   &lt;h2&gt;Ma Liste de Tâches&lt;/h2&gt;
+   &lt;app-todo-item 
+     *ngFor=&quot;let todo of todos&quot; 
+     [todo]=&quot;todo&quot; 
+     (toggleCompletion)=&quot;handleToggle($event)&quot; 
+     (deleteTodo)=&quot;handleDelete($event)&quot;&gt;
+   &lt;/app-todo-item&gt;
+</div></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="ar9kav_191" type="1"><li class="list__item" id="ar9kav_192"><p id="ar9kav_197"><span class="control" id="ar9kav_198">(QCM)</span> Pour permettre &agrave; un composant parent de passer un objet <code class="code" id="ar9kav_199">product</code> &agrave; un composant enfant <code class="code" id="ar9kav_200">ProductDetailComponent</code>, quelle est la syntaxe correcte dans le <code class="code" id="ar9kav_201">ProductDetailComponent</code>? a) <code class="code" id="ar9kav_202">@Output() product: Product;</code> b) <code class="code" id="ar9kav_203">product: Product;</code> c) <code class="code" id="ar9kav_204">@Input() product: Product;</code> d) <code class="code" id="ar9kav_205">@Injectable() product: Product;</code></p></li><li class="list__item" id="ar9kav_193"><p id="ar9kav_206"><span class="control" id="ar9kav_207">(Question ouverte)</span> Expliquez avec vos propres mots le principe de &quot;props down, events up&quot;. Pourquoi est-ce une bonne pratique ?</p></li><li class="list__item" id="ar9kav_194"><p id="ar9kav_208"><span class="control" id="ar9kav_209">(QCM)</span> Dans le template du parent, comment &eacute;coutez-vous un <code class="code" id="ar9kav_210">@Output()</code> nomm&eacute; <code class="code" id="ar9kav_211">itemSelected</code> et appelez-vous une m&eacute;thode <code class="code" id="ar9kav_212">onItemSelect</code> en lui passant la donn&eacute;e &eacute;mise ? a) <code class="code" id="ar9kav_213">[itemSelected]=&quot;onItemSelect()&quot;</code> b) <code class="code" id="ar9kav_214">(itemSelected)=&quot;onItemSelect($event)&quot;</code> c) <code class="code" id="ar9kav_215">{{ itemSelected }}</code> d) <code class="code" id="ar9kav_216">&lt;itemSelected (event)=&quot;onItemSelect()&quot;/&gt;</code></p></li><li class="list__item" id="ar9kav_195"><p id="ar9kav_217"><span class="control" id="ar9kav_218">(Question ouverte)</span> Donnez un exemple concret de cas d'utilisation pour la projection de contenu avec <code class="code" id="ar9kav_219">&lt;ng-content&gt;</code>.</p></li><li class="list__item" id="ar9kav_196"><p id="ar9kav_220"><span class="control" id="ar9kav_221">(QCM)</span> Quelle classe Angular est utilis&eacute;e avec <code class="code" id="ar9kav_222">@Output()</code> pour &eacute;mettre des &eacute;v&eacute;nements personnalis&eacute;s ? a) <code class="code" id="ar9kav_223">Event</code> b) <code class="code" id="ar9kav_224">Subject</code> c) <code class="code" id="ar9kav_225">EventEmitter</code> d) <code class="code" id="ar9kav_226">OutputManager</code></p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="ar9kav_227">Fantastique ! Vous avez fait un bond de g&eacute;ant. Vous ne construisez plus seulement des composants, vous orchestrez leur collaboration. Vous savez maintenant cr&eacute;er des composants <span class="control" id="ar9kav_230">r&eacute;utilisables</span> et <span class="control" id="ar9kav_231">configurables</span> gr&acirc;ce &agrave; <code class="code" id="ar9kav_232">@Input()</code>, et leur permettre de <span class="control" id="ar9kav_233">communiquer avec leur environnement</span> gr&acirc;ce &agrave; <code class="code" id="ar9kav_234">@Output()</code>.</p><p id="ar9kav_228">Cette ma&icirc;trise de la communication parent-enfant est la pierre angulaire de la cr&eacute;ation d'applications Angular complexes et bien architectur&eacute;es. Vous avez &eacute;galement d&eacute;couvert avec <code class="code" id="ar9kav_235">&lt;ng-content&gt;</code> une technique puissante pour cr&eacute;er des layouts g&eacute;n&eacute;riques.</p><p id="ar9kav_229">Dans le prochain module, nous allons explorer les outils qui nous permettent de donner vie &agrave; nos templates : les * <span class="emphasis" id="ar9kav_236">directives structurelles</span>* (<code class="code" id="ar9kav_237">*ngIf</code>, <code class="code" id="ar9kav_238">*ngFor</code>) pour manipuler le DOM, et les <span class="control" id="ar9kav_239">Pipes</span> pour formater nos donn&eacute;es directement dans la vue. Vous avez d&eacute;j&agrave; aper&ccedil;u <code class="code" id="ar9kav_240">*ngFor</code> dans l'exercice, il est temps de le ma&icirc;triser</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-00-components.html" class="navigation-links__prev">Module 4 : L'essentiel - Le C&oelig;ur d'Angular, les Composants</a><a href="005-00-directives-and-pipes.html" class="navigation-links__next">Module 5 : L'essentiel - Donner vie &agrave; vos vues avec les Directives et les Pipes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

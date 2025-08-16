@@ -1,0 +1,232 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:33.226383"><title>Module 5 : L'essentiel - Donner vie &agrave; vos vues avec les Directives et les Pipes | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-les-plans-de-montage-de-votre-interface","level":0,"title":"Introduction : Les plans de montage de votre interface","anchor":"#introduction-les-plans-de-montage-de-votre-interface"},{"id":"1-directives-structurelles-modifier-la-structure-du-dom","level":0,"title":"1. Directives Structurelles : Modifier la structure du DOM","anchor":"#1-directives-structurelles-modifier-la-structure-du-dom"},{"id":"exercice-1-afficher-une-liste-de-produits","level":0,"title":"Exercice 1 : Afficher une liste de produits","anchor":"#exercice-1-afficher-une-liste-de-produits"},{"id":"2-directives-d-attributs-modifier-l-apparence-ou-le-comportement","level":0,"title":"2. Directives d\u0027Attributs : Modifier l\u0027apparence ou le comportement","anchor":"#2-directives-d-attributs-modifier-l-apparence-ou-le-comportement"},{"id":"3-pipes-transformer-les-donn-es-dans-le-template","level":0,"title":"3. Pipes : Transformer les données dans le template","anchor":"#3-pipes-transformer-les-donn-es-dans-le-template"},{"id":"exercice-2-mettre-en-forme-les-produits","level":0,"title":"Exercice 2 : Mettre en forme les produits","anchor":"#exercice-2-mettre-en-forme-les-produits"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-cette-partie","level":0,"title":"Conclusion de cette partie","anchor":"#conclusion-de-cette-partie"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 5 : L'essentiel - Donner vie &agrave; vos vues avec les Directives et les Pipes | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/005-00-directives-and-pipes.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 5 : L'essentiel - Donner vie &agrave; vos vues avec les Directives et les Pipes | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/005-00-directives-and-pipes.html#webpage",
+    "url": "writerside-documentation/005-00-directives-and-pipes.html",
+    "name": "Module 5 : L'essentiel - Donner vie &agrave; vos vues avec les Directives et les Pipes | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="005-00-directives-and-pipes" data-main-title="Module 5 : L'essentiel - Donner vie à vos vues avec les Directives et les Pipes" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="005-00-directives-and-pipes" id="005-00-directives-and-pipes.md">Module 5 : L'essentiel - Donner vie à vos vues avec les Directives et les Pipes</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="rtdi2i_12">&Agrave; la fin de ce chapitre, vous serez capable de :</p><ul class="list _bullet" id="rtdi2i_13"><li class="list__item" id="rtdi2i_14"><p id="rtdi2i_18"><span class="control" id="rtdi2i_19">Utiliser</span> les directives structurelles pour manipuler le DOM : <code class="code" id="rtdi2i_20">@if</code> (conditionnel), <code class="code" id="rtdi2i_21">@for</code> (boucle), et <code class="code" id="rtdi2i_22">@switch</code> (cas multiples).</p></li><li class="list__item" id="rtdi2i_15"><p id="rtdi2i_23"><span class="control" id="rtdi2i_24">Comprendre</span> l'importance du <code class="code" id="rtdi2i_25">track</code> dans une boucle <code class="code" id="rtdi2i_26">@for</code> pour optimiser les performances.</p></li><li class="list__item" id="rtdi2i_16"><p id="rtdi2i_27"><span class="control" id="rtdi2i_28">Modifier</span> l'apparence d'&eacute;l&eacute;ments avec les directives d'attributs comme <code class="code" id="rtdi2i_29">[ngClass]</code> et <code class="code" id="rtdi2i_30">[ngStyle]</code>.</p></li><li class="list__item" id="rtdi2i_17"><p id="rtdi2i_31"><span class="control" id="rtdi2i_32">Formater</span> des donn&eacute;es directement dans vos templates avec les pipes int&eacute;gr&eacute;s d'Angular (<code class="code" id="rtdi2i_33">date</code>, <code class="code" id="rtdi2i_34">uppercase</code>, <code class="code" id="rtdi2i_35">currency</code>...).</p></li></ul></section><section class="chapter"><h2 id="introduction-les-plans-de-montage-de-votre-interface" data-toc="introduction-les-plans-de-montage-de-votre-interface">Introduction : Les plans de montage de votre interface</h2><p id="rtdi2i_36">Imaginez que vos composants sont des briques LEGO. Vous savez en cr&eacute;er de toutes les formes et de toutes les couleurs. Mais comment les assembler pour construire le ch&acirc;teau de vos r&ecirc;ves ? Vous avez besoin d'un plan de montage.</p><p id="rtdi2i_37">Les <span class="control" id="rtdi2i_40">directives</span> sont ce plan. Ce sont des instructions que vous placez dans votre HTML pour dire &agrave; Angular comment construire la vue. &quot;Ne pose cette brique <span class="emphasis" id="rtdi2i_41">que si</span> elle est rouge&quot; (<code class="code" id="rtdi2i_42">@if</code>). &quot;Prends toutes les briques bleues et aligne-les pour faire un mur&quot; (<code class="code" id="rtdi2i_43">@for</code>).</p><p id="rtdi2i_38">Les <span class="control" id="rtdi2i_44">pipes</span>, quant &agrave; eux, sont vos outils de finition. &quot;Prends cette date brute et polis-la pour qu'elle soit lisible&quot; (<code class="code" id="rtdi2i_45">date</code> pipe). &quot;Prends ce titre et grave-le en majuscules&quot; (<code class="code" id="rtdi2i_46">uppercase</code> pipe).</p><p id="rtdi2i_39">Ma&icirc;triser ces deux outils vous donnera un contr&ocirc;le total sur l'affichage dynamique de vos donn&eacute;es, rendant vos interfaces vivantes et intelligentes.</p></section><section class="chapter"><h2 id="1-directives-structurelles-modifier-la-structure-du-dom" data-toc="1-directives-structurelles-modifier-la-structure-du-dom">1. Directives Structurelles : Modifier la structure du DOM</h2><p id="rtdi2i_47">Les directives structurelles sont faciles &agrave; reconna&icirc;tre : dans la syntaxe moderne, elles commencent par un <code class="code" id="rtdi2i_51">@</code>. Elles ont le pouvoir d'ajouter, de supprimer ou de manipuler des &eacute;l&eacute;ments du DOM.</p><section class="chapter"><h3 id="affichage-conditionnel-if" data-toc="affichage-conditionnel-if">Affichage conditionnel : <code class="code" id="rtdi2i_55">@if</code></h3><p id="rtdi2i_53">La directive <code class="code" id="rtdi2i_56">@if</code> est l'&eacute;quivalent d'un <code class="code" id="rtdi2i_57">if-else</code> en programmation. Elle affiche un bloc HTML uniquement si une condition est vraie.</p><div class="tabs" id="rtdi2i_54" data-anchors="[rtdi2i_58,rtdi2i_59]"><div class="tabs__content" data-gtm="tab" id="rtdi2i_58" data-title="Nouvelle Syntaxe (@if)"><p>La nouvelle syntaxe de &quot;control flow&quot; est plus lisible et plus performante. Elle est recommand&eacute;e pour tous les nouveaux projets. </p><div class="code-block" data-lang="ts" data-title="TypeScript">
+// Fichier: auth-status.component.ts
+@Component({ /* ... */})
+export class AuthStatusComponent {
+    isLoggedIn: boolean = true;
+    username: string = 'Alice';
+}
+</div><div class="code-block" data-lang="markup" data-title="HTML">
+&lt;!-- Fichier: auth-status.component.html --&gt;
+
+@if (isLoggedIn) {
+&lt;p&gt;Bienvenue, {{ username }} !&lt;/p&gt;
+} @else {
+&lt;p&gt;Veuillez vous connecter.&lt;/p&gt;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="rtdi2i_59" data-title="Syntaxe Classique (*ngIf)"><p>Vous la rencontrerez dans la plupart des projets existants. Elle utilise une syntaxe avec un ast&eacute;risque `*`. </p><div class="code-block" data-lang="markup" data-title="HTML">
+&lt;!-- Fichier: auth-status.component.html --&gt;
+
+&lt;p *ngIf=&quot;isLoggedIn; else notLoggedInBlock&quot;&gt;
+    Bienvenue, {{ username }} !
+&lt;/p&gt;
+
+&lt;ng-template #notLoggedInBlock&gt;
+    &lt;p&gt;Veuillez vous connecter.&lt;/p&gt;
+&lt;/ng-template&gt;
+</div><p id="rtdi2i_63"><span class="control" id="rtdi2i_64">Analogie Java :</span> Pensez &agrave; <code class="code" id="rtdi2i_65">th:if</code> en Thymeleaf. C'est exactement le m&ecirc;me principe.</p></div></div></section><section class="chapter"><h3 id="it-rer-sur-une-collection-for" data-toc="it-rer-sur-une-collection-for">It&eacute;rer sur une collection : <code class="code" id="rtdi2i_70">@for</code></h3><p id="rtdi2i_67">La directive <code class="code" id="rtdi2i_71">@for</code> est votre boucle <code class="code" id="rtdi2i_72">for-each</code>. Elle prend une collection (un tableau) et r&eacute;p&egrave;te un bloc de HTML pour chaque &eacute;l&eacute;ment de cette collection.</p><p id="rtdi2i_68">Ici aussi, la nouvelle syntaxe avec <code class="code" id="rtdi2i_73">@for</code> est bien sup&eacute;rieure, notamment gr&acirc;ce &agrave; sa gestion du <code class="code" id="rtdi2i_74">track</code>.</p><div class="tabs" id="rtdi2i_69" data-anchors="[rtdi2i_75,rtdi2i_76]"><div class="tabs__content" data-gtm="tab" id="rtdi2i_75" data-title="Nouvelle Syntaxe (@for)"><div class="code-block" data-lang="ts" data-title="TypeScript">
+// Fichier: user-list.component.ts
+import { Component } from '@angular/core';
+import { User } from '../shared/models/user.model'; // notre interface User
+
+@Component({ /* ... */ })
+export class UserListComponent {
+users: User[] = [
+{ id: 1, name: 'Alice', jobTitle: 'Dev', avatarUrl: '' },
+{ id: 2, name: 'Bob', jobTitle: 'Product Owner', avatarUrl: '' },
+{ id: 3, name: 'Charlie', jobTitle: 'UX Designer', avatarUrl: '' }
+];
+}
+
+</div><div class="code-block" data-lang="markup" data-title="HTML">
+&lt;!-- Fichier: user-list.component.html --&gt;
+&lt;ul&gt;
+  @for (user of users; track user.id; let i = $index, f = $first) {
+    &lt;li&gt;
+      ({{ i }}) {{ user.name }} 
+      @if(f) { &lt;span&gt;(Premier)&lt;/span&gt; }
+    &lt;/li&gt;
+  } @empty {
+    &lt;li&gt;Aucun utilisateur à afficher.&lt;/li&gt;
+  }
+&lt;/ul&gt;
+</div><p id="rtdi2i_79"><span class="control" id="rtdi2i_81">Points cl&eacute;s :</span></p><ul class="list _bullet" id="rtdi2i_80"><li class="list__item" id="rtdi2i_82"><p id="rtdi2i_85"><code class="code" id="rtdi2i_86">track user.id</code>: C'est <span class="control" id="rtdi2i_87">crucial</span> pour la performance. Cela dit &agrave; Angular comment identifier chaque &eacute;l&eacute;ment de mani&egrave;re unique. Quand la liste change, Angular peut ainsi d&eacute;placer ou modifier les &eacute;l&eacute;ments existants au lieu de tout d&eacute;truire et reconstruire. <span class="control" id="rtdi2i_88">Pensez-y comme l'&eacute;quivalent de <code class="code" id="rtdi2i_89">equals()</code> et <code class="code" id="rtdi2i_90">hashCode()</code> en Java pour identifier des objets.</span></p></li><li class="list__item" id="rtdi2i_83"><p id="rtdi2i_91"><code class="code" id="rtdi2i_92">$index</code>, <code class="code" id="rtdi2i_93">$first</code>, <code class="code" id="rtdi2i_94">$last</code>, <code class="code" id="rtdi2i_95">$even</code>, <code class="code" id="rtdi2i_96">$odd</code>: Des variables d'it&eacute;ration magiques et tr&egrave;s utiles.</p></li><li class="list__item" id="rtdi2i_84"><p id="rtdi2i_97"><code class="code" id="rtdi2i_98">@empty</code>: Un bloc qui s'affiche si la collection est vide. Tr&egrave;s pratique !</p></li></ul></div><div class="tabs__content" data-gtm="tab" id="rtdi2i_76" data-title="Syntaxe Classique (*ngFor)"><div class="code-block" data-lang="markup" data-title="HTML">
+&lt;!-- Fichier: user-list.component.html --&gt;
+&lt;ul&gt;
+  &lt;li *ngFor=&quot;let user of users; let i = index; let f = first; trackBy: trackByUserId&quot;&gt;
+    ({{ i }}) {{ user.name }}
+    &lt;span *ngIf=&quot;f&quot;&gt;(Premier)&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;p *ngIf=&quot;users.length === 0&quot;&gt;Aucun utilisateur à afficher.&lt;/p&gt;
+&lt;/ul&gt;
+</div><p id="rtdi2i_100">Ici, le <code class="code" id="rtdi2i_101">trackBy</code> demande d'appeler une m&eacute;thode dans le composant <code class="code" id="rtdi2i_102">.ts</code> qui retourne l'identifiant unique. C'est plus verbeux.</p></div></div></section><section class="chapter"><h3 id="conditions-multiples-switch" data-toc="conditions-multiples-switch">Conditions multiples : <code class="code" id="rtdi2i_107">@switch</code></h3><p id="rtdi2i_104">Moins fr&eacute;quent, <code class="code" id="rtdi2i_108">@switch</code> permet de choisir un bloc &agrave; afficher parmi plusieurs, en fonction de la valeur d'une expression.</p><div class="code-block" data-lang="ts">
+// Fichier: user-status.component.ts
+@Component({ /* ... */})
+export class UserStatusComponent {
+    // Supposons que status peut être 'active', 'inactive', ou 'pending'
+    status: 'active' | 'inactive' | 'pending' = 'active';
+}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- Fichier: user-status.component.html --&gt;
+@switch (status) {
+@case ('active') { &lt;p&gt;L'utilisateur est en ligne.&lt;/p&gt; }
+@case ('inactive') { &lt;p&gt;L'utilisateur est hors ligne.&lt;/p&gt; }
+@default { &lt;p&gt;Statut en attente de validation.&lt;/p&gt; }
+}
+</div></section></section><section class="chapter"><h2 id="exercice-1-afficher-une-liste-de-produits" data-toc="exercice-1-afficher-une-liste-de-produits">Exercice 1 : Afficher une liste de produits</h2><p id="rtdi2i_109">Vous g&eacute;rez un site e-commerce. Affichez une liste de produits en utilisant <code class="code" id="rtdi2i_112">@for</code> et <code class="code" id="rtdi2i_113">@if</code>.</p><ol class="list _decimal" id="rtdi2i_110" type="1"><li class="list__item" id="rtdi2i_114"><p id="rtdi2i_118">Dans un composant <code class="code" id="rtdi2i_119">ProductListComponent</code>, cr&eacute;ez un tableau <code class="code" id="rtdi2i_120">products</code> d'objets. Chaque produit doit avoir <code class="code" id="rtdi2i_121">id</code> ( number), <code class="code" id="rtdi2i_122">name</code> (string), <code class="code" id="rtdi2i_123">price</code> (number), et <code class="code" id="rtdi2i_124">inStock</code> (boolean).</p></li><li class="list__item" id="rtdi2i_115"><p id="rtdi2i_125">Dans le template, utilisez <code class="code" id="rtdi2i_126">@for</code> pour it&eacute;rer sur le tableau <code class="code" id="rtdi2i_127">products</code>. N'oubliez pas le <code class="code" id="rtdi2i_128">track</code>.</p></li><li class="list__item" id="rtdi2i_116"><p id="rtdi2i_129">Pour chaque produit, affichez son nom et son prix.</p></li><li class="list__item" id="rtdi2i_117"><p id="rtdi2i_130">Utilisez <code class="code" id="rtdi2i_131">@if</code>: si le produit est en stock (<code class="code" id="rtdi2i_132">inStock</code> est <code class="code" id="rtdi2i_133">true</code>), affichez &quot;En stock&quot; en vert. Sinon, affichez &quot; &Eacute;puis&eacute;&quot; en rouge.</p></li></ol><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-1" data-toc="correction-exercice-1">Correction exercice 1</h3></div><div class="collapse__content"><p id="rtdi2i_134"><span class="control" id="rtdi2i_141"><code class="code" id="rtdi2i_142">product-list.component.ts</code></span></p><div class="code-block" data-lang="ts">
+// package fr.formation.spring;
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    inStock: boolean;
+}
+
+@Component({
+    selector: 'app-product-list',
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: './product-list.component.html',
+    styleUrl: './product-list.component.css'
+})
+export class ProductListComponent {
+    public products: Product[] = [
+        {id: 101, name: 'Souris Gamer', price: 49.99, inStock: true},
+        {id: 102, name: 'Clavier Mécanique', price: 120.50, inStock: false},
+        {id: 103, name: 'Tapis de Souris XXL', price: 25.00, inStock: true},
+        {id: 104, name: 'Casque Audio', price: 89.90, inStock: false},
+    ];
+}
+</div><p id="rtdi2i_136"><span class="control" id="rtdi2i_143"><code class="code" id="rtdi2i_144">product-list.component.html</code></span></p><div class="code-block" data-lang="markup">
+&lt;h2&gt;Nos Produits&lt;/h2&gt;
+&lt;ul class=&quot;product-list&quot;&gt;
+    @for (product of products; track product.id) {
+    &lt;li&gt;
+        &lt;span&gt;{{ product.name }} - {{ product.price }} €&lt;/span&gt;
+
+        @if (product.inStock) {
+        &lt;span class=&quot;stock-ok&quot;&gt;En stock&lt;/span&gt;
+        } @else {
+        &lt;span class=&quot;stock-ko&quot;&gt;Épuisé&lt;/span&gt;
+        }
+    &lt;/li&gt;
+    } @empty {
+    &lt;li&gt;Désolé, aucun produit n'est disponible pour le moment.&lt;/li&gt;
+    }
+&lt;/ul&gt;
+</div><p id="rtdi2i_138"><span class="control" id="rtdi2i_145"><code class="code" id="rtdi2i_146">product-list.component.css</code></span> (pour la couleur)</p><div class="code-block" data-lang="css">
+.stock-ok {
+    color: green;
+}
+
+.stock-ko {
+    color: red;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-list li {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+</div><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="552px" preserveAspectRatio="none" style="width:379px;height:552px;background:#FFFFFF;" version="1.1" viewBox="0 0 379 552" width="379px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="222" x="71.5" y="23.5352">Mod&#232;le ProductListComponent</text><!--cluster fr--><g id="cluster_fr"><path d="M9.5,43.4883 L20.5,43.4883 A5.25,5.25 0 0 1 24,46.9883 L31,65.9766 L368.5,65.9766 A3.5,3.5 0 0 1 372,69.4766 L372,541.9883 A3.5,3.5 0 0 1 368.5,545.4883 L9.5,545.4883 A3.5,3.5 0 0 1 6,541.9883 L6,46.9883 A3.5,3.5 0 0 1 9.5,43.4883 " fill="none" style="stroke:#696969;stroke-width:1.0;"/><line style="stroke:#696969;stroke-width:1.0;" x1="6" x2="31" y1="65.9766" y2="65.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="12" x="10" y="59.0234">fr</text></g><!--cluster formation--><g id="cluster_formation"><path d="M33.5,86.4883 L104.5,86.4883 A5.25,5.25 0 0 1 108,89.9883 L115,108.9766 L344.5,108.9766 A3.5,3.5 0 0 1 348,112.4766 L348,517.9883 A3.5,3.5 0 0 1 344.5,521.4883 L33.5,521.4883 A3.5,3.5 0 0 1 30,517.9883 L30,89.9883 A3.5,3.5 0 0 1 33.5,86.4883 " fill="none" style="stroke:#696969;stroke-width:1.0;"/><line style="stroke:#696969;stroke-width:1.0;" x1="30" x2="115" y1="108.9766" y2="108.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="72" x="34" y="102.0234">formation</text></g><!--cluster spring--><g id="cluster_spring"><path d="M57.5,129.4883 L102.5,129.4883 A5.25,5.25 0 0 1 106,132.9883 L113,151.9766 L320.5,151.9766 A3.5,3.5 0 0 1 324,155.4766 L324,493.9883 A3.5,3.5 0 0 1 320.5,497.4883 L57.5,497.4883 A3.5,3.5 0 0 1 54,493.9883 L54,132.9883 A3.5,3.5 0 0 1 57.5,129.4883 " fill="none" style="stroke:#696969;stroke-width:1.0;"/><line style="stroke:#696969;stroke-width:1.0;" x1="54" x2="113" y1="151.9766" y2="151.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="46" x="58" y="145.0234">spring</text></g><!--class ProductListComponent--><g id="elem_ProductListComponent"><rect codeLine="6" fill="#F1F1F1" height="64.4883" id="ProductListComponent" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="189" x="94.5" y="184.4883"/><ellipse cx="109.5" cy="200.4883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M112.4731,206.1313 Q111.8921,206.4302 111.2529,206.5796 Q110.6138,206.729 109.9082,206.729 Q107.4014,206.729 106.0815,205.0771 Q104.7617,203.4253 104.7617,200.3042 Q104.7617,197.1748 106.0815,195.5229 Q107.4014,193.8711 109.9082,193.8711 Q110.6138,193.8711 111.2612,194.0205 Q111.9087,194.1699 112.4731,194.4688 L112.4731,197.1914 Q111.8423,196.6104 111.2488,196.3406 Q110.6553,196.0708 110.0244,196.0708 Q108.6797,196.0708 107.9949,197.1375 Q107.3101,198.2041 107.3101,200.3042 Q107.3101,202.396 107.9949,203.4626 Q108.6797,204.5293 110.0244,204.5293 Q110.6553,204.5293 111.2488,204.2595 Q111.8423,203.9897 112.4731,203.4087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="123.5" y="205.7793">ProductListComponent</text><line style="stroke:#181818;stroke-width:0.5;" x1="95.5" x2="282.5" y1="216.4883" y2="216.4883"/><ellipse cx="105.5" cy="230.2324" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="114.5" y="234.0234">products: Product[]</text><line style="stroke:#181818;stroke-width:0.5;" x1="95.5" x2="282.5" y1="240.9766" y2="240.9766"/></g><!--class Product--><g id="elem_Product"><rect codeLine="10" fill="#F1F1F1" height="113.9531" id="Product" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="126" x="126" y="348.4883"/><ellipse cx="159.45" cy="364.4883" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M155.3777,360.2534 L155.3777,358.0952 L162.7571,358.0952 L162.7571,360.2534 L160.2918,360.2534 L160.2918,368.3301 L162.7571,368.3301 L162.7571,370.4883 L155.3777,370.4883 L155.3777,368.3301 L157.8431,368.3301 L157.8431,360.2534 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="53" x="177.55" y="369.7793">Product</text><line style="stroke:#181818;stroke-width:0.5;" x1="127" x2="251" y1="380.4883" y2="380.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="132" y="398.0234">id: number</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="132" y="414.5117">name: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="132" y="431">price: number</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="132" y="447.4883">inStock: boolean</text><line style="stroke:#181818;stroke-width:0.5;" x1="127" x2="251" y1="454.4414" y2="454.4414"/></g><!--reverse link ProductListComponent to Product--><g id="link_ProductListComponent_Product"><path codeLine="17" d="M189,260.2883 C189,287.4983 189,315.8383 189,348.6383 " fill="none" id="ProductListComponent-backto-Product" style="stroke:#454645;stroke-width:1.0;"/><polygon fill="#454645" points="189,248.2883,185,254.2883,189,260.2883,193,254.2883,189,248.2883" style="stroke:#454645;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="177.1" y="269.4625">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="165.5219" y="337.5836">0..*</text></g><!--SRC=[ROun3i8m34NtdC9aBAA2jIihI4YCY25DNOXex2fnML3lmpsu66rfAuJuYwtlP_ilv8eUuUxoO4YKEAaGz9wBrxDh3e6BnihEHTcohvcGH2jL6tipbuuhGrfoy4OSKnhhuEYYuQ6WawrCZ7yFZ42l9TGV86OJUZeFqrODnP5WA8sTeypBhiY06fzZ60qo7ZE8qeSOhIwGnH_CqL7OtZB8cIiqzFtjRrgzqP2iLg3NQPheYL7j6m00]--></g></svg></div></div></div></section></section><section class="chapter"><h2 id="2-directives-d-attributs-modifier-l-apparence-ou-le-comportement" data-toc="2-directives-d-attributs-modifier-l-apparence-ou-le-comportement">2. Directives d'Attributs : Modifier l'apparence ou le comportement</h2><p id="rtdi2i_147">Contrairement aux directives structurelles, celles-ci ne modifient pas la structure du DOM, mais changent l'apparence ou le comportement d'un &eacute;l&eacute;ment existant. On les utilise souvent avec la syntaxe de <span class="emphasis" id="rtdi2i_151">property binding</span> <code class="code" id="rtdi2i_152">[]</code>.</p><ul class="list _bullet" id="rtdi2i_148"><li class="list__item" id="rtdi2i_153"><p id="rtdi2i_155"><code class="code" id="rtdi2i_156">[ngClass]</code>: Pour ajouter ou supprimer des classes CSS dynamiquement.</p></li><li class="list__item" id="rtdi2i_154"><p id="rtdi2i_157"><code class="code" id="rtdi2i_158">[ngStyle]</code>: Pour appliquer des styles CSS &quot;inline&quot; dynamiquement.</p></li></ul><div class="code-block" data-lang="ts">
+// Fichier: message.component.ts
+@Component({ /* ... */})
+export class MessageComponent {
+    isUrgent: boolean = true;
+    messageType: 'error' | 'success' = 'error';
+    fontSize: number = 16;
+}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- Fichier: message.component.html --&gt;
+
+&lt;!-- ngClass avec un objet : la classe 'urgent-message' est ajoutée
+     uniquement si la variable 'isUrgent' est vraie. --&gt;
+&lt;div [ngClass]=&quot;{ 'urgent-message': isUrgent, 'error-box': messageType === 'error' }&quot;&gt;
+    Ceci est un message.
+&lt;/div&gt;
+
+&lt;!-- ngStyle permet de lier des styles directement.
+     Notez la syntaxe pour les unités comme 'px'. --&gt;
+&lt;p [ngStyle]=&quot;{ 'font-size.px': fontSize, 'font-weight': isUrgent ? 'bold' : 'normal' }&quot;&gt;
+    Le contenu du message...
+&lt;/p&gt;
+</div></section><section class="chapter"><h2 id="3-pipes-transformer-les-donn-es-dans-le-template" data-toc="3-pipes-transformer-les-donn-es-dans-le-template">3. Pipes : Transformer les donn&eacute;es dans le template</h2><p id="rtdi2i_159">Un pipe prend une donn&eacute;e en entr&eacute;e, la transforme, et la retourne. On l'utilise avec le symbole <code class="code" id="rtdi2i_163">|</code>.</p><p id="rtdi2i_160"><span class="control" id="rtdi2i_164">Analogie Java :</span> Pensez &agrave; des classes utilitaires comme <code class="code" id="rtdi2i_165">SimpleDateFormat</code> ou <code class="code" id="rtdi2i_166">NumberFormat</code>. Le pipe est un <span class="emphasis" id="rtdi2i_167">formatter</span> que vous pouvez appliquer directement dans votre HTML.</p><div class="code-block" data-lang="ts">
+// Fichier: event.component.ts
+@Component({ /* ... */})
+export class EventComponent {
+    eventName: string = &quot;angular developers conference&quot;;
+    eventDate: Date = new Date(); // Date et heure actuelles
+    ticketPrice: number = 150.75;
+    eventDetails: object = {location: &quot;Paris&quot;, capacity: 500};
+}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- Fichier: event.component.html --&gt;
+&lt;ul&gt;
+    &lt;!-- Mettre en majuscules --&gt;
+    &lt;li&gt;Nom: {{ eventName | uppercase }}&lt;/li&gt;
+
+    &lt;!-- Formater une date (avec un paramètre) --&gt;
+    &lt;li&gt;Date: {{ eventDate | date:'dd/MM/yyyy HH:mm' }}&lt;/li&gt;
+
+    &lt;!-- Formater un nombre en devise (avec plusieurs paramètres) --&gt;
+    &lt;li&gt;Prix: {{ ticketPrice | currency:'EUR':'symbol':'1.2-2' }}&lt;/li&gt;
+
+    &lt;!-- Afficher un objet pour le débogage --&gt;
+    &lt;li&gt;Détails:
+        &lt;pre&gt;{{ eventDetails | json }}&lt;/pre&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</div></section><section class="chapter"><h2 id="exercice-2-mettre-en-forme-les-produits" data-toc="exercice-2-mettre-en-forme-les-produits">Exercice 2 : Mettre en forme les produits</h2><p id="rtdi2i_168">Reprenez l'exercice 1.</p><ol class="list _decimal" id="rtdi2i_169" type="1"><li class="list__item" id="rtdi2i_171"><p id="rtdi2i_175">Ajoutez une propri&eacute;t&eacute; <code class="code" id="rtdi2i_176">releaseDate</code> (de type <code class="code" id="rtdi2i_177">Date</code>) &agrave; vos produits.</p></li><li class="list__item" id="rtdi2i_172"><p id="rtdi2i_178">Dans le template, affichez cette date de sortie format&eacute;e en <code class="code" id="rtdi2i_179">jour/mois/ann&eacute;e</code>.</p></li><li class="list__item" id="rtdi2i_173"><p id="rtdi2i_180">Affichez le nom du produit en <code class="code" id="rtdi2i_181">TitleCase</code> (chaque mot commence par une majuscule).</p></li><li class="list__item" id="rtdi2i_174"><p id="rtdi2i_182">Affichez le prix en utilisant le pipe <code class="code" id="rtdi2i_183">currency</code>.</p></li></ol><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><p id="rtdi2i_184"><span class="control" id="rtdi2i_189"><code class="code" id="rtdi2i_190">product-list.component.ts</code></span> (mis &agrave; jour)</p><div class="code-block" data-lang="ts">
+// ...
+export class ProductListComponent {
+    public products: Product[] = [
+        {id: 101, name: 'souris gamer', price: 49.99, inStock: true, releaseDate: new Date(2023, 5, 15)},
+        {id: 102, name: 'clavier mécanique', price: 120.50, inStock: false, releaseDate: new Date(2022, 11, 1)},
+        {id: 103, name: 'tapis de souris xxl', price: 25.00, inStock: true, releaseDate: new Date(2023, 8, 20)}
+    ];
+}
+</div><p id="rtdi2i_186"><span class="control" id="rtdi2i_191"><code class="code" id="rtdi2i_192">product-list.component.html</code></span> (mis &agrave; jour)</p><div class="code-block" data-lang="markup">
+&lt;h2&gt;Nos Produits&lt;/h2&gt;
+&lt;ul class=&quot;product-list&quot;&gt;
+    @for (product of products; track product.id) {
+    &lt;li [ngClass]=&quot;{ 'out-of-stock': !product.inStock }&quot;&gt;
+        &lt;div class=&quot;product-info&quot;&gt;
+            &lt;!-- Pipes appliqués ici --&gt;
+            &lt;h4&gt;{{ product.name | titlecase }}&lt;/h4&gt;
+            &lt;p&gt;Prix : {{ product.price | currency:'EUR' }}&lt;/p&gt;
+            &lt;p&gt;Sortie : {{ product.releaseDate | date:'dd/MM/yyyy' }}&lt;/p&gt;
+        &lt;/div&gt;
+
+        @if (product.inStock) {
+        &lt;span class=&quot;stock-ok&quot;&gt;En stock&lt;/span&gt;
+        } @else {
+        &lt;span class=&quot;stock-ko&quot;&gt;Épuisé&lt;/span&gt;
+        }
+    &lt;/li&gt;
+    }
+&lt;/ul&gt;
+</div><p id="rtdi2i_188">Pour le <code class="code" id="rtdi2i_193">[ngClass]</code>, j'ai ajout&eacute; une classe <code class="code" id="rtdi2i_194">out-of-stock</code> sur le <code class="code" id="rtdi2i_195">&lt;li&gt;</code> pour montrer une autre fa&ccedil;on de faire.</p></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="rtdi2i_196" type="1"><li class="list__item" id="rtdi2i_197"><p id="rtdi2i_202"><span class="control" id="rtdi2i_203">(Question ouverte)</span> Quelle est la diff&eacute;rence fondamentale entre <code class="code" id="rtdi2i_204">*ngIf=&quot;false&quot;</code> et l'utilisation de CSS <code class="code" id="rtdi2i_205">display: none;</code> sur un &eacute;l&eacute;ment ?</p></li><li class="list__item" id="rtdi2i_198"><p id="rtdi2i_206"><span class="control" id="rtdi2i_207">(QCM)</span> Dans la directive <code class="code" id="rtdi2i_208">@for</code>, &agrave; quoi sert la partie <code class="code" id="rtdi2i_209">track</code>? a) &Agrave; suivre le nombre de clics sur un &eacute;l&eacute;ment. b) &Agrave; fournir un identifiant unique pour chaque &eacute;l&eacute;ment afin d'optimiser les mises &agrave; jour du DOM. c) &Agrave; d&eacute;finir la vitesse de l'animation de la boucle. d) &Agrave; lier un &eacute;v&eacute;nement de tracking.</p></li><li class="list__item" id="rtdi2i_199"><p id="rtdi2i_210"><span class="control" id="rtdi2i_211">(QCM)</span> Quelle est la syntaxe correcte pour afficher une date de naissance (<code class="code" id="rtdi2i_212">birthDate</code>) au format &quot;10 Mai 1990&quot; ? a) <code class="code" id="rtdi2i_213">{{ birthDate | 'dd MMMM yyyy' }}</code> b) <code class="code" id="rtdi2i_214">{{ date: 'dd MMMM yyyy' | birthDate }}</code> c) <code class="code" id="rtdi2i_215">{{ birthDate | date:'dd MMMM yyyy' }}</code> d) <code class="code" id="rtdi2i_216">{{ birthDate.format('dd MMMM yyyy') }}</code></p></li><li class="list__item" id="rtdi2i_200"><p id="rtdi2i_217"><span class="control" id="rtdi2i_218">(Question ouverte)</span> Qu'est-ce qu'un pipe ? Donnez deux exemples de cas d'utilisation o&ugrave; un pipe est plus appropri&eacute; qu'une m&eacute;thode dans le composant.</p></li><li class="list__item" id="rtdi2i_201"><p id="rtdi2i_219"><span class="control" id="rtdi2i_220">(QCM)</span> Comment appliquer dynamiquement la classe CSS <code class="code" id="rtdi2i_221">&quot;highlight&quot;</code> &agrave; un <code class="code" id="rtdi2i_222">&lt;div&gt;</code> si la variable <code class="code" id="rtdi2i_223">isSelected</code> est <code class="code" id="rtdi2i_224">true</code>? a) <code class="code" id="rtdi2i_225">&lt;div class.highlight=&quot;isSelected&quot;&gt;</code> b) <code class="code" id="rtdi2i_226">&lt;div [ngClass]=&quot;{ 'highlight': isSelected }&quot;&gt;</code> c) <code class="code" id="rtdi2i_227">&lt;div class=&quot;@highlight: isSelected;&quot;&gt;</code> d) <code class="code" id="rtdi2i_228">&lt;div ngClass=&quot;if isSelected then 'highlight'&quot;&gt;</code></p></li></ol></section><section class="chapter"><h2 id="conclusion-de-cette-partie" data-toc="conclusion-de-cette-partie">Conclusion de cette partie</h2><p id="rtdi2i_229">Vous venez d'acqu&eacute;rir une puissance d'expression ph&eacute;nom&eacute;nale pour vos vues ! Vous savez d&eacute;sormais manipuler la structure m&ecirc;me de vos pages avec les directives <code class="code" id="rtdi2i_232">@if</code>, <code class="code" id="rtdi2i_233">@for</code> et <code class="code" id="rtdi2i_234">@switch</code>, en gardant toujours &agrave; l'esprit l'optimisation des performances avec <code class="code" id="rtdi2i_235">track</code>. Vous pouvez &eacute;galement alt&eacute;rer l'apparence des &eacute;l&eacute;ments avec <code class="code" id="rtdi2i_236">[ngClass]</code> et <code class="code" id="rtdi2i_237">[ngStyle]</code>.</p><p id="rtdi2i_230">Enfin, vous avez appris &agrave; nettoyer et formater vos donn&eacute;es l&agrave; o&ugrave; elles sont affich&eacute;es, gr&acirc;ce aux pipes. Cela rend vos composants plus propres et votre code HTML plus lisible.</p><p id="rtdi2i_231">Maintenant, une question se pose : toutes nos donn&eacute;es sont pour l'instant &quot;en dur&quot; dans nos composants. Comment faire pour que plusieurs composants partagent les m&ecirc;mes donn&eacute;es ? Comment aller chercher ces donn&eacute;es sur un serveur distant ? C'est pr&eacute;cis&eacute;ment le r&ocirc;le des <span class="control" id="rtdi2i_238">Services</span> et de l' <span class="control" id="rtdi2i_239">Injection de D&eacute;pendances</span>, un sujet o&ugrave; vos comp&eacute;tences en Spring vont vous donner un avantage consid&eacute;rable. C'est ce que nous verrons dans le prochain module.</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-01-advanced-components.html" class="navigation-links__prev">Module 4 : Pour aller plus loin - Composants Avanc&eacute;s : Communication et R&eacute;utilisabilit&eacute;</a><a href="005-01-custom-pipes-and-directives.html" class="navigation-links__next">Module 5 : Pour aller plus loin - Cr&eacute;er vos Propres Pipes et Directives</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

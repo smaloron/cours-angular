@@ -1,0 +1,381 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:33.227371"><title>Projet final | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"1-description-du-projet","level":0,"title":"1. Description du projet","anchor":"#1-description-du-projet"},{"id":"2-analyse-fonctionnelle","level":0,"title":"2. Analyse fonctionnelle","anchor":"#2-analyse-fonctionnelle"},{"id":"3-le-backend-db-json-pour-json-server","level":0,"title":"3. Le backend (db.json pour json-server)","anchor":"#3-le-backend-db-json-pour-json-server"},{"id":"4-user-stories","level":0,"title":"4. User stories","anchor":"#4-user-stories"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Projet final | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/013-project.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Projet final | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/013-project.html#webpage",
+    "url": "writerside-documentation/013-project.html",
+    "name": "Projet final | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="013-project" data-main-title="Projet final" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="013-project" id="013-project.md">Projet final</h1><section class="chapter"><h2 id="1-description-du-projet" data-toc="1-description-du-projet">1. Description du projet</h2><p id="t6t2af_7"><span class="control" id="t6t2af_12">Cin&eacute;-Tracker</span> est une application web monopage (SPA) d&eacute;velopp&eacute;e avec Angular. Elle permet aux utilisateurs de g&eacute;rer leur collection de films. Les utilisateurs peuvent voir une liste pagin&eacute;e de leurs films, rechercher un film sp&eacute;cifique, consulter les d&eacute;tails de chaque film, en ajouter de nouveaux et en supprimer.</p><p id="t6t2af_8">Toutes les donn&eacute;es des films sont g&eacute;r&eacute;es via un backend simul&eacute; avec <code class="code" id="t6t2af_13">json-server</code>, et l'application Angular communique avec ce backend en utilisant le module <code class="code" id="t6t2af_14">HttpClient</code>.</p><p id="t6t2af_9"><span class="control" id="t6t2af_15">Stack technique :</span></p><ul class="list _bullet" id="t6t2af_10"><li class="list__item" id="t6t2af_16"><p id="t6t2af_19"><span class="control" id="t6t2af_20">Frontend :</span> Angular, RxJS pour la recherche r&eacute;active.</p></li><li class="list__item" id="t6t2af_17"><p id="t6t2af_21"><span class="control" id="t6t2af_22">Backend :</span> <code class="code" id="t6t2af_23">json-server</code> (pour simuler une API RESTful).</p></li><li class="list__item" id="t6t2af_18"><p id="t6t2af_24"><span class="control" id="t6t2af_25">Styling :</span> CSS simple.</p></li></ul></section><section class="chapter"><h2 id="2-analyse-fonctionnelle" data-toc="2-analyse-fonctionnelle">2. Analyse fonctionnelle</h2><section class="chapter"><h3 id="la-demande-du-client" data-toc="la-demande-du-client">La demande du client</h3><p id="t6t2af_28">&quot;Je suis un cin&eacute;phile et j'ai une collection de films qui grandit. J'aimerais une petite application web priv&eacute;e pour lister mes films. <span class="control" id="t6t2af_29">Comme la liste devient longue, je voudrais que les films soient affich&eacute;s par page</span>. J'aimerais aussi <span class="control" id="t6t2af_30">pouvoir rechercher un film rapidement</span>. Je veux pouvoir voir rapidement leurs affiches et leurs titres. En cliquant sur un film, j'aimerais voir plus de d&eacute;tails comme le r&eacute;alisateur, l'ann&eacute;e de sortie et un petit synopsis. J'ai aussi besoin de pouvoir ajouter de nouveaux films que j'ach&egrave;te et d'en supprimer si je m'en s&eacute;pare. L'interface doit &ecirc;tre simple et claire.&quot;</p></section><section class="chapter"><h3 id="le-diagramme-de-cas-d-utilisation" data-toc="le-diagramme-de-cas-d-utilisation">Le diagramme de cas d'utilisation</h3><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="521px" preserveAspectRatio="none" style="width:440px;height:521px;background:#FFFFFF;" version="1.1" viewBox="0 0 440 521" width="440px" zoomAndPan="magnify"><defs/><g><!--cluster Syst?me Cin?-Tracker--><g id="cluster_Syst&#232;me Cin&#233;-Tracker"><rect fill="none" height="508" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="246.95" x="188" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="160" x="231.475" y="22.5352">Syst&#232;me Cin&#233;-Tracker</text></g><g id="elem_UC1"><ellipse cx="311.4756" cy="65.9951" fill="#F1F1F1" rx="107.4756" ry="23.8951" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="221.4756" y="69.2861">Consulter la liste des films</text></g><g id="elem_UC2"><ellipse cx="311.4759" cy="386.9952" fill="#F1F1F1" rx="100.1759" ry="22.4352" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164" x="229.4759" y="390.2862">Voir les d&#233;tails d'un film</text></g><g id="elem_UC3"><ellipse cx="311.4788" cy="311.9998" fill="#F1F1F1" rx="73.7488" ry="17.1498" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="259.9788" y="315.2908">Ajouter un film</text></g><g id="elem_UC4"><ellipse cx="311.4782" cy="480.0036" fill="#F1F1F1" rx="82.5182" ry="18.9036" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="249.4782" y="483.2947">Supprimer un film</text></g><g id="elem_UC5"><ellipse cx="311.4764" cy="241.0033" fill="#F1F1F1" rx="84.6664" ry="19.3333" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="246.9764" y="244.2943">Rechercher un film</text></g><g id="elem_UC6"><ellipse cx="311.4754" cy="163.9991" fill="#F1F1F1" rx="102.4454" ry="22.8891" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="226.9754" y="167.2901">Naviguer entre les pages</text></g><!--entity user--><g id="elem_user"><ellipse cx="41" cy="120.26" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M41,128.26 L41,155.26 M28,136.26 L54,136.26 M41,155.26 L28,170.26 M41,155.26 L54,170.26 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="6" y="185.2952">Utilisateur</text></g><!--link user to UC1--><g id="link_user_UC1"><path d="M76.28,139.28 C119.39,125.79 188.524,104.1623 242.004,87.4223 " fill="none" id="user-to-UC1" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="247.73,85.63,237.9461,84.5011,242.9583,87.1236,240.3358,92.1359,247.73,85.63" style="stroke:#181818;stroke-width:1.0;"/></g><!--link user to UC3--><g id="link_user_UC3"><path d="M73.9,188.48 C99.69,217.19 138.45,255.23 180,278 C201.14,289.59 220.539,296.0311 243.169,301.1711 " fill="none" id="user-to-UC3" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="249.02,302.5,241.1295,296.6059,244.1442,301.3925,239.3576,304.4072,249.02,302.5" style="stroke:#181818;stroke-width:1.0;"/></g><!--link UC2 to UC1--><g id="link_UC2_UC1"><path d="M229.44,373.74 C191.39,362.59 151.02,342.1 134.75,304.5 C122.82,276.94 92.17,225.64 180,124 C195.74,105.78 212.7277,95.2848 234.7177,86.5048 " fill="none" id="UC2-to-UC1" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="240.29,84.28,230.4484,83.9024,235.6465,86.134,233.4148,91.3321,240.29,84.28" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="107" y="301.0684">&#171;extends&#187;</text></g><!--link UC4 to UC2--><g id="link_UC4_UC2"><path d="M311.48,460.73 C311.48,445.94 311.48,431.47 311.48,415.86 " fill="none" id="UC4-to-UC2" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="311.48,409.86,307.48,418.86,311.48,414.86,315.48,418.86,311.48,409.86" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="267.98" y="440.3384">&#171;extends&#187;</text></g><!--link UC5 to UC1--><g id="link_UC5_UC1"><path d="M235.93,231.86 C196.29,222.43 152.38,203.31 134.75,164.5 C114.22,119.33 164.3205,95.4805 218.5905,81.8605 " fill="none" id="UC5-to-UC1" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="224.41,80.4,214.707,78.7111,219.5604,81.6171,216.6544,86.4705,224.41,80.4" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="107" y="161.0684">&#171;extends&#187;</text></g><!--link UC6 to UC1--><g id="link_UC6_UC1"><path d="M311.48,140.78 C311.48,125.49 311.48,111.53 311.48,96.08 " fill="none" id="UC6-to-UC1" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="311.48,90.08,307.48,99.08,311.48,95.08,315.48,99.08,311.48,90.08" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="267.98" y="120.5684">&#171;extends&#187;</text></g><!--SRC=[TP7DRi8m383lUGghbvwODFuE4q92tNa76Bj7gIdPqgHAd6dJjFSPpy6BpGcWbG677cf__XpR9JngsNZPjWWrGYK3rEMQjD51adOMEXSzLDhkTuDdBzKRUY5AM2Z2w8N13G4vyBhP4jJQeqf5GYfo7egJXz42s1p3eRfobj1oz60t2E4pqFwdHP4CqZOSAbR7s7dt0hu499EIWI5MXMW8sIA1cr4Q8y16cpRadklgli-_E9qQyfJx7KbjqhZHPlw83_luujN593z7Hdra5RlEw_O26lUX9Qej-lJzeoPzwac-woOoWvOyvcTsii7J85FndRQtH9DF4qvOAVCr02cNg7p3-7T3aVOEWy4yBwFtCxggkwhWlS1T5i03p6RumGUimtpEYV4XCRn8J6vLJAydVW40]--></g></svg></div></section></section><section class="chapter"><h2 id="3-le-backend-db-json-pour-json-server" data-toc="3-le-backend-db-json-pour-json-server">3. Le backend (<code class="code" id="t6t2af_39">db.json</code> pour json-server)</h2><p id="t6t2af_34">Voici un fichier <code class="code" id="t6t2af_40">db.json</code> enrichi avec 45 films pour tester la pagination et la recherche.</p><p id="t6t2af_35"><span class="control" id="t6t2af_41">Comment l'utiliser :</span></p><ol class="list _decimal" id="t6t2af_36" type="1"><li class="list__item" id="t6t2af_42"><p id="t6t2af_46">Installez <code class="code" id="t6t2af_47">json-server</code> globalement : <code class="code" id="t6t2af_48">npm install -g json-server</code></p></li><li class="list__item" id="t6t2af_43"><p id="t6t2af_49">Enregistrez le contenu ci-dessous dans un fichier nomm&eacute; <code class="code" id="t6t2af_50">db.json</code>.</p></li><li class="list__item" id="t6t2af_44"><p id="t6t2af_51">Lancez le serveur : <code class="code" id="t6t2af_52">json-server --watch db.json</code></p></li><li class="list__item" id="t6t2af_45"><p id="t6t2af_53">Votre API sera disponible sur <code class="code" id="t6t2af_54">http://localhost:3000</code>.</p></li></ol><section class="chapter"><h3 id="diagramme" data-toc="diagramme">Diagramme</h3><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="198px" preserveAspectRatio="none" style="width:425px;height:198px;background:#FFFFFF;" version="1.1" viewBox="0 0 425 198" width="425px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="226" x="92.5" y="23.5352">Structure de Donn&#233;es d'un Film</text><!--class Movie--><g id="elem_Movie"><rect codeLine="8" fill="#F1F1F1" height="146.9297" id="Movie" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="133" x="7" y="44.4883"/><ellipse cx="49.45" cy="60.4883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M52.4231,66.1313 Q51.8421,66.4302 51.2029,66.5796 Q50.5638,66.729 49.8582,66.729 Q47.3514,66.729 46.0315,65.0771 Q44.7117,63.4253 44.7117,60.3042 Q44.7117,57.1748 46.0315,55.5229 Q47.3514,53.8711 49.8582,53.8711 Q50.5638,53.8711 51.2112,54.0205 Q51.8587,54.1699 52.4231,54.4688 L52.4231,57.1914 Q51.7923,56.6104 51.1988,56.3406 Q50.6053,56.0708 49.9744,56.0708 Q48.6297,56.0708 47.9449,57.1375 Q47.2601,58.2041 47.2601,60.3042 Q47.2601,62.396 47.9449,63.4626 Q48.6297,64.5293 49.9744,64.5293 Q50.6053,64.5293 51.1988,64.2595 Q51.7923,63.9897 52.4231,63.4087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="69.55" y="65.7793">Movie</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="139" y1="76.4883" y2="76.4883"/><ellipse cx="18" cy="90.2324" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="27" y="94.0234">id: number</text><ellipse cx="18" cy="106.7207" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="27" y="110.5117">title: string</text><ellipse cx="18" cy="123.209" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="27" y="127">director: string</text><ellipse cx="18" cy="139.6973" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="27" y="143.4883">year: number</text><ellipse cx="18" cy="156.1855" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="27" y="159.9766">poster: string</text><ellipse cx="18" cy="172.6738" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="27" y="176.4648">synopsis: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="139" y1="183.418" y2="183.418"/></g><g id="elem_GMN3"><path d="M175,89.9883 L175,113.9583 L140.14,117.9583 L175,121.9583 L175,145.9199 A0,0 0 0 0 175,145.9199 L418,145.9199 A0,0 0 0 0 418,145.9199 L418,99.9883 L408,89.9883 L175,89.9883 A0,0 0 0 0 175,89.9883 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M408,89.9883 L408,99.9883 L418,99.9883 L408,89.9883 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="222" x="181" y="107.5566">Cette classe repr&#233;sente la structure</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="196" x="181" y="122.8672">d'un objet "film" unique tel que</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="200" x="181" y="138.1777">d&#233;fini dans le fichier `db.json`.</text></g><!--SRC=[LL0nRiCm4Dlr2YABXm9vGDOOtTgbVK1aw-nSO9zSwHGaAFeWlyCVgwMqHJqTn2D57YlKRFjWnv7W2CV1naYOV0eOBAA6r6eAPUUyo39JXAkIeEDXDAR2EsjU9xZVVuoo3eIt_zfwett-qTRBtB6mifTCMWtRuc_Am8k_Ck7J04zWTu2aiQ5GdiNYaFEnz0Ln7AXL7pRWdMpOw2OVbRQSU1S_HOv_u5UEzkgLGBTfuDOgNyb81WBtPuNl7j5M-P5qXH-f4MWAonn9b3RbhRnojcykfDZbvdP8mX-9e3HWdPdoA0FEIiJQNyVjcIdWv9hz9NevxGs9GyvXp3S0]--></g></svg></div></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="contenu-json" data-toc="contenu-json">Contenu json</h3></div><div class="collapse__content"><div class="code-block" data-lang="json">
+{
+  &quot;movies&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;title&quot;: &quot;Inception&quot;,
+      &quot;director&quot;: &quot;Christopher Nolan&quot;,
+      &quot;year&quot;: 2010,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/912AErFSBHL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un voleur qui s'approprie des secrets d'entreprise via une technologie de partage de rêves se voit offrir une tâche inverse : implanter une idée dans l'esprit d'un PDG.&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;title&quot;: &quot;The Matrix&quot;,
+      &quot;director&quot;: &quot;Lana &amp; Lilly Wachowski&quot;,
+      &quot;year&quot;: 1999,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/51EG732BV3L._AC_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un pirate informatique découvre que sa réalité est une simulation créée par une intelligence artificielle malveillante.&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;title&quot;: &quot;Parasite&quot;,
+      &quot;director&quot;: &quot;Bong Joon Ho&quot;,
+      &quot;year&quot;: 2019,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/91S+nGNyWSL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;L'avidité et la discrimination de classe menacent la relation symbiotique nouvellement formée entre la riche famille Park et le clan démuni des Kim.&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;title&quot;: &quot;The Godfather&quot;,
+      &quot;director&quot;: &quot;Francis Ford Coppola&quot;,
+      &quot;year&quot;: 1972,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/714hR8j4JSL._AC_SL1000_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Le patriarche vieillissant d'une dynastie de la pègre new-yorkaise passe le contrôle de son empire clandestin à son fils réticent.&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;title&quot;: &quot;Pulp Fiction&quot;,
+      &quot;director&quot;: &quot;Quentin Tarantino&quot;,
+      &quot;year&quot;: 1994,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81zxtgS0asL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Les vies de deux tueurs à gages, d'un boxeur, de la femme d'un gangster et d'un couple de braqueurs s'entremêlent dans quatre histoires de violence et de rédemption.&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;title&quot;: &quot;The Dark Knight&quot;,
+      &quot;director&quot;: &quot;Christopher Nolan&quot;,
+      &quot;year&quot;: 2008,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81AJdVO0oVL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Lorsque le Joker émerge de son passé mystérieux, il sème le chaos à Gotham. Batman doit accepter l'un des plus grands tests psychologiques et physiques pour combattre l'injustice.&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;title&quot;: &quot;Forrest Gump&quot;,
+      &quot;director&quot;: &quot;Robert Zemeckis&quot;,
+      &quot;year&quot;: 1994,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71wP22rJ64L._AC_SL1000_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Les présidences de Kennedy et Johnson, le Vietnam, Watergate et d'autres événements historiques se déroulent à travers la perspective d'un homme de l'Alabama avec un QI de 75.&quot;
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;title&quot;: &quot;Fight Club&quot;,
+      &quot;director&quot;: &quot;David Fincher&quot;,
+      &quot;year&quot;: 1999,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81D+KJkO4SL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un employé de bureau insomniaque et un vendeur de savon diabolique créent un club de combat clandestin qui évolue en quelque chose de beaucoup, beaucoup plus grand.&quot;
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;title&quot;: &quot;Interstellar&quot;,
+      &quot;director&quot;: &quot;Christopher Nolan&quot;,
+      &quot;year&quot;: 2014,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/A1JVqNMI7UL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Une équipe d'explorateurs voyage à travers un trou de ver dans l'espace pour tenter d'assurer la survie de l'humanité.&quot;
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;title&quot;: &quot;Le Seigneur des Anneaux : La Communauté de l'Anneau&quot;,
+      &quot;director&quot;: &quot;Peter Jackson&quot;,
+      &quot;year&quot;: 2001,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/813dE205P-L._AC_SL1417_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un humble Hobbit de la Comté et huit compagnons se lancent dans un voyage pour détruire le puissant Anneau Unique et sauver la Terre du Milieu du Seigneur des Ténèbres Sauron.&quot;
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;title&quot;: &quot;Star Wars: Episode V - L'Empire contre-attaque&quot;,
+      &quot;director&quot;: &quot;Irvin Kershner&quot;,
+      &quot;year&quot;: 1980,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81w4D423iEL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Après la défaite de l'Alliance Rebelle, Luke Skywalker suit une formation Jedi avec Maître Yoda, tandis que ses amis sont poursuivis par Dark Vador.&quot;
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;title&quot;: &quot;Le Voyage de Chihiro&quot;,
+      &quot;director&quot;: &quot;Hayao Miyazaki&quot;,
+      &quot;year&quot;: 2001,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81i8o1n2lHL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Au cours du déménagement de sa famille vers la banlieue, une fillette de 10 ans erre dans un monde gouverné par des dieux, des sorcières et des esprits.&quot;
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;title&quot;: &quot;Gladiator&quot;,
+      &quot;director&quot;: &quot;Ridley Scott&quot;,
+      &quot;year&quot;: 2000,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71L-8S9-9GL._AC_SL1000_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un ancien général romain cherche à se venger de l'empereur corrompu qui a assassiné sa famille et l'a envoyé en esclavage.&quot;
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;title&quot;: &quot;Le Silence des Agneaux&quot;,
+      &quot;director&quot;: &quot;Jonathan Demme&quot;,
+      &quot;year&quot;: 1991,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81SVDO6s6xL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Une jeune stagiaire du FBI doit se confier à un tueur manipulateur emprisonné pour recevoir son aide afin d'attraper un autre tueur en série.&quot;
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;title&quot;: &quot;Se7en&quot;,
+      &quot;director&quot;: &quot;David Fincher&quot;,
+      &quot;year&quot;: 1995,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81xG1T3J1SL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Deux détectives, un novice et un vétéran, traquent un tueur en série qui utilise les sept péchés capitaux comme motifs.&quot;
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;title&quot;: &quot;La Ligne Verte&quot;,
+      &quot;director&quot;: &quot;Frank Darabont&quot;,
+      &quot;year&quot;: 1999,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71Y9gM2GZ1L._AC_SL1000_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;La vie des gardiens du couloir de la mort est affectée par l'un de leurs détenus : un homme noir accusé de meurtre et de viol d'enfants, mais doté d'un don mystérieux.&quot;
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;title&quot;: &quot;Il faut sauver le soldat Ryan&quot;,
+      &quot;director&quot;: &quot;Steven Spielberg&quot;,
+      &quot;year&quot;: 1998,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/8172jLMX13L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Après le débarquement en Normandie, un groupe de soldats américains part derrière les lignes ennemies pour récupérer un parachutiste dont les frères ont été tués au combat.&quot;
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;title&quot;: &quot;Retour vers le futur&quot;,
+      &quot;director&quot;: &quot;Robert Zemeckis&quot;,
+      &quot;year&quot;: 1985,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71pW+A6uSLL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Marty McFly, un lycéen de 17 ans, est accidentellement envoyé trente ans dans le passé dans une DeLorean, une voiture qui voyage dans le temps.&quot;
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;title&quot;: &quot;Le Roi Lion&quot;,
+      &quot;director&quot;: &quot;Roger Allers, Rob Minkoff&quot;,
+      &quot;year&quot;: 1994,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81C65S0Fp6L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Le prince lionceau Simba est chassé de sa fierté par son oncle cruel, qui prétend qu'il a causé la mort de son père.&quot;
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;title&quot;: &quot;Blade Runner 2049&quot;,
+      &quot;director&quot;: &quot;Denis Villeneuve&quot;,
+      &quot;year&quot;: 2017,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81yA7i4iLpL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Le jeune Blade Runner K découvre un secret enfoui depuis longtemps qui le mène à la recherche de l'ancien Blade Runner Rick Deckard, porté disparu depuis 30 ans.&quot;
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;title&quot;: &quot;Joker&quot;,
+      &quot;director&quot;: &quot;Todd Phillips&quot;,
+      &quot;year&quot;: 2019,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71Hhd2G4LSL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;À Gotham City, le comédien mentalement troublé Arthur Fleck est ignoré et maltraité par la société. Il se lance alors dans une spirale descendante de révolution et de crime sanglant.&quot;
+    },
+    {
+      &quot;id&quot;: 22,
+      &quot;title&quot;: &quot;Whiplash&quot;,
+      &quot;director&quot;: &quot;Damien Chazelle&quot;,
+      &quot;year&quot;: 2014,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81m6m2p2SML._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un jeune batteur de jazz prometteur s'inscrit dans un conservatoire de musique où ses rêves de grandeur sont mis à l'épreuve par un instructeur féroce.&quot;
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;title&quot;: &quot;The Prestige&quot;,
+      &quot;director&quot;: &quot;Christopher Nolan&quot;,
+      &quot;year&quot;: 2006,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81rF2-S3sOL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Après un tragique accident, deux magiciens de la scène des années 1890 s'engagent dans une bataille pour créer l'illusion ultime tout en sacrifiant tout ce qu'ils ont.&quot;
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;title&quot;: &quot;Django Unchained&quot;,
+      &quot;director&quot;: &quot;Quentin Tarantino&quot;,
+      &quot;year&quot;: 2012,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71c8sB+gWFL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Avec l'aide d'un chasseur de primes allemand, un esclave libéré entreprend de sauver sa femme d'un propriétaire de plantation brutal au Mississippi.&quot;
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;title&quot;: &quot;Mad Max: Fury Road&quot;,
+      &quot;director&quot;: &quot;George Miller&quot;,
+      &quot;year&quot;: 2015,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81nC2GgI+ML._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Dans un désert post-apocalyptique, une femme se rebelle contre un dirigeant tyrannique à la recherche de sa patrie avec l'aide d'un groupe de prisonnières et d'un vagabond.&quot;
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;title&quot;: &quot;Coco&quot;,
+      &quot;director&quot;: &quot;Lee Unkrich, Adrian Molina&quot;,
+      &quot;year&quot;: 2017,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81s9sV2C-OL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Le jeune musicien en herbe Miguel, confronté à l'interdiction ancestrale de la musique par sa famille, entre dans le Pays des Morts pour trouver son arrière-arrière-grand-père.&quot;
+    },
+    {
+      &quot;id&quot;: 27,
+      &quot;title&quot;: &quot;Jurassic Park&quot;,
+      &quot;director&quot;: &quot;Steven Spielberg&quot;,
+      &quot;year&quot;: 1993,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81ryxG-r6hL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un paléontologue pragmatique visitant un parc à thème presque complet est chargé de protéger quelques enfants après une panne de courant qui a permis aux dinosaures clonés de se déchaîner.&quot;
+    },
+    {
+      &quot;id&quot;: 28,
+      &quot;title&quot;: &quot;Le Loup de Wall Street&quot;,
+      &quot;director&quot;: &quot;Martin Scorsese&quot;,
+      &quot;year&quot;: 2013,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/8106a2v3aOL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Basé sur l'histoire vraie de Jordan Belfort, de son ascension à un riche courtier en bourse vivant la grande vie à sa chute impliquant le crime, la corruption et le gouvernement fédéral.&quot;
+    },
+    {
+      &quot;id&quot;: 29,
+      &quot;title&quot;: &quot;WALL·E&quot;,
+      &quot;director&quot;: &quot;Andrew Stanton&quot;,
+      &quot;year&quot;: 2008,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81XUylG1wsL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Dans un avenir lointain, un petit robot collecteur de déchets se lance par inadvertance dans un voyage spatial qui décidera du sort de l'humanité.&quot;
+    },
+    {
+      &quot;id&quot;: 30,
+      &quot;title&quot;: &quot;Toy Story&quot;,
+      &quot;director&quot;: &quot;John Lasseter&quot;,
+      &quot;year&quot;: 1995,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81p9PUIso-L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un cow-boy jouet se sent profondément menacé et jaloux lorsqu'une nouvelle figurine d'astronaute le supplante en tant que jouet préféré dans la chambre d'un garçon.&quot;
+    },
+    {
+      &quot;id&quot;: 31,
+      &quot;title&quot;: &quot;No Country for Old Men&quot;,
+      &quot;director&quot;: &quot;Joel Coen, Ethan Coen&quot;,
+      &quot;year&quot;: 2007,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81a+xhDoh+L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;La violence et le chaos s'ensuivent après qu'un chasseur tombe sur des trafiquants de drogue morts et plus de deux millions de dollars en espèces près du Rio Grande.&quot;
+    },
+    {
+      &quot;id&quot;: 32,
+      &quot;title&quot;: &quot;Citizen Kane&quot;,
+      &quot;director&quot;: &quot;Orson Welles&quot;,
+      &quot;year&quot;: 1941,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71Y8w4y-i-L._AC_SL1000_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Après le décès du magnat de l'édition Charles Foster Kane, un groupe de journalistes tente de déchiffrer la signification de son dernier mot : 'Rosebud'.&quot;
+    },
+    {
+      &quot;id&quot;: 33,
+      &quot;title&quot;: &quot;Shining&quot;,
+      &quot;director&quot;: &quot;Stanley Kubrick&quot;,
+      &quot;year&quot;: 1980,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81kAl4m6yQL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Une famille se dirige vers un hôtel isolé pour l'hiver où une présence sinistre influence le père vers la violence, tandis que son fils psychique a des prémonitions.&quot;
+    },
+    {
+      &quot;id&quot;: 34,
+      &quot;title&quot;: &quot;Apocalypse Now&quot;,
+      &quot;director&quot;: &quot;Francis Ford Coppola&quot;,
+      &quot;year&quot;: 1979,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81GZajWAIjL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un capitaine de l'armée américaine servant au Vietnam est chargé de retrouver et d'assassiner un colonel des forces spéciales renégat qui s'est proclamé dieu.&quot;
+    },
+    {
+      &quot;id&quot;: 35,
+      &quot;title&quot;: &quot;Alien&quot;,
+      &quot;director&quot;: &quot;Ridley Scott&quot;,
+      &quot;year&quot;: 1979,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81aA7hI+TOL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;L'équipage d'un vaisseau spatial commercial rencontre une forme de vie mortelle après avoir enquêté sur une transmission inconnue.&quot;
+    },
+    {
+      &quot;id&quot;: 36,
+      &quot;title&quot;: &quot;2001: L'Odyssée de l'espace&quot;,
+      &quot;director&quot;: &quot;Stanley Kubrick&quot;,
+      &quot;year&quot;: 1968,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81S2W911DGL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Après avoir découvert un mystérieux artefact enfoui sous la surface lunaire, l'humanité se lance dans une quête pour le retrouver avec l'aide de l'ordinateur intelligent H.A.L. 9000.&quot;
+    },
+    {
+      &quot;id&quot;: 37,
+      &quot;title&quot;: &quot;Blade Runner&quot;,
+      &quot;director&quot;: &quot;Ridley Scott&quot;,
+      &quot;year&quot;: 1982,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81vTHL+zRPL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un Blade Runner doit poursuivre et terminer quatre réplicants qui ont volé un vaisseau dans l'espace et sont revenus sur Terre pour trouver leur créateur.&quot;
+    },
+    {
+      &quot;id&quot;: 38,
+      &quot;title&quot;: &quot;Inglourious Basterds&quot;,
+      &quot;director&quot;: &quot;Quentin Tarantino&quot;,
+      &quot;year&quot;: 2009,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81s+b3n3V9L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Dans la France occupée par les nazis pendant la Seconde Guerre mondiale, un plan visant à assassiner les dirigeants nazis par un groupe de soldats juifs américains coïncide avec les plans vengeurs d'une propriétaire de cinéma.&quot;
+    },
+    {
+      &quot;id&quot;: 39,
+      &quot;title&quot;: &quot;Goodfellas&quot;,
+      &quot;director&quot;: &quot;Martin Scorsese&quot;,
+      &quot;year&quot;: 1990,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/71R4gYmD2CL._AC_SL1000_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;L'histoire de Henry Hill et de sa vie dans la mafia, couvrant sa relation avec sa femme Karen Hill et ses partenaires mafieux Jimmy Conway et Tommy DeVito.&quot;
+    },
+    {
+      &quot;id&quot;: 40,
+      &quot;title&quot;: &quot;The Thing&quot;,
+      &quot;director&quot;: &quot;John Carpenter&quot;,
+      &quot;year&quot;: 1982,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81y4w5K3LPL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Une équipe de recherche en Antarctique est traquée par un extraterrestre qui change de forme et prend l'apparence de ses victimes.&quot;
+    },
+    {
+      &quot;id&quot;: 41,
+      &quot;title&quot;: &quot;Les Dents de la mer&quot;,
+      &quot;director&quot;: &quot;Steven Spielberg&quot;,
+      &quot;year&quot;: 1975,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81Wp6+2pCBL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Lorsqu'un grand requin blanc mangeur d'hommes commence à s'attaquer à la communauté balnéaire d'Amity Island, un chef de la police, un biologiste marin et un chasseur de requins se lancent à sa poursuite.&quot;
+    },
+    {
+      &quot;id&quot;: 42,
+      &quot;title&quot;: &quot;Taxi Driver&quot;,
+      &quot;director&quot;: &quot;Martin Scorsese&quot;,
+      &quot;year&quot;: 1976,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81vTp-fl+2L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Un vétéran du Vietnam mentalement instable travaille comme chauffeur de taxi de nuit à New York, où la décadence et la corruption perçues alimentent son besoin urgent d'action violente.&quot;
+    },
+    {
+      &quot;id&quot;: 43,
+      &quot;title&quot;: &quot;Eternal Sunshine of the Spotless Mind&quot;,
+      &quot;director&quot;: &quot;Michel Gondry&quot;,
+      &quot;year&quot;: 2004,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81kF9iF+yHL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Lorsqu'ils apprennent que leurs ex ont subi une procédure pour les effacer de leur mémoire, un couple décide de faire de même, mais redécouvre ce qu'ils avaient commencé à perdre.&quot;
+    },
+    {
+      &quot;id&quot;: 44,
+      &quot;title&quot;: &quot;Scarface&quot;,
+      &quot;director&quot;: &quot;Brian De Palma&quot;,
+      &quot;year&quot;: 1983,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81Vd0gX1aLL._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;En 1980 à Miami, un réfugié cubain déterminé prend le contrôle d'un cartel de la drogue et succombe à la cupidité.&quot;
+    },
+    {
+      &quot;id&quot;: 45,
+      &quot;title&quot;: &quot;Amélie Poulain&quot;,
+      &quot;director&quot;: &quot;Jean-Pierre Jeunet&quot;,
+      &quot;year&quot;: 2001,
+      &quot;poster&quot;: &quot;https://m.media-amazon.com/images/I/81fCpr2u3-L._AC_SL1500_.jpg&quot;,
+      &quot;synopsis&quot;: &quot;Amélie est une serveuse innocente et naïve à Paris avec son propre sens de la justice. Elle décide d'aider ceux qui l'entourent et, en cours de route, découvre l'amour.&quot;
+    }
+  ]
+}
+</div></div></div></section></section><section class="chapter"><h2 id="4-user-stories" data-toc="4-user-stories">4. User stories</h2><section class="chapter"><h3 id="us-1-affichage-de-la-liste-des-films" data-toc="us-1-affichage-de-la-liste-des-films">US #1 : Affichage de la liste des films</h3><ul class="list _bullet" id="t6t2af_64"><li class="list__item" id="t6t2af_65"><p id="t6t2af_68"><span class="control" id="t6t2af_69">Texte :</span> En tant qu'utilisateur, je veux voir une premi&egrave;re page de mes films sur la page d'accueil afin d'avoir une vue d'ensemble de ma collection sans &ecirc;tre submerg&eacute;.</p></li><li class="list__item" id="t6t2af_66"><p id="t6t2af_70"><span class="control" id="t6t2af_72">Crit&egrave;res d'acceptance :</span></p><ul class="list _bullet" id="t6t2af_71"><li class="list__item" id="t6t2af_73"><p id="t6t2af_75">Quand j'arrive sur l'application, la page principale affiche une grille contenant un nombre limit&eacute; de films (ex:12 par page).</p></li><li class="list__item" id="t6t2af_74"><p id="t6t2af_76">Pour chaque film dans la grille, je vois son affiche et son titre.</p></li></ul></li><li class="list__item" id="t6t2af_67"><p id="t6t2af_77"><span class="control" id="t6t2af_79">T&acirc;ches techniques :</span></p><ul class="list _bullet" id="t6t2af_78"><li class="list__item" id="t6t2af_80"><p id="t6t2af_85">Cr&eacute;er un <code class="code" id="t6t2af_86">MovieService</code> avec une m&eacute;thode <code class="code" id="t6t2af_87">getMovies(page: number, limit: number)</code> qui fait un appel GET &agrave; <code class="code" id="t6t2af_88">http://localhost:3000/movies?_page={page}&amp;_limit={limit}</code>.</p></li><li class="list__item" id="t6t2af_81"><p id="t6t2af_89"><code class="code" id="t6t2af_90">json-server</code> retourne le nombre total d'&eacute;l&eacute;ments dans le header <code class="code" id="t6t2af_91">X-Total-Count</code>. Le service doit r&eacute;cup&eacute;rer ce header pour conna&icirc;tre le nombre total de pages.</p></li><li class="list__item" id="t6t2af_82"><p id="t6t2af_92">Cr&eacute;er un composant <code class="code" id="t6t2af_93">MovieListComponent</code>.</p></li><li class="list__item" id="t6t2af_83"><p id="t6t2af_94">Dans <code class="code" id="t6t2af_95">MovieListComponent</code>, appeler <code class="code" id="t6t2af_96">getMovies()</code> dans le <code class="code" id="t6t2af_97">ngOnInit</code> avec la page 1.</p></li><li class="list__item" id="t6t2af_84"><p id="t6t2af_98">Dans le template, utiliser <code class="code" id="t6t2af_99">*ngFor</code> pour afficher la liste pagin&eacute;e de films.</p></li></ul></li></ul></section><section class="chapter"><h3 id="us-2-consultation-des-d-tails-d-un-film" data-toc="us-2-consultation-des-d-tails-d-un-film">US #2 : Consultation des d&eacute;tails d'un film</h3><ul class="list _bullet" id="t6t2af_100"><li class="list__item" id="t6t2af_101"><p id="t6t2af_104"><span class="control" id="t6t2af_105">Texte :</span> En tant qu'utilisateur, je veux pouvoir cliquer sur un film de la liste pour voir sa page de d&eacute;tails, afin de conna&icirc;tre son synopsis, son r&eacute;alisateur et son ann&eacute;e de sortie.</p></li><li class="list__item" id="t6t2af_102"><p id="t6t2af_106"><span class="control" id="t6t2af_108">Crit&egrave;res d'acceptance :</span></p><ul class="list _bullet" id="t6t2af_107"><li class="list__item" id="t6t2af_109"><p id="t6t2af_113">Quand je clique sur une carte de film, je suis redirig&eacute; vers une nouvelle page.</p></li><li class="list__item" id="t6t2af_110"><p id="t6t2af_114">L'URL doit contenir l'ID du film (ex: <code class="code" id="t6t2af_115">/movies/1</code>).</p></li><li class="list__item" id="t6t2af_111"><p id="t6t2af_116">La page de d&eacute;tail affiche l'affiche, le titre, l'ann&eacute;e, le r&eacute;alisateur et le synopsis.</p></li><li class="list__item" id="t6t2af_112"><p id="t6t2af_117">Un bouton &quot;Retour &agrave; la liste&quot; est pr&eacute;sent.</p></li></ul></li><li class="list__item" id="t6t2af_103"><p id="t6t2af_118"><span class="control" id="t6t2af_120">T&acirc;ches techniques :</span></p><ul class="list _bullet" id="t6t2af_119"><li class="list__item" id="t6t2af_121"><p id="t6t2af_125">Configurer le module de routing avec une route <code class="code" id="t6t2af_126">movies/:id</code> pointant vers un <code class="code" id="t6t2af_127">MovieDetailComponent</code>.</p></li><li class="list__item" id="t6t2af_122"><p id="t6t2af_128">Dans <code class="code" id="t6t2af_129">MovieService</code>, ajouter une m&eacute;thode <code class="code" id="t6t2af_130">getMovieById(id: number)</code>.</p></li><li class="list__item" id="t6t2af_123"><p id="t6t2af_131">Dans <code class="code" id="t6t2af_132">MovieDetailComponent</code>, r&eacute;cup&eacute;rer l'ID depuis l'URL (<code class="code" id="t6t2af_133">ActivatedRoute</code>), appeler le service et afficher les d&eacute;tails.</p></li><li class="list__item" id="t6t2af_124"><p id="t6t2af_134">Modifier <code class="code" id="t6t2af_135">MovieListComponent</code> pour que chaque carte soit un lien <code class="code" id="t6t2af_136">routerLink</code>.</p></li></ul></li></ul></section><section class="chapter"><h3 id="us-3-ajout-d-un-nouveau-film" data-toc="us-3-ajout-d-un-nouveau-film">US #3 : Ajout d'un nouveau film</h3><ul class="list _bullet" id="t6t2af_137"><li class="list__item" id="t6t2af_138"><p id="t6t2af_141"><span class="control" id="t6t2af_142">Texte :</span> En tant qu'utilisateur, je veux pouvoir ajouter un nouveau film &agrave; ma collection via un formulaire, afin de garder ma liste &agrave; jour.</p></li><li class="list__item" id="t6t2af_139"><p id="t6t2af_143"><span class="control" id="t6t2af_145">Crit&egrave;res d'acceptance :</span></p><ul class="list _bullet" id="t6t2af_144"><li class="list__item" id="t6t2af_146"><p id="t6t2af_149">Un bouton &quot;Ajouter un film&quot; est visible sur la page d'accueil.</p></li><li class="list__item" id="t6t2af_147"><p id="t6t2af_150">Le clic sur ce bouton m&egrave;ne &agrave; une page avec un formulaire.</p></li><li class="list__item" id="t6t2af_148"><p id="t6t2af_151">Apr&egrave;s soumission, le nouveau film est ajout&eacute; et l'utilisateur est redirig&eacute; vers la page d'accueil.</p></li></ul></li><li class="list__item" id="t6t2af_140"><p id="t6t2af_152"><span class="control" id="t6t2af_154">T&acirc;ches techniques :</span></p><ul class="list _bullet" id="t6t2af_153"><li class="list__item" id="t6t2af_155"><p id="t6t2af_159">Cr&eacute;er un <code class="code" id="t6t2af_160">MovieAddComponent</code> avec un <code class="code" id="t6t2af_161">ReactiveForm</code>.</p></li><li class="list__item" id="t6t2af_156"><p id="t6t2af_162">Ajouter une route <code class="code" id="t6t2af_163">/movies/add</code>.</p></li><li class="list__item" id="t6t2af_157"><p id="t6t2af_164">Dans <code class="code" id="t6t2af_165">MovieService</code>, ajouter une m&eacute;thode <code class="code" id="t6t2af_166">addMovie(movie: Movie)</code> qui fait un appel <code class="code" id="t6t2af_167">POST</code>.</p></li><li class="list__item" id="t6t2af_158"><p id="t6t2af_168">Lier le formulaire au service et utiliser le <code class="code" id="t6t2af_169">Router</code> pour la redirection.</p></li></ul></li></ul></section><section class="chapter"><h3 id="us-4-suppression-d-un-film" data-toc="us-4-suppression-d-un-film">US #4 : Suppression d'un film</h3><ul class="list _bullet" id="t6t2af_170"><li class="list__item" id="t6t2af_171"><p id="t6t2af_174"><span class="control" id="t6t2af_175">Texte :</span> En tant qu'utilisateur, je veux pouvoir supprimer un film depuis sa page de d&eacute;tail.</p></li><li class="list__item" id="t6t2af_172"><p id="t6t2af_176"><span class="control" id="t6t2af_178">Crit&egrave;res d'acceptance :</span></p><ul class="list _bullet" id="t6t2af_177"><li class="list__item" id="t6t2af_179"><p id="t6t2af_182">Sur la page de d&eacute;tail d'un film, un bouton &quot;Supprimer&quot; est pr&eacute;sent.</p></li><li class="list__item" id="t6t2af_180"><p id="t6t2af_183">Une bo&icirc;te de dialogue de confirmation appara&icirc;t au clic.</p></li><li class="list__item" id="t6t2af_181"><p id="t6t2af_184">Si je confirme, le film est supprim&eacute; et je suis redirig&eacute; vers la page d'accueil.</p></li></ul></li><li class="list__item" id="t6t2af_173"><p id="t6t2af_185"><span class="control" id="t6t2af_187">T&acirc;ches techniques :</span></p><ul class="list _bullet" id="t6t2af_186"><li class="list__item" id="t6t2af_188"><p id="t6t2af_190">Dans <code class="code" id="t6t2af_191">MovieService</code>, ajouter une m&eacute;thode <code class="code" id="t6t2af_192">deleteMovie(id: number)</code> qui fait un appel <code class="code" id="t6t2af_193">DELETE</code>.</p></li><li class="list__item" id="t6t2af_189"><p id="t6t2af_194">Dans <code class="code" id="t6t2af_195">MovieDetailComponent</code>, ajouter un bouton qui appelle cette m&eacute;thode apr&egrave;s une confirmation (<code class="code" id="t6t2af_196">window.confirm()</code>) et g&egrave;re la redirection.</p></li></ul></li></ul></section><section class="chapter"><h3 id="us-5-recherche-d-un-film" data-toc="us-5-recherche-d-un-film">US #5 : Recherche d'un film</h3><ul class="list _bullet" id="t6t2af_197"><li class="list__item" id="t6t2af_198"><p id="t6t2af_201"><span class="control" id="t6t2af_202">Texte :</span> En tant qu'utilisateur, je veux pouvoir rechercher un film par son titre afin de le trouver rapidement dans ma grande collection.</p></li><li class="list__item" id="t6t2af_199"><p id="t6t2af_203"><span class="control" id="t6t2af_205">Crit&egrave;res d'acceptance :</span></p><ul class="list _bullet" id="t6t2af_204"><li class="list__item" id="t6t2af_206"><p id="t6t2af_210">Un champ de recherche est pr&eacute;sent sur la page de la liste des films.</p></li><li class="list__item" id="t6t2af_207"><p id="t6t2af_211">Pendant que je saisis du texte, la liste des films se met &agrave; jour pour n'afficher que les r&eacute;sultats correspondants.</p></li><li class="list__item" id="t6t2af_208"><p id="t6t2af_212">La recherche se d&eacute;clenche apr&egrave;s un court d&eacute;lai (ex: 300ms) pour ne pas surcharger le serveur.</p></li><li class="list__item" id="t6t2af_209"><p id="t6t2af_213">Si je vide le champ de recherche, la liste pagin&eacute;e initiale r&eacute;appara&icirc;t.</p></li></ul></li><li class="list__item" id="t6t2af_200"><p id="t6t2af_214"><span class="control" id="t6t2af_216">T&acirc;ches techniques :</span></p><ul class="list _bullet" id="t6t2af_215"><li class="list__item" id="t6t2af_217"><p id="t6t2af_221">Dans <code class="code" id="t6t2af_222">MovieService</code>, modifier la m&eacute;thode <code class="code" id="t6t2af_223">getMovies</code> pour accepter un terme de recherche optionnel. L'appel HTTP devient : <code class="code" id="t6t2af_224">http://localhost:3000/movies?q={searchTerm}&amp;_page=1&amp;_limit={limit}</code>. La recherche doit r&eacute;initialiser la pagination &agrave; la premi&egrave;re page.</p></li><li class="list__item" id="t6t2af_218"><p id="t6t2af_225">Dans <code class="code" id="t6t2af_226">MovieListComponent</code>, ajouter un <code class="code" id="t6t2af_227">FormControl</code> pour le champ de recherche.</p></li><li class="list__item" id="t6t2af_219"><p id="t6t2af_228">S'abonner &agrave; <code class="code" id="t6t2af_229">valueChanges</code> de ce <code class="code" id="t6t2af_230">FormControl</code>.</p></li><li class="list__item" id="t6t2af_220"><p id="t6t2af_231">Utiliser les op&eacute;rateurs RxJS <code class="code" id="t6t2af_232">debounceTime(300)</code> et <code class="code" id="t6t2af_233">distinctUntilChanged()</code> sur l'observable <code class="code" id="t6t2af_234">valueChanges</code> avant d'appeler le service.</p></li></ul></li></ul></section><section class="chapter"><h3 id="us-6-navigation-entre-les-pages" data-toc="us-6-navigation-entre-les-pages">US #6 : Navigation entre les pages</h3><ul class="list _bullet" id="t6t2af_235"><li class="list__item" id="t6t2af_236"><p id="t6t2af_239"><span class="control" id="t6t2af_240">Texte :</span> En tant qu'utilisateur, je veux pouvoir naviguer entre les diff&eacute;rentes pages de ma liste de films afin de pouvoir consulter l'int&eacute;gralit&eacute; de ma collection.</p></li><li class="list__item" id="t6t2af_237"><p id="t6t2af_241"><span class="control" id="t6t2af_243">Crit&egrave;res d'acceptance :</span></p><ul class="list _bullet" id="t6t2af_242"><li class="list__item" id="t6t2af_244"><p id="t6t2af_248">Des boutons &quot;Pr&eacute;c&eacute;dent&quot; et &quot;Suivant&quot; sont affich&eacute;s sous la liste des films.</p></li><li class="list__item" id="t6t2af_245"><p id="t6t2af_249">Le bouton &quot;Pr&eacute;c&eacute;dent&quot; est d&eacute;sactiv&eacute; si je suis sur la premi&egrave;re page.</p></li><li class="list__item" id="t6t2af_246"><p id="t6t2af_250">Le bouton &quot;Suivant&quot; est d&eacute;sactiv&eacute; si je suis sur la derni&egrave;re page.</p></li><li class="list__item" id="t6t2af_247"><p id="t6t2af_251">Cliquer sur ces boutons charge la page correspondante de films.</p></li></ul></li><li class="list__item" id="t6t2af_238"><p id="t6t2af_252"><span class="control" id="t6t2af_254">T&acirc;ches techniques :</span></p><ul class="list _bullet" id="t6t2af_253"><li class="list__item" id="t6t2af_255"><p id="t6t2af_258">Dans <code class="code" id="t6t2af_259">MovieListComponent</code>, stocker le num&eacute;ro de la page actuelle et le nombre total de films (obtenu via le header <code class="code" id="t6t2af_260">X-Total-Count</code>).</p></li><li class="list__item" id="t6t2af_256"><p id="t6t2af_261">Cr&eacute;er des m&eacute;thodes <code class="code" id="t6t2af_262">nextPage()</code> et <code class="code" id="t6t2af_263">previousPage()</code> qui incr&eacute;mentent/d&eacute;cr&eacute;mentent le num&eacute;ro de page et rappellent <code class="code" id="t6t2af_264">movieService.getMovies()</code>.</p></li><li class="list__item" id="t6t2af_257"><p id="t6t2af_265">Dans le template, lier l'attribut <code class="code" id="t6t2af_266">[disabled]</code> des boutons aux conditions (page actuelle === 1 pour &quot;Pr&eacute;c&eacute;dent&quot;, et page actuelle &gt;= totalPages pour &quot;Suivant&quot;).</p></li></ul></li></ul></section></section><div class="last-modified">10 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="012-01-corrections.html" class="navigation-links__prev">Corrections des Auto-&eacute;valuations</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

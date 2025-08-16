@@ -1,0 +1,154 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:34.069534"><title>Module 11 : Pour aller plus loin - Architectures Avanc&eacute;es et Performance | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-de-l-application-fonctionnelle-l-application-d-exception","level":0,"title":"Introduction : De l\u0027application fonctionnelle à l\u0027application d\u0027exception","anchor":"#introduction-de-l-application-fonctionnelle-l-application-d-exception"},{"id":"1-ngonchanges-r-agir-aux-changements-d-inputs","level":0,"title":"1. ngOnChanges : Réagir aux changements d\u0027Inputs","anchor":"#1-ngonchanges-r-agir-aux-changements-d-inputs"},{"id":"2-organisation-du-code-feature-modules-et-shared-module","level":0,"title":"2. Organisation du Code : Feature Modules et Shared Module","anchor":"#2-organisation-du-code-feature-modules-et-shared-module"},{"id":"3-optimisation-des-performances-changedetectionstrategy-onpush","level":0,"title":"3. Optimisation des Performances : ChangeDetectionStrategy.OnPush","anchor":"#3-optimisation-des-performances-changedetectionstrategy-onpush"},{"id":"4-intercepteurs-http-httpinterceptor","level":0,"title":"4. Intercepteurs HTTP (HttpInterceptor)","anchor":"#4-intercepteurs-http-httpinterceptor"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 11 : Pour aller plus loin - Architectures Avanc&eacute;es et Performance | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/011-01-advanced-architecture.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 11 : Pour aller plus loin - Architectures Avanc&eacute;es et Performance | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/011-01-advanced-architecture.html#webpage",
+    "url": "writerside-documentation/011-01-advanced-architecture.html",
+    "name": "Module 11 : Pour aller plus loin - Architectures Avanc&eacute;es et Performance | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="011-01-advanced-architecture" data-main-title="Module 11 : Pour aller plus loin - Architectures Avancées et Performance" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="011-00-good-practices.md|Module 11 : L'essentiel - Sujets Complémentaires et Bonnes Pratiques"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="011-01-advanced-architecture" id="011-01-advanced-architecture.md">Module 11 : Pour aller plus loin - Architectures Avancées et Performance</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="hhlneu_12">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="hhlneu_13"><li class="list__item" id="hhlneu_14"><p id="hhlneu_18"><span class="control" id="hhlneu_19">Comprendre</span> en d&eacute;tail le hook de cycle de vie <code class="code" id="hhlneu_20">ngOnChanges</code> pour r&eacute;agir aux changements des <code class="code" id="hhlneu_21">@Input</code>.</p></li><li class="list__item" id="hhlneu_15"><p id="hhlneu_22"><span class="control" id="hhlneu_23">Structurer</span> votre application en &quot;Features Modules&quot; et &quot;Shared Modules&quot; pour une meilleure organisation.</p></li><li class="list__item" id="hhlneu_16"><p id="hhlneu_24"><span class="control" id="hhlneu_25">Mettre en place</span> une strat&eacute;gie de d&eacute;tection de changement <code class="code" id="hhlneu_26">OnPush</code> pour optimiser les performances de l'application.</p></li><li class="list__item" id="hhlneu_17"><p id="hhlneu_27"><span class="control" id="hhlneu_28">Conna&icirc;tre</span> l'existence des Intercepteurs HTTP pour manipuler globalement les requ&ecirc;tes et les r&eacute;ponses.</p></li></ul></section><section class="chapter"><h2 id="introduction-de-l-application-fonctionnelle-l-application-d-exception" data-toc="introduction-de-l-application-fonctionnelle-l-application-d-exception">Introduction : De l'application fonctionnelle &agrave; l'application d'exception</h2><p id="hhlneu_29">Votre application fonctionne. Elle est bien structur&eacute;e et pr&ecirc;te pour la production. Mais comment la faire passer au niveau sup&eacute;rieur ? Comment s'assurer qu'elle reste rapide et r&eacute;active m&ecirc;me avec des centaines de composants &agrave; l'&eacute;cran ? Comment g&eacute;rer des probl&eacute;matiques transversales comme l'ajout d'un token d'authentification &agrave; chaque requ&ecirc;te HTTP sans dupliquer de code ?</p><p id="hhlneu_30">Cette section vous plonge dans les techniques utilis&eacute;es pour construire des applications Angular &agrave; grande &eacute;chelle. Nous allons parler d' <span class="control" id="hhlneu_32">optimisation des performances</span> en contr&ocirc;lant finement comment et quand Angular v&eacute;rifie les changements. Nous aborderons des <span class="control" id="hhlneu_33">patterns d'architecture</span> pour organiser votre code de mani&egrave;re encore plus modulaire. Enfin, nous d&eacute;couvrirons les <span class="control" id="hhlneu_34">intercepteurs</span>, un outil puissant pour g&eacute;rer les requ&ecirc;tes HTTP de mani&egrave;re globale.</p><p id="hhlneu_31">Ces concepts sont la marque des d&eacute;veloppeurs et architectes Angular exp&eacute;riment&eacute;s.</p></section><section class="chapter"><h2 id="1-ngonchanges-r-agir-aux-changements-d-inputs" data-toc="1-ngonchanges-r-agir-aux-changements-d-inputs">1. <code class="code" id="hhlneu_41">ngOnChanges</code>: R&eacute;agir aux changements d'Inputs</h2><p id="hhlneu_36"><code class="code" id="hhlneu_42">ngOnInit</code> est appel&eacute; une seule fois. Mais que se passe-t-il si une propri&eacute;t&eacute; <code class="code" id="hhlneu_43">@Input</code> de votre composant change <span class="emphasis" id="hhlneu_44">apr&egrave;s</span> l'initialisation ? C'est l&agrave; qu'intervient <code class="code" id="hhlneu_45">ngOnChanges</code>.</p><ul class="list _bullet" id="hhlneu_37"><li class="list__item" id="hhlneu_46"><p id="hhlneu_48"><span class="control" id="hhlneu_49">Quand ?</span> Appel&eacute; avant <code class="code" id="hhlneu_50">ngOnInit</code> et &agrave; chaque fois qu'une ou plusieurs des propri&eacute;t&eacute;s <code class="code" id="hhlneu_51">@Input</code> du composant changent de valeur.</p></li><li class="list__item" id="hhlneu_47"><p id="hhlneu_52"><span class="control" id="hhlneu_53">Comment ?</span> Il re&ccedil;oit en argument un objet <code class="code" id="hhlneu_54">SimpleChanges</code> qui d&eacute;taille, pour chaque <code class="code" id="hhlneu_55">@Input</code> modifi&eacute;, sa valeur pr&eacute;c&eacute;dente et sa valeur actuelle.</p></li></ul><p id="hhlneu_38"><span class="control" id="hhlneu_56">Sc&eacute;nario :</span> Un composant <code class="code" id="hhlneu_57">StockChartComponent</code> qui doit redessiner un graphique chaque fois que le symbole de l'action (<code class="code" id="hhlneu_58">stockSymbol</code>) fourni par le parent change.</p><div class="code-block" data-lang="ts">
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+
+@Component({ /* ... */})
+export class StockChartComponent implements OnChanges {
+    @Input() stockSymbol: string = '';
+
+    ngOnChanges(changes: SimpleChanges): void {
+        // On vérifie si la propriété 'stockSymbol' a changé
+        if (changes['stockSymbol']) {
+            const change = changes['stockSymbol'];
+            console.log(`Le symbole a changé de '${change.previousValue}' à '${change.currentValue}'.`);
+
+            // C'est ici qu'on lancerait la logique pour mettre à jour le graphique
+            this.redrawChart(change.currentValue);
+        }
+    }
+
+    private redrawChart(symbol: string): void {
+        console.log(`Redessin du graphique pour ${symbol}...`);
+    }
+}
+</div><aside class="prompt" data-type="warning" data-title="" id="hhlneu_40"><p>`ngOnChanges` peut &ecirc;tre co&ucirc;teux en performance s'il est mal utilis&eacute;, car il se d&eacute;clenche souvent. Une alternative plus moderne et souvent plus performante pour r&eacute;agir aux changements d'un input est d'utiliser un &quot;setter&quot; ou de transformer l'input en `Signal` ou en `Observable`.</p></aside></section><section class="chapter"><h2 id="2-organisation-du-code-feature-modules-et-shared-module" data-toc="2-organisation-du-code-feature-modules-et-shared-module">2. Organisation du Code : Feature Modules et Shared Module</h2><p id="hhlneu_59">M&ecirc;me si les composants &quot;standalone&quot; ont simplifi&eacute; les choses, le concept de &quot;Module&quot; reste un excellent pattern d'organisation.</p><ul class="list _bullet" id="hhlneu_60"><li class="list__item" id="hhlneu_62"><p id="hhlneu_64"><span class="control" id="hhlneu_65">Feature Modules :</span> Au lieu de mettre tous vos composants li&eacute;s &agrave; une fonctionnalit&eacute; (ex: &quot;gestion des produits&quot;) &agrave; la racine, regroupez-les dans un dossier <code class="code" id="hhlneu_66">/products</code>. Ce dossier devient un &quot;module de fonctionnalit&eacute;&quot;. Si vous utilisez le lazy loading, vous chargerez ce module en entier.</p></li><li class="list__item" id="hhlneu_63"><p id="hhlneu_67"><span class="control" id="hhlneu_68">Shared Module :</span> Vous aurez des composants, pipes et directives r&eacute;utilisables partout (ex: un <code class="code" id="hhlneu_69">ButtonComponent</code>, un <code class="code" id="hhlneu_70">TruncatePipe</code>). Regroupez-les dans un dossier <code class="code" id="hhlneu_71">/shared</code>. Vous pouvez m&ecirc;me cr&eacute;er un <code class="code" id="hhlneu_72">shared.module.ts</code> qui exporte tout ce beau monde, pour ne faire qu'un seul import dans les autres modules.</p></li></ul><div class="code-block" data-lang="none">
+src/app/
+├── products/
+│   ├── product-list/
+│   ├── product-detail/
+│   └── products.routes.ts   (routes du feature module)
+│
+├── orders/
+│   ├── ... (autre feature module)
+│
+└── shared/
+    ├── components/
+    │   └── button/
+    ├── pipes/
+    │   └── truncate.pipe.ts
+    └── directives/
+        └── highlight.directive.ts
+</div></section><section class="chapter"><h2 id="3-optimisation-des-performances-changedetectionstrategy-onpush" data-toc="3-optimisation-des-performances-changedetectionstrategy-onpush">3. Optimisation des Performances : <code class="code" id="hhlneu_80">ChangeDetectionStrategy.OnPush</code></h2><p id="hhlneu_74">Par d&eacute;faut, Angular utilise une strat&eacute;gie de d&eacute;tection de changement &quot;sale&quot; (<code class="code" id="hhlneu_81">Default</code>). &Agrave; chaque &eacute;v&eacute;nement (clic, retour de requ&ecirc;te HTTP...), il v&eacute;rifie <span class="control" id="hhlneu_82">toute l'arborescence des composants</span> depuis la racine pour voir si quelque chose a chang&eacute; et doit &ecirc;tre r&eacute;-affich&eacute;. Dans une grosse application, cela peut &ecirc;tre lent.</p><p id="hhlneu_75"><code class="code" id="hhlneu_83">ChangeDetectionStrategy.OnPush</code> est une strat&eacute;gie beaucoup plus performante. Un composant <code class="code" id="hhlneu_84">OnPush</code> ne sera v&eacute;rifi&eacute; et r&eacute;-affich&eacute; que si <span class="control" id="hhlneu_85">l'une de ces conditions</span> est remplie :</p><ol class="list _decimal" id="hhlneu_76" type="1"><li class="list__item" id="hhlneu_86"><p id="hhlneu_90">Une de ses propri&eacute;t&eacute;s <code class="code" id="hhlneu_91">@Input</code> change de <span class="control" id="hhlneu_92">r&eacute;f&eacute;rence</span> (pas juste une modification interne de l'objet).</p></li><li class="list__item" id="hhlneu_87"><p id="hhlneu_93">Un &eacute;v&eacute;nement (comme un <code class="code" id="hhlneu_94">(click)</code>) se d&eacute;clenche <span class="control" id="hhlneu_95">depuis son propre template</span> (ou celui d'un de ses enfants).</p></li><li class="list__item" id="hhlneu_88"><p id="hhlneu_96">On utilise le pipe <code class="code" id="hhlneu_97">async</code> dans son template.</p></li><li class="list__item" id="hhlneu_89"><p id="hhlneu_98">On demande manuellement &agrave; Angular de le v&eacute;rifier (via <code class="code" id="hhlneu_99">ChangeDetectorRef</code>).</p></li></ol><p id="hhlneu_77"><span class="control" id="hhlneu_100">R&egrave;gle d'or :</span> Essayez de rendre un maximum de vos composants &quot;de pr&eacute;sentation&quot; (ceux qui ne font qu'afficher des donn&eacute;es via des <code class="code" id="hhlneu_101">@Input</code>) <code class="code" id="hhlneu_102">OnPush</code>. Cela r&eacute;duit drastiquement le travail qu'Angular doit faire.</p><div class="code-block" data-lang="ts">
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
+
+@Component({
+    selector: 'app-user-avatar',
+    standalone: true,
+    // C'est ici que la magie opère
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `&lt;img [src]=&quot;user.avatarUrl&quot; alt=&quot;Avatar&quot;&gt;`
+})
+export class UserAvatarComponent {
+    // Ce composant ne sera mis à jour que si l'objet 'user' entier est remplacé,
+    // pas si on fait user.avatarUrl = '...' depuis l'extérieur.
+    @Input() user!: User;
+}
+</div><p id="hhlneu_79">Cette technique, combin&eacute;e &agrave; des pratiques de programmation immuable (ne pas modifier les objets, mais en cr&eacute;er de nouveaux), est la cl&eacute; des applications Angular ultra-rapides.</p></section><section class="chapter"><h2 id="4-intercepteurs-http-httpinterceptor" data-toc="4-intercepteurs-http-httpinterceptor">4. Intercepteurs HTTP (<code class="code" id="hhlneu_112">HttpInterceptor</code>)</h2><p id="hhlneu_104">Un intercepteur est un service sp&eacute;cial qui se place entre votre <code class="code" id="hhlneu_113">HttpClient</code> et le backend. Il peut <span class="control" id="hhlneu_114">intercepter, lire et modifier toutes les requ&ecirc;tes HTTP sortantes et toutes les r&eacute;ponses entrantes</span>.</p><p id="hhlneu_105">C'est un outil extraordinairement puissant pour la gestion des probl&eacute;matiques transversales :</p><ul class="list _bullet" id="hhlneu_106"><li class="list__item" id="hhlneu_115"><p id="hhlneu_120"><span class="control" id="hhlneu_121">Ajouter automatiquement un token d'authentification</span> &agrave; l'en-t&ecirc;te de chaque requ&ecirc;te.</p></li><li class="list__item" id="hhlneu_116"><p id="hhlneu_122"><span class="control" id="hhlneu_123">Ajouter des en-t&ecirc;tes communs</span> (ex: <code class="code" id="hhlneu_124">Content-Type: application/json</code>).</p></li><li class="list__item" id="hhlneu_117"><p id="hhlneu_125"><span class="control" id="hhlneu_126">G&eacute;rer globalement les erreurs HTTP</span> (ex: rediriger vers la page de login si on re&ccedil;oit une erreur 401 Unauthorized).</p></li><li class="list__item" id="hhlneu_118"><p id="hhlneu_127"><span class="control" id="hhlneu_128">Mettre en cache</span> certaines r&eacute;ponses.</p></li><li class="list__item" id="hhlneu_119"><p id="hhlneu_129"><span class="control" id="hhlneu_130">Afficher un spinner de chargement global</span> au d&eacute;but de chaque requ&ecirc;te et le cacher &agrave; la fin.</p></li></ul><p id="hhlneu_107"><span class="control" id="hhlneu_131">Sc&eacute;nario :</span> Un intercepteur qui ajoute un token JWT &agrave; chaque requ&ecirc;te.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/interceptors/auth.interceptor.ts
+import {HttpInterceptorFn} from '@angular/common/http';
+import {inject} from '@angular/core';
+import {AuthService} from '../services/auth.service';
+
+export const authInterceptor: HttpInterceptorFn = (req, next) =&gt; {
+    const authService = inject(AuthService);
+    const authToken = authService.getToken();
+
+    // On clone la requête originale pour y ajouter un en-tête.
+    // Les requêtes sont immuables.
+    const authReq = req.clone({
+        setHeaders: {
+            Authorization: `Bearer ${authToken}`
+        }
+    });
+
+    // On passe la nouvelle requête au handler suivant.
+    return next(authReq);
+};
+</div><p id="hhlneu_109"><span class="control" id="hhlneu_132">Mise en place (<code class="code" id="hhlneu_133">app.config.ts</code>) :</span></p><div class="code-block" data-lang="ts">
+// Fichier: src/app/app.config.ts
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {authInterceptor} from './shared/interceptors/auth.interceptor';
+
+export const appConfig: ApplicationConfig = {
+    providers: [
+        // ...
+        // On fournit le HttpClient avec notre intercepteur
+        provideHttpClient(withInterceptors([authInterceptor]))
+    ]
+};
+</div><p id="hhlneu_111">D&eacute;sormais, chaque appel <code class="code" id="hhlneu_134">http.get()</code>, <code class="code" id="hhlneu_135">post()</code>, etc., passera automatiquement par cet intercepteur.</p></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-2-afficher-un-spinner-de-chargement-global" data-toc="exercice-2-afficher-un-spinner-de-chargement-global">Exercice 2 : Afficher un spinner de chargement global</h3><p id="hhlneu_138">Cr&eacute;ez un intercepteur qui affiche un spinner de chargement pendant les appels HTTP.</p><ol class="list _decimal" id="hhlneu_139" type="1"><li class="list__item" id="hhlneu_142"><p id="hhlneu_144">Cr&eacute;ez un <code class="code" id="hhlneu_145">LoadingService</code> (fourni &agrave; la racine) avec un <code class="code" id="hhlneu_146">BehaviorSubject</code> ou un <code class="code" id="hhlneu_147">Signal</code> pour conserver l'&eacute;tat de chargement (<code class="code" id="hhlneu_148">true</code>/<code class="code" id="hhlneu_149">false</code>). Il doit avoir des m&eacute;thodes <code class="code" id="hhlneu_150">show()</code> et <code class="code" id="hhlneu_151">hide()</code>.</p></li><li class="list__item" id="hhlneu_143"><p id="hhlneu_152">Cr&eacute;ez un <code class="code" id="hhlneu_153">LoadingInterceptor</code>:</p></li></ol><ul class="list _bullet" id="hhlneu_140"><li class="list__item" id="hhlneu_154"><p id="hhlneu_157">Avant de passer la requ&ecirc;te (<code class="code" id="hhlneu_158">next(req)</code>), il doit appeler <code class="code" id="hhlneu_159">loadingService.show()</code>.</p></li><li class="list__item" id="hhlneu_155"><p id="hhlneu_160">Il doit utiliser l'op&eacute;rateur <code class="code" id="hhlneu_161">finalize</code> dans le <code class="code" id="hhlneu_162">.pipe()</code> de l'observable retourn&eacute; par <code class="code" id="hhlneu_163">next(req)</code>. La fonction <code class="code" id="hhlneu_164">finalize</code> s'ex&eacute;cute toujours, que la requ&ecirc;te r&eacute;ussisse ou &eacute;choue.</p></li><li class="list__item" id="hhlneu_156"><p id="hhlneu_165">Dans <code class="code" id="hhlneu_166">finalize</code>, il doit appeler <code class="code" id="hhlneu_167">loadingService.hide()</code>.</p></li></ul><ol class="list _decimal" id="hhlneu_141" type="1" start="3"><li class="list__item" id="hhlneu_168"><p id="hhlneu_170">Configurez l'intercepteur dans <code class="code" id="hhlneu_171">app.config.ts</code>.</p></li><li class="list__item" id="hhlneu_169"><p id="hhlneu_172">Dans <code class="code" id="hhlneu_173">AppComponent</code>, injectez le <code class="code" id="hhlneu_174">LoadingService</code> et affichez un spinner ou un simple texte &quot;Chargement...&quot; conditionnellement, en fonction de l'&eacute;tat du service.</p></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><ol class="list _decimal" id="hhlneu_175" type="1"><li class="list__item" id="hhlneu_176"><p id="hhlneu_180"><span class="control" id="hhlneu_182"><code class="code" id="hhlneu_183">loading.service.ts</code></span></p><div class="code-block" data-lang="ts">
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class LoadingService {
+  public readonly isLoading = signal(false);
+
+  public show(): void {
+    this.isLoading.set(true);
+  }
+
+  public hide(): void {
+    this.isLoading.set(false);
+  }
+}
+</div></li><li class="list__item" id="hhlneu_177"><p id="hhlneu_184"><span class="control" id="hhlneu_186"><code class="code" id="hhlneu_187">loading.interceptor.ts</code></span></p><div class="code-block" data-lang="ts">
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { finalize } from 'rxjs/operators';
+import { LoadingService } from '../services/loading.service';
+
+export const loadingInterceptor: HttpInterceptorFn = (req, next) =&gt; {
+  const loadingService = inject(LoadingService);
+  loadingService.show();
+
+  return next(req).pipe(
+    finalize(() =&gt; loadingService.hide())
+  );
+};
+</div></li><li class="list__item" id="hhlneu_178"><p id="hhlneu_188"><span class="control" id="hhlneu_190"><code class="code" id="hhlneu_191">app.config.ts</code> (ajout de l'intercepteur)</span></p><div class="code-block" data-lang="ts">
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loadingInterceptor } from './shared/interceptors/loading.interceptor';
+
+// ...
+providers: [
+  provideHttpClient(withInterceptors([loadingInterceptor]))
+]
+</div></li><li class="list__item" id="hhlneu_179"><p id="hhlneu_192"><span class="control" id="hhlneu_195"><code class="code" id="hhlneu_196">app.component.ts</code> et <code class="code" id="hhlneu_197">.html</code></span></p><div class="code-block" data-lang="ts">
+@Component({ /* ... */ })
+export class AppComponent {
+  // On rend le service public pour pouvoir l'utiliser dans le template
+  constructor(public loadingService: LoadingService) {}
+}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- Quelque part dans app.component.html, à un niveau élevé --&gt;
+@if(loadingService.isLoading()) {
+  &lt;div class=&quot;loading-spinner-overlay&quot;&gt;
+    &lt;p&gt;Chargement...&lt;/p&gt;
+  &lt;/div&gt;
+}
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+</div></li></ol></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="hhlneu_198" type="1"><li class="list__item" id="hhlneu_199"><p id="hhlneu_204"><span class="control" id="hhlneu_205">(Question ouverte)</span> Quelle est la diff&eacute;rence majeure entre <code class="code" id="hhlneu_206">ngOnInit</code> et <code class="code" id="hhlneu_207">ngOnChanges</code>?</p></li><li class="list__item" id="hhlneu_200"><p id="hhlneu_208"><span class="control" id="hhlneu_209">(QCM)</span> Vous voulez optimiser un composant qui affiche simplement des donn&eacute;es. Quelle strat&eacute;gie de d&eacute;tection de changement est la plus performante ? a) <code class="code" id="hhlneu_210">Default</code> b) <code class="code" id="hhlneu_211">OnPush</code> c) <code class="code" id="hhlneu_212">Optimized</code> d) <code class="code" id="hhlneu_213">Manual</code></p></li><li class="list__item" id="hhlneu_201"><p id="hhlneu_214"><span class="control" id="hhlneu_215">(QCM)</span> Quel est le r&ocirc;le d'un intercepteur HTTP ? a) Remplacer compl&egrave;tement <code class="code" id="hhlneu_216">HttpClient</code>. b) Se placer entre les appels HTTP et le backend pour les manipuler globalement. c) Intercepter les erreurs JavaScript dans les templates. d) Optimiser la taille des images.</p></li><li class="list__item" id="hhlneu_202"><p id="hhlneu_217"><span class="control" id="hhlneu_218">(Question ouverte)</span> Dans un composant <code class="code" id="hhlneu_219">OnPush</code>, citez deux conditions qui d&eacute;clencheront une mise &agrave; jour de sa vue.</p></li><li class="list__item" id="hhlneu_203"><p id="hhlneu_220"><span class="control" id="hhlneu_221">(QCM)</span> Dans quel dossier est-il recommand&eacute; de placer une directive personnalis&eacute;e qui sera utilis&eacute;e par de nombreux &quot;feature modules&quot; ? a) <code class="code" id="hhlneu_222">core</code> b) <code class="code" id="hhlneu_223">shared</code> c) <code class="code" id="hhlneu_224">features</code> d) <code class="code" id="hhlneu_225">common</code></p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="hhlneu_226">F&eacute;licitations, vous avez maintenant explor&eacute; les techniques qui distinguent les applications Angular de qualit&eacute; professionnelle. Vous savez comment optimiser les performances avec <code class="code" id="hhlneu_228">OnPush</code>, comment r&eacute;agir finement aux changements avec <code class="code" id="hhlneu_229">ngOnChanges</code>, et comment intercepter et manipuler globalement les flux de donn&eacute;es avec les intercepteurs HTTP.</p><p id="hhlneu_227">Ces comp&eacute;tences en architecture et en optimisation sont cruciales pour construire des applications qui sont non seulement fonctionnelles, mais aussi rapides, maintenables et &eacute;volutives. Elles compl&egrave;tent parfaitement votre ma&icirc;trise du framework.</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="011-00-good-practices.html" class="navigation-links__prev">Module 11 : L'essentiel - Sujets Compl&eacute;mentaires et Bonnes Pratiques</a><a href="012-00-conclusion.html" class="navigation-links__next">Synth&egrave;se et Horizons : Votre Futur avec Angular</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="a"
+                 name="Angular"
+                 start-page="001-00-java-and-angular.md">
+
+    <toc-element topic="001-00-java-and-angular.md">
+        <toc-element topic="001-01-angular-philosophy.md"/>
+    </toc-element>
+    <toc-element topic="002-00-first-project.md">
+        <toc-element topic="002-01-ide-setup.md"/>
+    </toc-element>
+    <toc-element topic="003-00-typescript.md">
+        <toc-element topic="003-01-types-in-typescript.md"/>
+    </toc-element>
+    <toc-element topic="004-00-components.md">
+        <toc-element topic="004-01-advanced-components.md"/>
+    </toc-element>
+    <toc-element topic="005-00-directives-and-pipes.md">
+        <toc-element topic="005-01-custom-pipes-and-directives.md"/>
+    </toc-element>
+    <toc-element topic="006-00-services-and-di.md">
+        <toc-element topic="006-01-adavanced-di.md"/>
+    </toc-element>
+    <toc-element topic="007-00-routing.md">
+        <toc-element topic="007-01-advanced-routing.md"/>
+    </toc-element>
+    <toc-element topic="008-00-httpclient.md">
+        <toc-element topic="008-01-rxjs-operators.md"/>
+    </toc-element>
+    <toc-element topic="009-00-reactive-forms.md">
+        <toc-element topic="009-01-adavanced-reactive-forms.md"/>
+    </toc-element>
+    <toc-element topic="010-00-rxjs-streams.md">
+        <toc-element topic="010-01-advanced-rxjs.md"/>
+    </toc-element>
+    <toc-element topic="011-00-good-practices.md">
+        <toc-element topic="011-01-advanced-architecture.md"/>
+    </toc-element>
+    <toc-element topic="012-00-conclusion.md">
+        <toc-element topic="012-01-corrections.md"/>
+    </toc-element>
+    <toc-element topic="013-project.md"/>
+</instance-profile>

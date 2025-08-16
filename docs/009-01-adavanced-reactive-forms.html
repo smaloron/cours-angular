@@ -1,0 +1,209 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:34.088814"><title>Module 9 : Pour aller plus loin - Formulaires R&eacute;actifs Avanc&eacute;s | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-du-formulaire-statique-au-formulaire-intelligent","level":0,"title":"Introduction : Du formulaire statique au formulaire intelligent","anchor":"#introduction-du-formulaire-statique-au-formulaire-intelligent"},{"id":"1-validateurs-personnalis-s","level":0,"title":"1. Validateurs Personnalisés","anchor":"#1-validateurs-personnalis-s"},{"id":"2-validateurs-cross-champs","level":0,"title":"2. Validateurs Cross-Champs","anchor":"#2-validateurs-cross-champs"},{"id":"3-formulaires-dynamiques-avec-formarray","level":0,"title":"3. Formulaires Dynamiques avec FormArray","anchor":"#3-formulaires-dynamiques-avec-formarray"},{"id":"4-r-agir-aux-changements-avec-valuechanges","level":0,"title":"4. Réagir aux Changements avec valueChanges","anchor":"#4-r-agir-aux-changements-avec-valuechanges"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 9 : Pour aller plus loin - Formulaires R&eacute;actifs Avanc&eacute;s | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/009-01-adavanced-reactive-forms.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 9 : Pour aller plus loin - Formulaires R&eacute;actifs Avanc&eacute;s | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/009-01-adavanced-reactive-forms.html#webpage",
+    "url": "writerside-documentation/009-01-adavanced-reactive-forms.html",
+    "name": "Module 9 : Pour aller plus loin - Formulaires R&eacute;actifs Avanc&eacute;s | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="009-01-adavanced-reactive-forms" data-main-title="Module 9 : Pour aller plus loin - Formulaires Réactifs Avancés" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="009-00-reactive-forms.md|Module 9 : L'essentiel - Les Formulaires Réactifs"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="009-01-adavanced-reactive-forms" id="009-01-adavanced-reactive-forms.md">Module 9 : Pour aller plus loin - Formulaires Réactifs Avancés</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="-zdb0oe_12">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="-zdb0oe_13"><li class="list__item" id="-zdb0oe_14"><p id="-zdb0oe_18"><span class="control" id="-zdb0oe_19">Cr&eacute;er</span> des validateurs personnalis&eacute;s synchrones pour des r&egrave;gles m&eacute;tier sp&eacute;cifiques.</p></li><li class="list__item" id="-zdb0oe_15"><p id="-zdb0oe_20"><span class="control" id="-zdb0oe_21">Impl&eacute;menter</span> des validateurs cross-champs pour valider des champs en fonction les uns des autres (ex: confirmation de mot de passe).</p></li><li class="list__item" id="-zdb0oe_16"><p id="-zdb0oe_22"><span class="control" id="-zdb0oe_23">G&eacute;rer</span> des formulaires dynamiques avec <code class="code" id="-zdb0oe_24">FormArray</code> pour des listes d'entr&eacute;es (ex: ajouter plusieurs comp&eacute;tences, des num&eacute;ros de t&eacute;l&eacute;phone...).</p></li><li class="list__item" id="-zdb0oe_17"><p id="-zdb0oe_25"><span class="control" id="-zdb0oe_26">R&eacute;agir</span> aux changements de valeur ou de statut d'un formulaire en utilisant les observables <code class="code" id="-zdb0oe_27">valueChanges</code> et <code class="code" id="-zdb0oe_28">statusChanges</code>.</p></li></ul></section><section class="chapter"><h2 id="introduction-du-formulaire-statique-au-formulaire-intelligent" data-toc="introduction-du-formulaire-statique-au-formulaire-intelligent">Introduction : Du formulaire statique au formulaire intelligent</h2><p id="-zdb0oe_29">Vous savez construire un formulaire solide et bien structur&eacute;. Mais que se passe-t-il lorsque les exigences deviennent plus complexes ?</p><ul class="list _bullet" id="-zdb0oe_30"><li class="list__item" id="-zdb0oe_32"><p id="-zdb0oe_36">Comment valider qu'un nom d'utilisateur ne contient pas de caract&egrave;res sp&eacute;ciaux interdits par votre entreprise ?</p></li><li class="list__item" id="-zdb0oe_33"><p id="-zdb0oe_37">Comment s'assurer que le champ &quot;Confirmation du mot de passe&quot; correspond bien au champ &quot;Mot de passe&quot; ?</p></li><li class="list__item" id="-zdb0oe_34"><p id="-zdb0oe_38">Comment permettre &agrave; un utilisateur d'ajouter autant d'adresses ou de num&eacute;ros de t&eacute;l&eacute;phone qu'il le souhaite ?</p></li><li class="list__item" id="-zdb0oe_35"><p id="-zdb0oe_39">Comment d&eacute;clencher une action (comme un appel API pour v&eacute;rifier la disponibilit&eacute; d'un email) d&egrave;s que l'utilisateur tape dans un champ ?</p></li></ul><p id="-zdb0oe_31">C'est l&agrave; que la nature &quot;r&eacute;active&quot; des formulaires prend tout son sens. Le mod&egrave;le de formulaire que vous avez cr&eacute;&eacute; n'est pas juste un objet statique ; c'est un syst&egrave;me vivant qui &eacute;met des flux d'&eacute;v&eacute;nements (<code class="code" id="-zdb0oe_40">Observable</code>) auxquels vous pouvez r&eacute;agir. Cette section vous apprendra &agrave; ma&icirc;triser ces techniques avanc&eacute;es pour construire des formulaires v&eacute;ritablement intelligents et dynamiques.</p></section><section class="chapter"><h2 id="1-validateurs-personnalis-s" data-toc="1-validateurs-personnalis-s">1. Validateurs Personnalis&eacute;s</h2><p id="-zdb0oe_41">Les validateurs int&eacute;gr&eacute;s (<code class="code" id="-zdb0oe_48">Validators.required</code>, <code class="code" id="-zdb0oe_49">email</code>...) sont utiles, mais souvent, vos r&egrave;gles m&eacute;tier sont plus sp&eacute;cifiques. Un validateur personnalis&eacute; n'est qu'une fonction qui prend un <code class="code" id="-zdb0oe_50">FormControl</code> en entr&eacute;e et retourne soit <code class="code" id="-zdb0oe_51">null</code> (si c'est valide), soit un objet d'erreur (si c'est invalide).</p><p id="-zdb0oe_42"><span class="control" id="-zdb0oe_52">Sc&eacute;nario :</span> Cr&eacute;er un validateur qui interdit les espaces dans un nom d'utilisateur.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/validators/no-whitespace.validator.ts
+import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
+
+// C'est une &quot;Factory&quot; qui retourne notre fonction de validation.
+export function noWhitespaceValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null =&gt; {
+        // On vérifie si la valeur du contrôle contient un espace.
+        const hasWhitespace = (control.value || '').includes(' ');
+
+        // Si oui, on retourne un objet d'erreur. La clé 'whitespace'
+        // pourra être utilisée dans le template avec .hasError('whitespace').
+        return hasWhitespace ? {'whitespace': true} : null;
+    };
+}
+</div><p id="-zdb0oe_44"><span class="control" id="-zdb0oe_53">Utilisation dans le composant :</span></p><div class="code-block" data-lang="ts">
+// Fichier: register.component.ts
+import {noWhitespaceValidator} from '../shared/validators/no-whitespace.validator';
+
+// ...
+this.registerForm = this.fb.group({
+    username: ['', [Validators.required, noWhitespaceValidator()]],
+    // ...
+});
+</div><p id="-zdb0oe_46"><span class="control" id="-zdb0oe_54">Utilisation dans le template :</span></p><div class="code-block" data-lang="markup">
+@if (registerForm.get('username')?.hasError('whitespace')) {
+&lt;small&gt;Le nom d'utilisateur ne doit pas contenir d'espaces.&lt;/small&gt;
+}
+</div></section><section class="chapter"><h2 id="2-validateurs-cross-champs" data-toc="2-validateurs-cross-champs">2. Validateurs Cross-Champs</h2><p id="-zdb0oe_55">Parfois, la validit&eacute; d'un champ d&eacute;pend d'un autre (ex: confirmation de mot de passe, date de fin apr&egrave;s date de d&eacute;but...). Ce type de validateur ne s'applique pas &agrave; un <code class="code" id="-zdb0oe_62">FormControl</code>, mais directement au <code class="code" id="-zdb0oe_63">FormGroup</code> parent.</p><p id="-zdb0oe_56"><span class="control" id="-zdb0oe_64">Sc&eacute;nario :</span> V&eacute;rifier que deux champs de mot de passe correspondent.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/validators/password-match.validator.ts
+import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
+
+export function passwordMatchValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null =&gt; {
+        // Ici, 'control' est le FormGroup
+        const password = control.get('password');
+        const confirmPassword = control.get('confirmPassword');
+
+        // Si les champs n'existent pas ou n'ont pas encore été touchés,
+        // on ne valide pas pour éviter des erreurs au démarrage.
+        if (!password || !confirmPassword) {
+            return null;
+        }
+
+        // Si les valeurs sont différentes, on retourne une erreur sur le FormGroup
+        return password.value === confirmPassword.value ? null : {'passwordMismatch': true};
+    };
+}
+</div><p id="-zdb0oe_58"><span class="control" id="-zdb0oe_65">Utilisation dans le composant :</span> Le validateur est pass&eacute; comme deuxi&egrave;me argument du <code class="code" id="-zdb0oe_66">fb.group</code>.</p><div class="code-block" data-lang="ts">
+// Fichier: register.component.ts
+import {passwordMatchValidator} from '../shared/validators/password-match.validator';
+
+// ...
+this.registerForm = this.fb.group({
+    // ... autres champs
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+}, {validators: passwordMatchValidator()}); // On l'applique ici !
+</div><p id="-zdb0oe_60"><span class="control" id="-zdb0oe_67">Utilisation dans le template :</span> On v&eacute;rifie l'erreur sur le formulaire lui-m&ecirc;me.</p><div class="code-block" data-lang="markup">
+@if (registerForm.hasError('passwordMismatch')) {
+&lt;div class=&quot;form-error&quot;&gt;
+    Les mots de passe ne correspondent pas.
+&lt;/div&gt;
+}
+</div></section><section class="chapter"><h2 id="3-formulaires-dynamiques-avec-formarray" data-toc="3-formulaires-dynamiques-avec-formarray">3. Formulaires Dynamiques avec <code class="code" id="-zdb0oe_74">FormArray</code></h2><p id="-zdb0oe_69">Un <code class="code" id="-zdb0oe_75">FormArray</code> est un type de <code class="code" id="-zdb0oe_76">FormGroup</code> o&ugrave; les contr&ocirc;les n'ont pas de cl&eacute; nomm&eacute;e. C'est simplement un tableau de <code class="code" id="-zdb0oe_77">FormControl</code>s ou de <code class="code" id="-zdb0oe_78">FormGroup</code>s. C'est l'outil parfait pour permettre &agrave; l'utilisateur d'ajouter ou de supprimer des champs dynamiquement.</p><p id="-zdb0oe_70"><span class="control" id="-zdb0oe_79">Sc&eacute;nario :</span> Un formulaire de profil o&ugrave; l'utilisateur peut ajouter plusieurs &quot;comp&eacute;tences&quot;.</p><div class="code-block" data-lang="ts">
+// Fichier: profile-editor.component.ts
+export class ProfileEditorComponent {
+    public profileForm = this.fb.group({
+        name: [''],
+        // On déclare un FormArray pour les compétences
+        skills: this.fb.array([])
+    });
+
+    // Un &quot;getter&quot; pratique pour accéder facilement au FormArray depuis le template
+    get skills(): FormArray {
+        return this.profileForm.get('skills') as FormArray;
+    }
+
+    // Méthode pour ajouter une nouvelle compétence (un FormControl vide)
+    public addSkill(): void {
+        this.skills.push(this.fb.control('', Validators.required));
+    }
+
+    // Méthode pour supprimer une compétence à un index donné
+    public removeSkill(index: number): void {
+        this.skills.removeAt(index);
+    }
+}
+</div><p id="-zdb0oe_72"><span class="control" id="-zdb0oe_80">Liaison avec le template :</span></p><div class="code-block" data-lang="markup">
+
+&lt;form [formGroup]=&quot;profileForm&quot;&gt;
+    &lt;!-- ... champ 'name' ... --&gt;
+
+    &lt;div formArrayName=&quot;skills&quot;&gt;
+        &lt;h3&gt;Compétences&lt;/h3&gt;
+        &lt;button type=&quot;button&quot; (click)=&quot;addSkill()&quot;&gt;+ Ajouter une compétence&lt;/button&gt;
+
+        &lt;!-- On boucle sur les contrôles du FormArray --&gt;
+        @for (skill of skills.controls; track skill; let i = $index) {
+        &lt;div class=&quot;skill-item&quot;&gt;
+            &lt;label for=&quot;skill-{{i}}&quot;&gt;Compétence n°{{i + 1}}&lt;/label&gt;
+            &lt;!-- Chaque input est lié à un contrôle par son index --&gt;
+            &lt;input id=&quot;skill-{{i}}&quot; type=&quot;text&quot; [formControlName]=&quot;i&quot;&gt;
+            &lt;button type=&quot;button&quot; (click)=&quot;removeSkill(i)&quot;&gt;Supprimer&lt;/button&gt;
+        &lt;/div&gt;
+        }
+    &lt;/div&gt;
+&lt;/form&gt;
+</div></section><section class="chapter"><h2 id="4-r-agir-aux-changements-avec-valuechanges" data-toc="4-r-agir-aux-changements-avec-valuechanges">4. R&eacute;agir aux Changements avec <code class="code" id="-zdb0oe_86">valueChanges</code></h2><p id="-zdb0oe_82">Chaque <code class="code" id="-zdb0oe_87">FormControl</code>, <code class="code" id="-zdb0oe_88">FormGroup</code> ou <code class="code" id="-zdb0oe_89">FormArray</code> expose un <code class="code" id="-zdb0oe_90">Observable</code> appel&eacute; <code class="code" id="-zdb0oe_91">valueChanges</code>. Cet observable &eacute;met une nouvelle valeur &agrave; chaque fois que l'utilisateur modifie le contenu du formulaire. C'est incroyablement puissant pour cr&eacute;er des interactions en temps r&eacute;el.</p><p id="-zdb0oe_83"><span class="control" id="-zdb0oe_92">Sc&eacute;nario :</span> Un champ de recherche qui lance automatiquement une recherche 300ms apr&egrave;s que l'utilisateur a cess&eacute; de taper.</p><div class="code-block" data-lang="ts">
+import {debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
+
+export class SearchComponent implements OnInit {
+    public searchControl = new FormControl();
+    public searchResults$: Observable&lt;any[]&gt;; // Un observable pour les résultats
+
+    constructor(private searchService: SearchService) {
+    }
+
+    ngOnInit(): void {
+        this.searchResults$ = this.searchControl.valueChanges.pipe(
+            // 1. Attendre 300ms après la dernière frappe
+            debounceTime(300),
+            // 2. Ne pas lancer la recherche si le texte n'a pas changé
+            distinctUntilChanged(),
+            // 3. Afficher un indicateur de chargement
+            tap(() =&gt; this.isLoading = true),
+            // 4. Annuler la recherche précédente et lancer la nouvelle
+            switchMap(searchTerm =&gt; this.searchService.search(searchTerm)),
+            // 5. Cacher l'indicateur de chargement
+            tap(() =&gt; this.isLoading = false)
+        );
+    }
+}
+</div><p id="-zdb0oe_85">Dans le template, on peut ensuite utiliser le pipe <code class="code" id="-zdb0oe_93">async</code> pour afficher les r&eacute;sultats : <code class="code" id="-zdb0oe_94">@for(result of searchResults$ | async; ...)</code></p></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-2-formulaire-de-commande-avec-items-dynamiques" data-toc="exercice-2-formulaire-de-commande-avec-items-dynamiques">Exercice 2 : Formulaire de Commande avec Items Dynamiques</h3><p id="-zdb0oe_97">Cr&eacute;ez un formulaire de commande.</p><ol class="list _decimal" id="-zdb0oe_98" type="1"><li class="list__item" id="-zdb0oe_99"><p id="-zdb0oe_105">Le formulaire (<code class="code" id="-zdb0oe_106">FormGroup</code>) doit avoir un champ <code class="code" id="-zdb0oe_107">customerName</code> (<code class="code" id="-zdb0oe_108">FormControl</code>).</p></li><li class="list__item" id="-zdb0oe_100"><p id="-zdb0oe_109">Il doit aussi avoir un <code class="code" id="-zdb0oe_110">FormArray</code> nomm&eacute; <code class="code" id="-zdb0oe_111">items</code> pour les articles de la commande.</p></li><li class="list__item" id="-zdb0oe_101"><p id="-zdb0oe_112">Chaque &eacute;l&eacute;ment du <code class="code" id="-zdb0oe_113">FormArray</code> doit &ecirc;tre un <code class="code" id="-zdb0oe_114">FormGroup</code> avec deux <code class="code" id="-zdb0oe_115">FormControl</code>s : <code class="code" id="-zdb0oe_116">itemName</code> (string, requis) et <code class="code" id="-zdb0oe_117">quantity</code> (number, requis et min(1)).</p></li><li class="list__item" id="-zdb0oe_102"><p id="-zdb0oe_118">Impl&eacute;mentez les m&eacute;thodes <code class="code" id="-zdb0oe_119">addItem()</code> et <code class="code" id="-zdb0oe_120">removeItem(index)</code> dans votre composant.</p></li><li class="list__item" id="-zdb0oe_103"><p id="-zdb0oe_121">Dans le template, permettez &agrave; l'utilisateur d'ajouter et de supprimer des lignes d'articles.</p></li><li class="list__item" id="-zdb0oe_104"><p id="-zdb0oe_122"><span class="control" id="-zdb0oe_123">Bonus :</span> Cr&eacute;ez un validateur cross-champs qui s'assure que le nom du client n'est pas &quot;Test&quot; si la commande contient un article nomm&eacute; &quot;Produit Interdit&quot;.</p></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><p id="-zdb0oe_124"><span class="control" id="-zdb0oe_128"><code class="code" id="-zdb0oe_129">order-form.component.ts</code></span></p><div class="code-block" data-lang="ts">
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
+
+@Component({ /* ... */})
+export class OrderFormComponent {
+    public orderForm: FormGroup;
+
+    constructor(private fb: FormBuilder) {
+        this.orderForm = this.fb.group({
+            customerName: ['', Validators.required],
+            items: this.fb.array([])
+        });
+    }
+
+    get items(): FormArray {
+        return this.orderForm.get('items') as FormArray;
+    }
+
+    // Crée un nouveau FormGroup pour un item
+    private createItem(): FormGroup {
+        return this.fb.group({
+            itemName: ['', Validators.required],
+            quantity: [1, [Validators.required, Validators.min(1)]]
+        });
+    }
+
+    public addItem(): void {
+        this.items.push(this.createItem());
+    }
+
+    public removeItem(index: number): void {
+        this.items.removeAt(index);
+    }
+
+    public onSubmit(): void {
+        console.log(this.orderForm.value);
+    }
+}
+</div><p id="-zdb0oe_126"><span class="control" id="-zdb0oe_130"><code class="code" id="-zdb0oe_131">order-form.component.html</code></span></p><div class="code-block" data-lang="markup">
+
+&lt;form [formGroup]=&quot;orderForm&quot; (ngSubmit)=&quot;onSubmit()&quot;&gt;
+    &lt;label for=&quot;customerName&quot;&gt;Nom du Client&lt;/label&gt;
+    &lt;input id=&quot;customerName&quot; formControlName=&quot;customerName&quot;&gt;
+
+    &lt;div formArrayName=&quot;items&quot;&gt;
+        &lt;h3&gt;Articles&lt;/h3&gt;
+        &lt;button type=&quot;button&quot; (click)=&quot;addItem()&quot;&gt;+ Ajouter Article&lt;/button&gt;
+
+        @for (item of items.controls; track item; let i = $index) {
+        &lt;!-- [formGroupName] lie le div au FormGroup à l'index i --&gt;
+        &lt;div [formGroupName]=&quot;i&quot; class=&quot;item-row&quot;&gt;
+            &lt;input type=&quot;text&quot; formControlName=&quot;itemName&quot; placeholder=&quot;Nom de l'article&quot;&gt;
+            &lt;input type=&quot;number&quot; formControlName=&quot;quantity&quot; placeholder=&quot;Quantité&quot;&gt;
+            &lt;button type=&quot;button&quot; (click)=&quot;removeItem(i)&quot;&gt;X&lt;/button&gt;
+        &lt;/div&gt;
+        }
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; [disabled]=&quot;orderForm.invalid&quot;&gt;Passer Commande&lt;/button&gt;
+&lt;/form&gt;
+</div></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="-zdb0oe_132" type="1"><li class="list__item" id="-zdb0oe_133"><p id="-zdb0oe_138"><span class="control" id="-zdb0oe_139">(Question ouverte)</span> Quelle est la diff&eacute;rence entre un validateur appliqu&eacute; &agrave; un <code class="code" id="-zdb0oe_140">FormControl</code> et un validateur appliqu&eacute; &agrave; un <code class="code" id="-zdb0oe_141">FormGroup</code>? Donnez un exemple pour chacun.</p></li><li class="list__item" id="-zdb0oe_134"><p id="-zdb0oe_142"><span class="control" id="-zdb0oe_143">(QCM)</span> Quelle classe utilisez-vous pour g&eacute;rer une liste de champs de formulaire o&ugrave; l'utilisateur peut ajouter ou supprimer des entr&eacute;es ? a) <code class="code" id="-zdb0oe_144">FormList</code> b) <code class="code" id="-zdb0oe_145">FormControlList</code> c) <code class="code" id="-zdb0oe_146">FormArray</code> d) <code class="code" id="-zdb0oe_147">FormCollection</code></p></li><li class="list__item" id="-zdb0oe_135"><p id="-zdb0oe_148"><span class="control" id="-zdb0oe_149">(QCM)</span> Pour r&eacute;agir &agrave; chaque frappe de l'utilisateur dans un champ de formulaire, quel <code class="code" id="-zdb0oe_150">Observable</code> utiliseriez-vous ? a) <code class="code" id="-zdb0oe_151">statusChanges</code> b) <code class="code" id="-zdb0oe_152">onkeyup</code> c) <code class="code" id="-zdb0oe_153">valueChanges</code> d) <code class="code" id="-zdb0oe_154">formEvents</code></p></li><li class="list__item" id="-zdb0oe_136"><p id="-zdb0oe_155"><span class="control" id="-zdb0oe_156">(Question ouverte)</span> D&eacute;crivez un sc&eacute;nario o&ugrave; vous utiliseriez l'observable <code class="code" id="-zdb0oe_157">valueChanges</code> d'un <code class="code" id="-zdb0oe_158">FormGroup</code> entier plut&ocirc;t que celui d'un seul <code class="code" id="-zdb0oe_159">FormControl</code>.</p></li><li class="list__item" id="-zdb0oe_137"><p id="-zdb0oe_160"><span class="control" id="-zdb0oe_161">(QCM)</span> Un validateur personnalis&eacute; synchrone doit retourner <code class="code" id="-zdb0oe_162">null</code> dans quel cas ? a) Quand le champ est invalide. b) Quand le champ est valide. c) Il ne doit jamais retourner <code class="code" id="-zdb0oe_163">null</code>. d) Uniquement quand le champ est vide.</p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="-zdb0oe_164">F&eacute;licitations ! Vous avez atteint le plus haut niveau de ma&icirc;trise des formulaires r&eacute;actifs. Vous ne vous contentez plus de cr&eacute;er des formulaires ; vous construisez des syst&egrave;mes de saisie de donn&eacute;es intelligents, dynamiques et robustes.</p><p id="-zdb0oe_165">Vous savez d&eacute;sormais &eacute;tendre le syst&egrave;me de validation avec vos propres <span class="control" id="-zdb0oe_167">r&egrave;gles m&eacute;tier</span>, g&eacute;rer des <span class="control" id="-zdb0oe_168">relations complexes</span> entre les champs, et construire des <span class="control" id="-zdb0oe_169">interfaces dynamiques</span> avec <code class="code" id="-zdb0oe_170">FormArray</code>. Plus important encore, vous avez entrevu la puissance des formulaires en tant que <span class="control" id="-zdb0oe_171">flux de donn&eacute;es</span> avec <code class="code" id="-zdb0oe_172">valueChanges</code>, ouvrant la porte &agrave; des fonctionnalit&eacute;s en temps r&eacute;el sophistiqu&eacute;es.</p><p id="-zdb0oe_166">Ces comp&eacute;tences sont directement applicables &agrave; la majorit&eacute; des d&eacute;fis que vous rencontrerez dans des applications d'entreprise. Vous &ecirc;tes maintenant parfaitement arm&eacute; pour aborder la suite de notre programme, en commen&ccedil;ant par les op&eacute;rateurs RxJS avanc&eacute;s.</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="009-00-reactive-forms.html" class="navigation-links__prev">Module 9 : L'essentiel - Les Formulaires R&eacute;actifs</a><a href="010-00-rxjs-streams.html" class="navigation-links__next">Module 10 : L'essentiel - RxJS, Penser en Flux de Donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

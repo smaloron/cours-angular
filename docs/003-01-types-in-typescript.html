@@ -1,0 +1,184 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:34.090618"><title>Module 3 : Pour aller plus loin - La Puissance du Syst&egrave;me de Types de TypeScript | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-au-del-des-bases-la-bo-te-outils-du-ma-tre-artisan","level":0,"title":"Introduction : Au-delà des bases, la boîte à outils du maître artisan","anchor":"#introduction-au-del-des-bases-la-bo-te-outils-du-ma-tre-artisan"},{"id":"1-les-g-n-riques-t-un-air-de-famille","level":0,"title":"1. Les Génériques (\u003cT\u003e) : Un Air de Famille","anchor":"#1-les-g-n-riques-t-un-air-de-famille"},{"id":"2-num-rations-enum","level":0,"title":"2. Énumérations (enum)","anchor":"#2-num-rations-enum"},{"id":"3-types-unions-et-alias-de-type-type","level":0,"title":"3. Types Unions (|) et Alias de Type (type)","anchor":"#3-types-unions-et-alias-de-type-type"},{"id":"4-gardes-de-type-type-guards-travailler-avec-les-unions","level":0,"title":"4. Gardes de Type (Type Guards) : Travailler avec les Unions","anchor":"#4-gardes-de-type-type-guards-travailler-avec-les-unions"},{"id":"5-les-utility-types-vos-assistants-personnels","level":0,"title":"5. Les \"Utility Types\" : Vos Assistants Personnels","anchor":"#5-les-utility-types-vos-assistants-personnels"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 3 : Pour aller plus loin - La Puissance du Syst&egrave;me de Types de TypeScript | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/003-01-types-in-typescript.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 3 : Pour aller plus loin - La Puissance du Syst&egrave;me de Types de TypeScript | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/003-01-types-in-typescript.html#webpage",
+    "url": "writerside-documentation/003-01-types-in-typescript.html",
+    "name": "Module 3 : Pour aller plus loin - La Puissance du Syst&egrave;me de Types de TypeScript | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="003-01-types-in-typescript" data-main-title="Module 3 : Pour aller plus loin - La Puissance du Système de Types de TypeScript" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="003-00-typescript.md|Module 3 : L'essentiel - TypeScript, un Terrain Connu pour les dev Java"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="003-01-types-in-typescript" id="003-01-types-in-typescript.md">Module 3 : Pour aller plus loin - La Puissance du Système de Types de TypeScript</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="y68iz2_13">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="y68iz2_14"><li class="list__item" id="y68iz2_15"><p id="y68iz2_19"><span class="control" id="y68iz2_20">Utiliser</span> les g&eacute;n&eacute;riques (<code class="code" id="y68iz2_21">&lt;T&gt;</code>) pour cr&eacute;er des fonctions et des classes r&eacute;utilisables et typ&eacute;es.</p></li><li class="list__item" id="y68iz2_16"><p id="y68iz2_22"><span class="control" id="y68iz2_23">D&eacute;finir</span> et utiliser des types personnalis&eacute;s avec les <code class="code" id="y68iz2_24">enum</code>, les types unions (<code class="code" id="y68iz2_25">|</code>) et les alias de type (<code class="code" id="y68iz2_26">type</code>).</p></li><li class="list__item" id="y68iz2_17"><p id="y68iz2_27"><span class="control" id="y68iz2_28">Mettre en &oelig;uvre</span> des &quot;gardes de type&quot; (type guards) pour travailler de mani&egrave;re s&ucirc;re avec des types unions.</p></li><li class="list__item" id="y68iz2_18"><p id="y68iz2_29"><span class="control" id="y68iz2_30">Exploiter</span> les &quot;Utility Types&quot; de TypeScript (<code class="code" id="y68iz2_31">Partial</code>, <code class="code" id="y68iz2_32">Readonly</code>) pour manipuler des types existants.</p></li></ul></section><section class="chapter"><h2 id="introduction-au-del-des-bases-la-bo-te-outils-du-ma-tre-artisan" data-toc="introduction-au-del-des-bases-la-bo-te-outils-du-ma-tre-artisan">Introduction : Au-del&agrave; des bases, la bo&icirc;te &agrave; outils du ma&icirc;tre artisan</h2><p id="y68iz2_33">Vous ma&icirc;trisez maintenant les outils de base de TypeScript, ceux qui ressemblent &agrave; votre atelier Java. Mais un ma&icirc;tre artisan ne se contente pas d'un marteau et d'un tournevis. Il poss&egrave;de des outils sp&eacute;cialis&eacute;s, pr&eacute;cis, qui lui permettent de r&eacute;aliser des pi&egrave;ces d'une complexit&eacute; et d'une finesse sup&eacute;rieures.</p><p id="y68iz2_34">Cette section vous ouvre les portes de cet atelier d'expert. Nous allons d&eacute;couvrir des fonctionnalit&eacute;s propres &agrave; TypeScript qui vont vous permettre de mod&eacute;liser des situations complexes de mani&egrave;re &eacute;l&eacute;gante et s&ucirc;re. Les g&eacute;n&eacute;riques vous sembleront familiers, mais les types unions et les &quot;utility types&quot; vont vous ouvrir de nouvelles perspectives pour &eacute;crire un code non seulement robuste, mais aussi incroyablement expressif. C'est ici que l'on passe de &quot;faire fonctionner&quot; &agrave; &quot;bien concevoir&quot;.</p></section><section class="chapter"><h2 id="1-les-g-n-riques-t-un-air-de-famille" data-toc="1-les-g-n-riques-t-un-air-de-famille">1. Les G&eacute;n&eacute;riques (<code class="code" id="y68iz2_39">&lt;T&gt;</code>) : Un Air de Famille</h2><p id="y68iz2_36">Tout comme en Java, les g&eacute;n&eacute;riques vous permettent d'&eacute;crire du code qui fonctionne avec une vari&eacute;t&eacute; de types, tout en conservant la s&eacute;curit&eacute; de typage. Si vous avez d&eacute;j&agrave; &eacute;crit <code class="code" id="y68iz2_40">List&lt;String&gt;</code> en Java, vous &ecirc;tes en terrain connu.</p><p id="y68iz2_37">Imaginez une fonction qui r&eacute;cup&egrave;re le premier &eacute;l&eacute;ment d'un tableau. Sans g&eacute;n&eacute;rique, on pourrait utiliser <code class="code" id="y68iz2_41">any</code>, mais on perdrait toute information de type.</p><div class="code-block" data-lang="ts">
+// Mauvaise approche : on perd le type
+function getFirstElementAny(arr: any[]): any {
+    return arr[0];
+}
+
+// Bonne approche : avec les génériques
+function getFirstElement&lt;T&gt;(arr: T[]): T | undefined {
+    return arr[0];
+}
+
+// Utilisation
+const numbers = [1, 2, 3];
+const firstNumber = getFirstElement(numbers); // TypeScript sait que firstNumber est de type `number | undefined`
+
+const strings = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+const firstString = getFirstElement(strings); // TypeScript sait que firstString est de type `string | undefined`
+</div></section><section class="chapter"><h2 id="2-num-rations-enum" data-toc="2-num-rations-enum">2. &Eacute;num&eacute;rations (<code class="code" id="y68iz2_45">enum</code>)</h2><p id="y68iz2_43">Comme en Java, les <code class="code" id="y68iz2_46">enum</code> permettent de d&eacute;finir un ensemble de constantes nomm&eacute;es. C'est tr&egrave;s utile pour des statuts, des r&ocirc;les, ou des cat&eacute;gories.</p><div class="code-block" data-lang="ts">
+// Fichier: order-status.enum.ts
+// package fr.formation.spring.enums;
+
+export enum OrderStatus {
+    PENDING,    // Vaut 0 par défaut
+    PROCESSING, // Vaut 1
+    SHIPPED,    // Vaut 2
+    DELIVERED,  // Vaut 3
+    CANCELED    // Vaut 4
+}
+
+// On peut aussi assigner des valeurs (chaînes de caractères, c'est souvent plus lisible)
+export enum UserRole {
+    ADMIN = 'ADMIN',
+    USER = 'USER',
+    GUEST = 'GUEST'
+}
+
+// Utilisation
+let myOrderStatus: OrderStatus = OrderStatus.PROCESSING;
+let myRole: UserRole = UserRole.ADMIN;
+
+console.log(myOrderStatus); // Affiche 1
+console.log(myRole);      // Affiche &quot;ADMIN&quot;
+</div></section><section class="chapter"><h2 id="3-types-unions-et-alias-de-type-type" data-toc="3-types-unions-et-alias-de-type-type">3. Types Unions (<code class="code" id="y68iz2_52">|</code>) et Alias de Type (<code class="code" id="y68iz2_53">type</code>)</h2><p id="y68iz2_48">C'est une des fonctionnalit&eacute;s les plus puissantes de TypeScript. Un type union permet de d&eacute;clarer qu'une variable peut &ecirc;tre de <span class="control" id="y68iz2_54">plusieurs types diff&eacute;rents</span>.</p><p id="y68iz2_49">Imaginez une API REST qui retourne un ID utilisateur. Parfois, c'est un nombre (<code class="code" id="y68iz2_55">123</code>), parfois c'est une cha&icirc;ne de caract&egrave;res (un UUID comme <code class="code" id="y68iz2_56">&quot;abc-123&quot;</code>). Comment mod&eacute;liser cela en toute s&eacute;curit&eacute; ?</p><p id="y68iz2_50">Avec un <span class="control" id="y68iz2_57">alias de type</span> (<code class="code" id="y68iz2_58">type</code>), on peut donner un nom &agrave; cette union pour la r&eacute;utiliser.</p><div class="code-block" data-lang="ts">
+// Fichier: api-types.d.ts
+// package fr.formation.spring.types;
+
+// Un alias de type pour notre ID polymorphe
+export type UserId = string | number;
+
+// Une interface qui utilise notre alias de type
+export interface Product {
+    id: UserId;
+    name: string;
+    price: number;
+}
+
+let productA: Product = {id: 101, name: &quot;Livre&quot;, price: 15}; // OK
+let productB: Product = {id: &quot;a7b3c&quot;, name: &quot;Stylo&quot;, price: 2}; // OK
+// let productC: Product = { id: true, name: &quot;Gomme&quot;, price: 1 }; // Erreur! boolean n'est ni string ni number
+</div></section><section class="chapter"><h2 id="4-gardes-de-type-type-guards-travailler-avec-les-unions" data-toc="4-gardes-de-type-type-guards-travailler-avec-les-unions">4. Gardes de Type (Type Guards) : Travailler avec les Unions</h2><p id="y68iz2_59">Tr&egrave;s bien, nous avons une variable <code class="code" id="y68iz2_63">id</code> qui peut &ecirc;tre <code class="code" id="y68iz2_64">string | number</code>. Mais comment savoir quelle op&eacute;ration effectuer dessus ? On ne peut pas appeler une m&eacute;thode de <code class="code" id="y68iz2_65">string</code> (comme <code class="code" id="y68iz2_66">toUpperCase()</code>) si la valeur est un <code class="code" id="y68iz2_67">number</code>.</p><p id="y68iz2_60">C'est l&agrave; qu'interviennent les <span class="control" id="y68iz2_68">gardes de type</span>. Ce sont des v&eacute;rifications qui permettent &agrave; TypeScript de &quot;r&eacute;duire&quot; le type &agrave; l'int&eacute;rieur d'un bloc <code class="code" id="y68iz2_69">if</code>.</p><div class="code-block" data-lang="ts">
+function processUserId(id: UserId) {
+    // Ici, 'id' est de type 'string | number'
+
+    if (typeof id === &quot;string&quot;) {
+        // A l'intérieur de ce bloc, TypeScript est assez intelligent pour savoir
+        // que 'id' est FORCEMENT un 'string'.
+        console.log(id.toUpperCase());
+    } else {
+        // Et ici, il sait que c'est un 'number'.
+        console.log(id.toFixed(2));
+    }
+}
+
+processUserId(&quot;abc-123&quot;); // Affiche &quot;ABC-123&quot;
+processUserId(42);        // Affiche &quot;42.00&quot;
+</div><p id="y68iz2_62">Pour les objets plus complexes, on utilise <code class="code" id="y68iz2_70">instanceof</code> de la m&ecirc;me mani&egrave;re.</p></section><section class="chapter"><h2 id="5-les-utility-types-vos-assistants-personnels" data-toc="5-les-utility-types-vos-assistants-personnels">5. Les &quot;Utility Types&quot; : Vos Assistants Personnels</h2><p id="y68iz2_71">TypeScript fournit des types utilitaires qui permettent de cr&eacute;er de nouveaux types &agrave; partir de types existants. C'est extr&ecirc;mement pratique.</p><section class="chapter"><h3 id="partial-t" data-toc="partial-t"><code class="code" id="y68iz2_77">Partial&lt;T&gt;</code></h3><p id="y68iz2_75">Rend toutes les propri&eacute;t&eacute;s d'un type <code class="code" id="y68iz2_78">T</code> optionnelles. C'est parfait pour les formulaires de mise &agrave; jour, o&ugrave; l'utilisateur ne modifie que certains champs.</p><div class="code-block" data-lang="ts">
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+// Cette fonction met à jour un utilisateur.
+// L'utilisateur peut envoyer uniquement le nom, ou l'email, ou les deux.
+function updateUser(id: number, data: Partial&lt;User&gt;): User {
+    // data.id, data.name, data.email sont tous optionnels ici.
+    // ... logique de mise à jour
+    const updatedUser = {id: 1, name: 'new name', email: 'email@email.com'}; // exemple
+    return updatedUser;
+}
+
+// On peut appeler la fonction avec un objet partiel
+updateUser(1, {name: &quot;Nouveau Nom&quot;});
+</div></section><section class="chapter"><h3 id="readonly-t" data-toc="readonly-t"><code class="code" id="y68iz2_83">Readonly&lt;T&gt;</code></h3><p id="y68iz2_80">Rend toutes les propri&eacute;t&eacute;s d'un type <code class="code" id="y68iz2_84">T</code> en lecture seule. Id&eacute;al pour les objets de configuration ou pour s'initier &agrave; la programmation immuable.</p><div class="code-block" data-lang="ts">
+const config: Readonly&lt;User&gt; = {
+    id: 0,
+    name: 'admin',
+    email: 'admin@system.com'
+};
+
+// config.name = &quot;root&quot;; // Erreur ! Impossible d'assigner à 'name' car c'est une propriété en lecture seule.
+</div><p id="y68iz2_82">Il en existe beaucoup d'autres (<code class="code" id="y68iz2_85">Pick</code>, <code class="code" id="y68iz2_86">Omit</code>, <code class="code" id="y68iz2_87">Required</code>...) que vous d&eacute;couvrirez au fil de vos besoins.</p></section></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-2-syst-me-de-commande-avanc" data-toc="exercice-2-syst-me-de-commande-avanc">Exercice 2 : Syst&egrave;me de Commande Avanc&eacute;</h3><p id="y68iz2_90">Vous devez mod&eacute;liser un syst&egrave;me de commande qui g&egrave;re des produits physiques et num&eacute;riques.</p><ol class="list _decimal" id="y68iz2_91" type="1"><li class="list__item" id="y68iz2_92"><p id="y68iz2_97">Cr&eacute;ez un <code class="code" id="y68iz2_98">enum</code> <code class="code" id="y68iz2_99">ProductType</code> avec les valeurs <code class="code" id="y68iz2_100">PHYSICAL</code> et <code class="code" id="y68iz2_101">DIGITAL</code>.</p></li><li class="list__item" id="y68iz2_93"><p id="y68iz2_102">Cr&eacute;ez une interface de base <code class="code" id="y68iz2_103">Product</code> avec <code class="code" id="y68iz2_104">id</code> (<code class="code" id="y68iz2_105">number</code>), <code class="code" id="y68iz2_106">name</code> (<code class="code" id="y68iz2_107">string</code>) et <code class="code" id="y68iz2_108">type</code> (<code class="code" id="y68iz2_109">ProductType</code>).</p></li><li class="list__item" id="y68iz2_94"><p id="y68iz2_110">Cr&eacute;ez deux interfaces qui &eacute;tendent <code class="code" id="y68iz2_112">Product</code>:</p><ul class="list _bullet" id="y68iz2_111"><li class="list__item" id="y68iz2_113"><p id="y68iz2_115"><code class="code" id="y68iz2_116">PhysicalProduct</code> avec une propri&eacute;t&eacute; <code class="code" id="y68iz2_117">weight</code> (<code class="code" id="y68iz2_118">number</code>).</p></li><li class="list__item" id="y68iz2_114"><p id="y68iz2_119"><code class="code" id="y68iz2_120">DigitalProduct</code> avec une propri&eacute;t&eacute; <code class="code" id="y68iz2_121">downloadUrl</code> (<code class="code" id="y68iz2_122">string</code>).</p></li></ul></li><li class="list__item" id="y68iz2_95"><p id="y68iz2_123">Cr&eacute;ez un alias de type <code class="code" id="y68iz2_124">AnyProduct</code> qui est une union de <code class="code" id="y68iz2_125">PhysicalProduct</code> et <code class="code" id="y68iz2_126">DigitalProduct</code>.</p></li><li class="list__item" id="y68iz2_96"><p id="y68iz2_127">&Eacute;crivez une fonction <code class="code" id="y68iz2_129">getShippingInfo(product: AnyProduct): string</code>. Cette fonction doit :</p><ul class="list _bullet" id="y68iz2_128"><li class="list__item" id="y68iz2_130"><p id="y68iz2_133">Utiliser une garde de type pour v&eacute;rifier si le produit est <code class="code" id="y68iz2_134">PHYSICAL</code> ou <code class="code" id="y68iz2_135">DIGITAL</code>.</p></li><li class="list__item" id="y68iz2_131"><p id="y68iz2_136">Si c'est un produit physique, retourner <code class="code" id="y68iz2_137">&quot;Exp&eacute;dition du produit pesant {poids} kg.&quot;</code>.</p></li><li class="list__item" id="y68iz2_132"><p id="y68iz2_138">Si c'est un produit num&eacute;rique, retourner <code class="code" id="y68iz2_139">&quot;Lien de t&eacute;l&eacute;chargement : {url}&quot;</code>.</p></li></ul></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><div class="code-block" data-lang="ts">
+// package fr.formation.spring;
+
+// 1. Enum
+enum ProductType {
+    PHYSICAL = 'PHYSICAL',
+    DIGITAL = 'DIGITAL',
+}
+
+// 2. Interface de base
+interface Product {
+    id: number;
+    name: string;
+    type: ProductType;
+}
+
+// 3. Interfaces étendues
+interface PhysicalProduct extends Product {
+    type: ProductType.PHYSICAL; // On restreint le type ici pour la garde
+    weight: number;
+}
+
+interface DigitalProduct extends Product {
+    type: ProductType.DIGITAL; // Idem
+    downloadUrl: string;
+}
+
+// 4. Alias de type
+type AnyProduct = PhysicalProduct | DigitalProduct;
+
+// 5. Fonction avec garde de type
+function getShippingInfo(product: AnyProduct): string {
+    // On utilise le champ &quot;type&quot; comme discriminant pour notre garde de type.
+    // C'est un pattern très courant et robuste en TypeScript.
+    switch (product.type) {
+        case ProductType.PHYSICAL:
+            // TypeScript sait ici que 'product' est de type PhysicalProduct
+            return `Expédition du produit pesant ${product.weight} kg.`;
+
+        case ProductType.DIGITAL:
+            // TypeScript sait ici que 'product' est de type DigitalProduct
+            return `Lien de téléchargement : ${product.downloadUrl}`;
+
+        default:
+            // Pour la robustesse, au cas où de nouveaux types seraient ajoutés
+            const _exhaustiveCheck: never = product;
+            return &quot;Type de produit inconnu&quot;;
+    }
+}
+
+// Test
+const book: PhysicalProduct = {
+    id: 1,
+    name: &quot;Le Guide d'Angular&quot;,
+    type: ProductType.PHYSICAL,
+    weight: 1.2
+};
+
+const ebook: DigitalProduct = {
+    id: 2,
+    name: &quot;Le Guide de TypeScript&quot;,
+    type: ProductType.DIGITAL,
+    downloadUrl: &quot;https://monsite.com/ebook.pdf&quot;
+};
+
+console.log(getShippingInfo(book));
+console.log(getShippingInfo(ebook));
+</div><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="273px" preserveAspectRatio="none" style="width:682px;height:273px;background:#FFFFFF;" version="1.1" viewBox="0 0 682 273" width="682px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="190" x="239" y="23.5352">Mod&#233;lisation des Produits</text><!--class ProductType--><g id="elem_ProductType"><rect codeLine="5" fill="#F1F1F1" height="80.9766" id="ProductType" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="7" y="52.7283"/><ellipse cx="22" cy="68.7283" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M26.1143,74.7283 L18.3945,74.7283 L18.3945,62.3352 L26.1143,62.3352 L26.1143,64.4934 L20.8433,64.4934 L20.8433,67.1663 L25.6162,67.1663 L25.6162,69.3245 L20.8433,69.3245 L20.8433,72.5701 L26.1143,72.5701 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="36" y="74.0193">ProductType</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="124" y1="84.7283" y2="84.7283"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="13" y="102.2634">PHYSICAL</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="13" y="118.7517">DIGITAL</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="124" y1="125.7048" y2="125.7048"/></g><!--class Product--><g id="elem_Product"><rect codeLine="10" fill="#F1F1F1" height="97.4648" id="Product" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="135" x="160.5" y="44.4883"/><ellipse cx="198" cy="60.4883" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M193.9277,56.2534 L193.9277,54.0952 L201.3071,54.0952 L201.3071,56.2534 L198.8418,56.2534 L198.8418,64.3301 L201.3071,64.3301 L201.3071,66.4883 L193.9277,66.4883 L193.9277,64.3301 L196.3931,64.3301 L196.3931,56.2534 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="53" x="217" y="65.7793">Product</text><line style="stroke:#181818;stroke-width:0.5;" x1="161.5" x2="294.5" y1="76.4883" y2="76.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="166.5" y="94.0234">id: number</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="166.5" y="110.5117">name: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="166.5" y="127">type: ProductType</text><line style="stroke:#181818;stroke-width:0.5;" x1="161.5" x2="294.5" y1="133.9531" y2="133.9531"/></g><!--class PhysicalProduct--><g id="elem_PhysicalProduct"><rect codeLine="16" fill="#F1F1F1" height="64.4883" id="PhysicalProduct" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="139" x="68.5" y="201.9483"/><ellipse cx="83.5" cy="217.9483" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M79.4277,213.7134 L79.4277,211.5552 L86.8071,211.5552 L86.8071,213.7134 L84.3418,213.7134 L84.3418,221.7901 L86.8071,221.7901 L86.8071,223.9483 L79.4277,223.9483 L79.4277,221.7901 L81.8931,221.7901 L81.8931,213.7134 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="107" x="97.5" y="223.2393">PhysicalProduct</text><line style="stroke:#181818;stroke-width:0.5;" x1="69.5" x2="206.5" y1="233.9483" y2="233.9483"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="74.5" y="251.4834">weight: number</text><line style="stroke:#181818;stroke-width:0.5;" x1="69.5" x2="206.5" y1="258.4366" y2="258.4366"/></g><!--class DigitalProduct--><g id="elem_DigitalProduct"><rect codeLine="20" fill="#F1F1F1" height="64.4883" id="DigitalProduct" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="148" x="243" y="201.9483"/><ellipse cx="266.55" cy="217.9483" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M262.4777,213.7134 L262.4777,211.5552 L269.8571,211.5552 L269.8571,213.7134 L267.3918,213.7134 L267.3918,221.7901 L269.8571,221.7901 L269.8571,223.9483 L262.4777,223.9483 L262.4777,221.7901 L264.9431,221.7901 L264.9431,213.7134 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="97" x="282.45" y="223.2393">DigitalProduct</text><line style="stroke:#181818;stroke-width:0.5;" x1="244" x2="390" y1="233.9483" y2="233.9483"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="249" y="251.4834">downloadUrl: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="244" x2="390" y1="258.4366" y2="258.4366"/></g><g id="elem_N1"><path d="M331,84.0583 L331,102.3688 A3.5,3.5 0 0 0 334.5,105.8688 L671.5,105.8688 A3.5,3.5 0 0 0 675,102.3688 L675,90.5583 L665,80.5583 L334.5,80.5583 A3.5,3.5 0 0 0 331,84.0583 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><path d="M665,80.5583 L665,88.8083 A1.75,1.75 0 0 0 666.75,90.5583 L675,90.5583 L665,80.5583 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.0;"/><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="323" x="337" y="98.1266">type AnyProduct = PhysicalProduct | DigitalProduct</text></g><!--reverse link Product to PhysicalProduct--><g id="link_Product_PhysicalProduct"><path codeLine="24" d="M186.9873,157.5479 C174.2973,177.1479 169.77,184.1283 158.45,201.6183 " fill="none" id="Product-backto-PhysicalProduct" style="stroke:#454645;stroke-width:1.0;"/><polygon fill="none" points="196.77,142.4383,181.9508,154.287,192.0238,160.8087,196.77,142.4383" style="stroke:#454645;stroke-width:1.0;"/></g><!--reverse link Product to DigitalProduct--><g id="link_Product_DigitalProduct"><path codeLine="25" d="M268.5863,157.5971 C281.1363,177.1971 285.58,184.1283 296.78,201.6183 " fill="none" id="Product-backto-DigitalProduct" style="stroke:#454645;stroke-width:1.0;"/><polygon fill="none" points="258.88,142.4383,263.5333,160.8325,273.6392,154.3616,258.88,142.4383" style="stroke:#454645;stroke-width:1.0;"/></g><!--SRC=[PP2nQiD038RtUmhLkuUkfXbC0gqX3O6uGyQpJxK5PrsuKsfCtGVAS-J5UcrnYDrDF_hqIUX1MkmGFgZocaK9YKL8NfsvNYm5BUGO30ROUsVE925H2ldS_ULQok64yAa0zY_7Gx7Ejx7S5Cz56QilfOW5_RkkSU9_MJ8PH4U5FWRM7MOGn1CtCKeKPlVsXQOT0jNQtkjwfAQLctB6RwWXcUF6zMoTDc_UtlR6cGbv6jDqkMRUd3kLOYVnPJ-7Gyx3XAx-tJek9XFG0NQFtm00]--></g></svg></div></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="y68iz2_142" type="1"><li class="list__item" id="y68iz2_143"><p id="y68iz2_148"><span class="control" id="y68iz2_149">(QCM)</span> Vous avez une variable <code class="code" id="y68iz2_150">data</code> qui peut &ecirc;tre soit un <code class="code" id="y68iz2_151">User</code> soit <code class="code" id="y68iz2_152">null</code>. Comment typeriez-vous cette variable ? a) <code class="code" id="y68iz2_153">let data: User;</code> b) <code class="code" id="y68iz2_154">let data: any;</code> c) <code class="code" id="y68iz2_155">let data: User | null;</code> d) <code class="code" id="y68iz2_156">let data: Partial&lt;User&gt;;</code></p></li><li class="list__item" id="y68iz2_144"><p id="y68iz2_157"><span class="control" id="y68iz2_158">(Question ouverte)</span> Expliquez la diff&eacute;rence entre le type <code class="code" id="y68iz2_159">any</code> et le type <code class="code" id="y68iz2_160">unknown</code>. Pourquoi <code class="code" id="y68iz2_161">unknown</code> est-il consid&eacute;r&eacute; comme plus s&ucirc;r ?</p></li><li class="list__item" id="y68iz2_145"><p id="y68iz2_162"><span class="control" id="y68iz2_163">(QCM)</span> Vous voulez cr&eacute;er une fonction g&eacute;n&eacute;rique <code class="code" id="y68iz2_164">wrapInObject</code> qui prend une valeur de n'importe quel type et la retourne dans un objet <code class="code" id="y68iz2_165">{ value: T }</code>. Quelle est la bonne signature ? a) <code class="code" id="y68iz2_166">function wrapInObject(val: any): { value: any }</code> b) <code class="code" id="y68iz2_167">function wrapInObject&lt;T&gt;(val: T): { value: T }</code> c) <code class="code" id="y68iz2_168">function wrapInObject&lt;T&gt;(val: any): { value: T }</code> d) <code class="code" id="y68iz2_169">function wrapInObject(val: T): { value: T }</code></p></li><li class="list__item" id="y68iz2_146"><p id="y68iz2_170"><span class="control" id="y68iz2_171">(Question ouverte)</span> Donnez un cas d'utilisation concret pour le &quot;Utility Type&quot; <code class="code" id="y68iz2_172">Partial&lt;T&gt;</code> dans une application Angular.</p></li><li class="list__item" id="y68iz2_147"><p id="y68iz2_173"><span class="control" id="y68iz2_174">(QCM)</span> Dans une fonction qui accepte un param&egrave;tre de type <code class="code" id="y68iz2_175">string | number</code>, quelle est la garde de type la plus appropri&eacute;e pour diff&eacute;rencier les deux cas ? a) <code class="code" id="y68iz2_176">if (param instanceof string)</code> b) <code class="code" id="y68iz2_177">if (param.toUpperCase)</code> c) <code class="code" id="y68iz2_178">if (typeof param === &quot;string&quot;)</code> d) <code class="code" id="y68iz2_179">if (param.length)</code></p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="y68iz2_180">F&eacute;licitations, vous avez explor&eacute; les recoins les plus puissants et les plus utiles du syst&egrave;me de types de TypeScript ! Vous savez d&eacute;sormais comment cr&eacute;er du code flexible et r&eacute;utilisable avec les <span class="control" id="y68iz2_183">g&eacute;n&eacute;riques</span>, et comment mod&eacute;liser des donn&eacute;es complexes et du monde r&eacute;el gr&acirc;ce aux <span class="control" id="y68iz2_184">enums</span>, aux <span class="control" id="y68iz2_185">unions</span> et aux <span class="control" id="y68iz2_186">alias de type</span>. Vous avez &eacute;galement appris &agrave; manipuler ces types en toute s&eacute;curit&eacute; avec les <span class="control" id="y68iz2_187">gardes de type</span>.</p><p id="y68iz2_181">Ces outils ne sont pas des gadgets. Ils sont au c&oelig;ur de l'&eacute;criture d'applications Angular modernes, propres et robustes. Cette ma&icirc;trise du typage avanc&eacute; va vous permettre de comprendre en profondeur le code d'Angular lui-m&ecirc;me et d'&eacute;crire des composants et des services beaucoup plus fiables.</p><p id="y68iz2_182">Vous &ecirc;tes maintenant parfaitement &eacute;quip&eacute; sur le plan du langage. Il est temps de mettre tout cela en pratique et de construire la v&eacute;ritable unit&eacute; de base de toute application Angular : le <span class="control" id="y68iz2_188">Composant</span>. Le prochain module est au c&oelig;ur de l'action</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="003-00-typescript.html" class="navigation-links__prev">Module 3 : L'essentiel - TypeScript, un Terrain Connu pour les dev Java</a><a href="004-00-components.html" class="navigation-links__next">Module 4 : L'essentiel - Le C&oelig;ur d'Angular, les Composants</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

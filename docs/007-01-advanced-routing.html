@@ -1,0 +1,140 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:33.420348"><title>Module 7 : Pour aller plus loin - Routage Avanc&eacute;, S&eacute;curis&eacute; et Performant | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-de-la-carte-routi-re-au-syst-me-de-contr-le-a-rien","level":0,"title":"Introduction : De la carte routière au système de contrôle aérien","anchor":"#introduction-de-la-carte-routi-re-au-syst-me-de-contr-le-a-rien"},{"id":"1-routes-enfants-nested-routes","level":0,"title":"1. Routes Enfants (Nested Routes)","anchor":"#1-routes-enfants-nested-routes"},{"id":"2-gardes-de-navigation-canactivate-le-contr-le-d-acc-s","level":0,"title":"2. Gardes de Navigation (CanActivate) : Le Contrôle d\u0027Accès","anchor":"#2-gardes-de-navigation-canactivate-le-contr-le-d-acc-s"},{"id":"3-chargement-paresseux-lazy-loading-la-performance-avant-tout","level":0,"title":"3. Chargement Paresseux (Lazy Loading) : La Performance avant tout","anchor":"#3-chargement-paresseux-lazy-loading-la-performance-avant-tout"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 7 : Pour aller plus loin - Routage Avanc&eacute;, S&eacute;curis&eacute; et Performant | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/007-01-advanced-routing.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 7 : Pour aller plus loin - Routage Avanc&eacute;, S&eacute;curis&eacute; et Performant | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/007-01-advanced-routing.html#webpage",
+    "url": "writerside-documentation/007-01-advanced-routing.html",
+    "name": "Module 7 : Pour aller plus loin - Routage Avanc&eacute;, S&eacute;curis&eacute; et Performant | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="007-01-advanced-routing" data-main-title="Module 7 : Pour aller plus loin - Routage Avancé, Sécurisé et Performant" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="007-00-routing.md|Module 7 : L'essentiel - Navigation avec le Router Angular"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="007-01-advanced-routing" id="007-01-advanced-routing.md">Module 7 : Pour aller plus loin - Routage Avancé, Sécurisé et Performant</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="-hngf24_11">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="-hngf24_12"><li class="list__item" id="-hngf24_13"><p id="-hngf24_17"><span class="control" id="-hngf24_18">Impl&eacute;menter</span> des routes enfants (nested routes) pour cr&eacute;er des mises en page complexes (ex: tableau de bord avec des sous-sections).</p></li><li class="list__item" id="-hngf24_14"><p id="-hngf24_19"><span class="control" id="-hngf24_20">Prot&eacute;ger</span> des routes avec des &quot;gardes de navigation&quot; (<code class="code" id="-hngf24_21">CanActivate</code>) pour contr&ocirc;ler l'acc&egrave;s en fonction de l' authentification.</p></li><li class="list__item" id="-hngf24_15"><p id="-hngf24_22"><span class="control" id="-hngf24_23">Charger</span> des sections enti&egrave;res de votre application &agrave; la demande (&quot;lazy loading&quot;) pour am&eacute;liorer drastiquement le temps de chargement initial.</p></li><li class="list__item" id="-hngf24_16"><p id="-hngf24_24"><span class="control" id="-hngf24_25">Passer</span> des donn&eacute;es statiques &agrave; une route via la propri&eacute;t&eacute; <code class="code" id="-hngf24_26">data</code>.</p></li></ul></section><section class="chapter"><h2 id="introduction-de-la-carte-routi-re-au-syst-me-de-contr-le-a-rien" data-toc="introduction-de-la-carte-routi-re-au-syst-me-de-contr-le-a-rien">Introduction : De la carte routi&egrave;re au syst&egrave;me de contr&ocirc;le a&eacute;rien</h2><p id="-hngf24_27">Vous avez dessin&eacute; la carte routi&egrave;re de votre ville-application. Les rues principales sont l&agrave;, les adresses fonctionnent. Mais que se passe-t-il lorsque votre ville devient une m&eacute;tropole ? Il vous faut des autoroutes &agrave; plusieurs niveaux, des p&eacute;ages pour contr&ocirc;ler qui entre dans certains quartiers, et un syst&egrave;me logistique qui n'apporte les marchandises que l&agrave; o&ugrave; elles sont n&eacute;cessaires, au moment o&ugrave; elles le sont.</p><p id="-hngf24_28">C'est pr&eacute;cis&eacute;ment ce que nous allons construire. Le routage avanc&eacute; n'est pas qu'une question de navigation ; c'est un pilier de l' <span class="control" id="-hngf24_29">architecture</span>, de la <span class="control" id="-hngf24_30">s&eacute;curit&eacute;</span> et de la <span class="control" id="-hngf24_31">performance</span> de votre application. Vous apprendrez &agrave; cr&eacute;er des interfaces complexes, &agrave; s&eacute;curiser des zones r&eacute;serv&eacute;es aux administrateurs, et surtout, &agrave; rendre votre application incroyablement rapide au premier chargement gr&acirc;ce au &quot;lazy loading&quot;.</p></section><section class="chapter"><h2 id="1-routes-enfants-nested-routes" data-toc="1-routes-enfants-nested-routes">1. Routes Enfants (Nested Routes)</h2><p id="-hngf24_32">Souvent, on a une mise en page qui ne change pas, mais une partie de cette mise en page doit &ecirc;tre dynamique. Un tableau de bord est l'exemple parfait : le menu lat&eacute;ral reste, mais le contenu principal change (profil, statistiques, param&egrave;tres...).</p><p id="-hngf24_33">On peut imbriquer des routes les unes dans les autres en utilisant la propri&eacute;t&eacute; <code class="code" id="-hngf24_35">children</code>. Le composant parent aura son propre <code class="code" id="-hngf24_36">&lt;router-outlet&gt;</code> pour afficher les composants enfants.</p><section class="procedure-steps"><h3 id="nested-routes" data-toc="nested-routes">Mise en place de routes enfants pour un tableau de bord</h3><ol class="list _decimal"><li class="list__item" id="-hngf24_37"><p><b id="-hngf24_40">G&eacute;n&eacute;rer les composants :</b></p><p id="-hngf24_41">Un composant &quot;layout&quot; pour le tableau de bord, et deux composants pour les &quot;pages&quot; enfants.</p><p> <code class="code" id="-hngf24_42">ng g c pages/dashboard/dashboard-layout ng g c pages/dashboard/profile ng g c pages/dashboard/stats</code></p></li><li class="list__item" id="-hngf24_38"><p><b id="-hngf24_43">Configurer les routes :</b></p><p id="-hngf24_44">Dans <code class="code" id="-hngf24_46">app.routes.ts</code>, on d&eacute;finit une route parent avec une propri&eacute;t&eacute; <code class="code" id="-hngf24_47">children</code>.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/app.routes.ts
+import { DashboardLayoutComponent } from './pages/dashboard/dashboard-layout/dashboard-layout.component';
+import { ProfileComponent } from './pages/dashboard/profile/profile.component';
+import { StatsComponent } from './pages/dashboard/stats/stats.component';
+
+export const routes: Routes = [
+  // ... autres routes
+  { 
+    path: 'dashboard', 
+    component: DashboardLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'profile', pathMatch: 'full' }, // Par défaut, on va sur le profil
+      { path: 'profile', component: ProfileComponent },
+      { path: 'stats', component: StatsComponent }
+    ]
+  },
+  // ...
+];
+</div></li><li class="list__item" id="-hngf24_39"><p><b id="-hngf24_48">Mettre &agrave; jour le template du parent :</b></p><p id="-hngf24_49">Le <code class="code" id="-hngf24_51">DashboardLayoutComponent</code> doit avoir son propre <code class="code" id="-hngf24_52">&lt;router-outlet&gt;</code> pour afficher les enfants.</p><div class="code-block" data-lang="markup">
+&lt;!-- Fichier: src/app/pages/dashboard/dashboard-layout/dashboard-layout.component.html --&gt;
+&lt;h1&gt;Tableau de Bord&lt;/h1&gt;
+&lt;nav&gt;
+  &lt;!-- Les liens pointent vers les routes enfants (relatives au parent) --&gt;
+  &lt;a [routerLink]=&quot;['profile']&quot;&gt;Mon Profil&lt;/a&gt; | 
+  &lt;a [routerLink]=&quot;['stats']&quot;&gt;Statistiques&lt;/a&gt;
+&lt;/nav&gt;
+&lt;hr&gt;
+&lt;div class=&quot;dashboard-content&quot;&gt;
+  &lt;!-- C'est ici que ProfileComponent ou StatsComponent s'afficheront --&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/div&gt;
+</div></li></ol></section></section><section class="chapter"><h2 id="2-gardes-de-navigation-canactivate-le-contr-le-d-acc-s" data-toc="2-gardes-de-navigation-canactivate-le-contr-le-d-acc-s">2. Gardes de Navigation (<code class="code" id="-hngf24_60">CanActivate</code>) : Le Contr&ocirc;le d'Acc&egrave;s</h2><p id="-hngf24_54">Une garde est une fonction qui s'ex&eacute;cute avant que le Router n'active une route. Elle doit retourner <code class="code" id="-hngf24_61">true</code> (la navigation est autoris&eacute;e), <code class="code" id="-hngf24_62">false</code> (la navigation est bloqu&eacute;e), ou une <code class="code" id="-hngf24_63">UrlTree</code> pour rediriger l'utilisateur.</p><p id="-hngf24_55">La garde <code class="code" id="-hngf24_64">CanActivate</code> est la plus courante : elle d&eacute;termine si un utilisateur <span class="emphasis" id="-hngf24_65">peut activer</span> (c'est-&agrave;-dire, acc&eacute;der &agrave;) une route. C'est parfait pour la gestion de l'authentification.</p><p id="-hngf24_56"><span class="control" id="-hngf24_66">Sc&eacute;nario :</span> Notre route <code class="code" id="-hngf24_67">/dashboard</code> ne doit &ecirc;tre accessible que si l'utilisateur est connect&eacute;.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/guards/auth.guard.ts
+import {inject} from '@angular/core';
+import {CanActivateFn, Router} from '@angular/router';
+import {AuthService} from '../services/auth.service'; // Un service qui gère l'état de connexion
+
+export const authGuard: CanActivateFn = (route, state) =&gt; {
+    const authService = inject(AuthService);
+    const router = inject(Router);
+
+    if (authService.isLoggedIn()) {
+        return true; // L'utilisateur est connecté, on autorise la navigation
+    } else {
+        // L'utilisateur n'est pas connecté, on le redirige vers la page de login
+        console.warn(&quot;Accès refusé ! Redirection vers /login.&quot;);
+        return router.createUrlTree(['/login']);
+    }
+};
+</div><p id="-hngf24_58">On applique ensuite cette garde &agrave; notre route dans <code class="code" id="-hngf24_68">app.routes.ts</code>:</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/app.routes.ts
+import {authGuard} from './shared/guards/auth.guard';
+// ...
+
+export const routes: Routes = [
+    // ...
+    {
+        path: 'dashboard',
+        component: DashboardLayoutComponent,
+        canActivate: [authGuard], // On applique la garde ici !
+        children: [ /* ... */]
+    },
+    // ...
+];
+</div></section><section class="chapter"><h2 id="3-chargement-paresseux-lazy-loading-la-performance-avant-tout" data-toc="3-chargement-paresseux-lazy-loading-la-performance-avant-tout">3. Chargement Paresseux (Lazy Loading) : La Performance avant tout</h2><p id="-hngf24_69">Par d&eacute;faut, quand un utilisateur charge votre application, Angular t&eacute;l&eacute;charge le code de <span class="control" id="-hngf24_75">tous</span> les composants, m&ecirc;me ceux des pages qu'il ne visitera jamais. Pour une petite application, c'est acceptable. Pour une grosse, c'est un d&eacute;sastre pour le temps de chargement initial.</p><p id="-hngf24_70">Le <span class="control" id="-hngf24_76">Lazy Loading</span> r&eacute;sout ce probl&egrave;me. Il permet de scinder votre application en &quot;modules&quot; qui ne seront t&eacute;l&eacute;charg&eacute;s par le navigateur que lorsque l'utilisateur essaiera d'acc&eacute;der &agrave; une route qui en fait partie.</p><p id="-hngf24_71">La syntaxe est tr&egrave;s &eacute;l&eacute;gante :</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/app.routes.ts
+export const routes: Routes = [
+    // ...
+    {
+        path: 'admin',
+        // Au lieu de 'component', on utilise 'loadChildren'.
+        // Angular ne chargera le code des routes d'admin que lorsque
+        // l'utilisateur naviguera vers une URL commençant par /admin.
+        loadChildren: () =&gt; import('./admin/admin.routes').then(m =&gt; m.ADMIN_ROUTES)
+    },
+    // ...
+];
+</div><p id="-hngf24_73">Le fichier <code class="code" id="-hngf24_77">admin.routes.ts</code> contiendrait alors toutes les routes relatives &agrave; la section admin (<code class="code" id="-hngf24_78">/dashboard</code>, <code class="code" id="-hngf24_79">/users</code>, etc.), comme un mini <code class="code" id="-hngf24_80">app.routes.ts</code> autonome.</p><aside class="prompt" data-type="tip" data-title="" id="-hngf24_74"><p>**Quand utiliser le Lazy Loading ?** Toujours pour les sections majeures de votre application qui ne sont pas n&eacute;cessaires au premier affichage : le back-office admin, le tableau de bord utilisateur, les fonctionnalit&eacute;s complexes... C'est une des optimisations les plus impactantes que vous puissiez faire.</p></aside></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-2-s-curiser-un-back-office-avec-une-garde-et-le-lazy-loading" data-toc="exercice-2-s-curiser-un-back-office-avec-une-garde-et-le-lazy-loading">Exercice 2 : S&eacute;curiser un Back-Office avec une Garde et le Lazy Loading</h3><p id="-hngf24_83">Vous devez cr&eacute;er une section &quot;admin&quot; pour votre application.</p><ol class="list _decimal" id="-hngf24_84" type="1"><li class="list__item" id="-hngf24_85"><p id="-hngf24_91">Cr&eacute;ez un <code class="code" id="-hngf24_92">AuthService</code> tr&egrave;s simple avec une propri&eacute;t&eacute; <code class="code" id="-hngf24_93">loggedIn = false</code> et des m&eacute;thodes <code class="code" id="-hngf24_94">login()</code> et <code class="code" id="-hngf24_95">logout()</code> pour changer sa valeur, et <code class="code" id="-hngf24_96">isLoggedIn()</code> pour la retourner. Fournissez-le &agrave; la racine.</p></li><li class="list__item" id="-hngf24_86"><p id="-hngf24_97">Cr&eacute;ez une garde de navigation <code class="code" id="-hngf24_98">authGuard</code> qui n'autorise l'acc&egrave;s que si <code class="code" id="-hngf24_99">authService.isLoggedIn()</code> est <code class="code" id="-hngf24_100">true</code>, et redirige vers <code class="code" id="-hngf24_101">/</code> sinon.</p></li><li class="list__item" id="-hngf24_87"><p id="-hngf24_102">Cr&eacute;ez un dossier <code class="code" id="-hngf24_103">admin</code> avec ses propres routes (<code class="code" id="-hngf24_104">admin.routes.ts</code>) et quelques composants (ex: <code class="code" id="-hngf24_105">AdminDashboardComponent</code>, <code class="code" id="-hngf24_106">ManageUsersComponent</code>). Les routes de ce fichier seront <code class="code" id="-hngf24_107">/</code> (pour le dashboard) et <code class="code" id="-hngf24_108">/users</code> (pour la gestion).</p></li><li class="list__item" id="-hngf24_88"><p id="-hngf24_109">Dans <code class="code" id="-hngf24_110">app.routes.ts</code>, configurez la route <code class="code" id="-hngf24_111">/admin</code> pour qu'elle utilise le <span class="control" id="-hngf24_112">lazy loading</span> afin de charger <code class="code" id="-hngf24_113">admin.routes.ts</code>.</p></li><li class="list__item" id="-hngf24_89"><p id="-hngf24_114">Appliquez votre <code class="code" id="-hngf24_115">authGuard</code> sur cette route <code class="code" id="-hngf24_116">/admin</code>.</p></li><li class="list__item" id="-hngf24_90"><p id="-hngf24_117">Dans votre <code class="code" id="-hngf24_118">AppComponent</code>, ajoutez des boutons &quot;Login&quot; et &quot;Logout&quot; pour simuler la connexion et un lien vers <code class="code" id="-hngf24_119">/admin</code>. V&eacute;rifiez que l'acc&egrave;s est bien bloqu&eacute;/autoris&eacute; en fonction de l'&eacute;tat de connexion.</p></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><ol class="list _decimal" id="-hngf24_120" type="1"><li class="list__item" id="-hngf24_121"><p id="-hngf24_126"><span class="control" id="-hngf24_128"><code class="code" id="-hngf24_129">auth.service.ts</code></span></p><div class="code-block" data-lang="ts">
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  private loggedIn = false;
+  login() { this.loggedIn = true; }
+  logout() { this.loggedIn = false; }
+  isLoggedIn() { return this.loggedIn; }
+}
+</div></li><li class="list__item" id="-hngf24_122"><p id="-hngf24_130"><span class="control" id="-hngf24_131"><code class="code" id="-hngf24_132">auth.guard.ts</code></span> (identique &agrave; l'exemple du cours)</p></li><li class="list__item" id="-hngf24_123"><p id="-hngf24_133"><span class="control" id="-hngf24_135">Dossier <code class="code" id="-hngf24_136">admin</code></span></p><ul class="list _bullet" id="-hngf24_134"><li class="list__item" id="-hngf24_137"><p id="-hngf24_139"><code class="code" id="-hngf24_140">ng g c admin/admin-dashboard</code> &amp; <code class="code" id="-hngf24_141">ng g c admin/manage-users</code></p></li><li class="list__item" id="-hngf24_138"><p id="-hngf24_142">Cr&eacute;ez <code class="code" id="-hngf24_144">src/app/admin/admin.routes.ts</code>:</p><div class="code-block" data-lang="ts">
+import { Routes } from '@angular/router';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+
+export const ADMIN_ROUTES: Routes = [
+  { path: '', component: AdminDashboardComponent },
+  { path: 'users', component: ManageUsersComponent }
+];
+</div></li></ul></li><li class="list__item" id="-hngf24_124"><p id="-hngf24_145">&amp; 5. <span class="control" id="-hngf24_147"><code class="code" id="-hngf24_148">app.routes.ts</code> mis &agrave; jour</span></p><div class="code-block" data-lang="ts">
+import { Routes } from '@angular/router';
+import { authGuard } from './shared/guards/auth.guard';
+
+export const routes: Routes = [
+  // ... autres routes
+  {
+    path: 'admin',
+    canActivate: [authGuard],
+    loadChildren: () =&gt; import('./admin/admin.routes').then(m =&gt; m.ADMIN_ROUTES)
+  }
+];
+</div></li><li class="list__item" id="-hngf24_125"><p id="-hngf24_149"><span class="control" id="-hngf24_153"><code class="code" id="-hngf24_154">app.component.ts</code> et <code class="code" id="-hngf24_155">.html</code></span></p><div class="code-block" data-lang="ts">
+// app.component.ts
+@Component({ /* ... */ })
+export class AppComponent {
+  constructor(public authService: AuthService) {}
+}
+</div><div class="code-block" data-lang="markup">
+&lt;!-- app.component.html --&gt;
+&lt;nav&gt;
+  &lt;a [routerLink]=&quot;['/admin']&quot;&gt;Section Admin&lt;/a&gt;
+&lt;/nav&gt;
+&lt;button (click)=&quot;authService.login()&quot;&gt;Login&lt;/button&gt;
+&lt;button (click)=&quot;authService.logout()&quot;&gt;Logout&lt;/button&gt;
+&lt;p&gt;Connecté: {{ authService.isLoggedIn() }}&lt;/p&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+</div><p id="-hngf24_152">Maintenant, si vous cliquez sur le lien &quot;Section Admin&quot; sans &ecirc;tre &quot;logg&eacute;&quot;, vous serez bloqu&eacute;. Si vous cliquez sur &quot; Login&quot; puis sur le lien, vous acc&eacute;derez au dashboard admin.</p></li></ol></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="-hngf24_156" type="1"><li class="list__item" id="-hngf24_157"><p id="-hngf24_162"><span class="control" id="-hngf24_163">(Question ouverte)</span> Quel est le principal avantage du &quot;lazy loading&quot; et dans quel type de sc&eacute;nario est-il le plus b&eacute;n&eacute;fique ?</p></li><li class="list__item" id="-hngf24_158"><p id="-hngf24_164"><span class="control" id="-hngf24_165">(QCM)</span> Vous avez une route <code class="code" id="-hngf24_166">/settings</code> avec deux sous-sections, <code class="code" id="-hngf24_167">/settings/profile</code> et <code class="code" id="-hngf24_168">/settings/account</code>. Comment le composant de la route <code class="code" id="-hngf24_169">/settings</code> affiche-t-il les composants des sous-sections ? a) En utilisant des <code class="code" id="-hngf24_170">@Input()</code> et <code class="code" id="-hngf24_171">@Output()</code>. b) En utilisant <code class="code" id="-hngf24_172">*ngIf</code>. c) En pla&ccedil;ant un <code class="code" id="-hngf24_173">&lt;router-outlet&gt;</code> dans son template. d) Les routes enfants ne peuvent pas avoir de composant parent.</p></li><li class="list__item" id="-hngf24_159"><p id="-hngf24_174"><span class="control" id="-hngf24_175">(QCM)</span> Quel type de garde de navigation utiliseriez-vous pour emp&ecirc;cher un utilisateur de quitter une page de formulaire s'il a des modifications non enregistr&eacute;es ? a) <code class="code" id="-hngf24_176">CanActivate</code> b) <code class="code" id="-hngf24_177">CanDeactivate</code> c) <code class="code" id="-hngf24_178">Resolve</code> d) <code class="code" id="-hngf24_179">CanLoad</code></p></li><li class="list__item" id="-hngf24_160"><p id="-hngf24_180"><span class="control" id="-hngf24_181">(Question ouverte)</span> Expliquez le r&ocirc;le d'une garde <code class="code" id="-hngf24_182">CanActivate</code>. Que doit-elle retourner pour autoriser, bloquer ou rediriger une navigation ?</p></li><li class="list__item" id="-hngf24_161"><p id="-hngf24_183"><span class="control" id="-hngf24_184">(QCM)</span> Quelle propri&eacute;t&eacute; de l'objet <code class="code" id="-hngf24_185">Route</code> est utilis&eacute;e pour impl&eacute;menter le lazy loading ? a) <code class="code" id="-hngf24_186">component</code> b) <code class="code" id="-hngf24_187">children</code> c) <code class="code" id="-hngf24_188">loadChildren</code> d) <code class="code" id="-hngf24_189">lazyComponent</code></p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="-hngf24_190">F&eacute;licitations ! Vous avez transcend&eacute; le simple r&ocirc;le de dessinateur de cartes pour devenir un v&eacute;ritable architecte de la navigation. Vous savez d&eacute;sormais construire des <span class="control" id="-hngf24_193">mises en page complexes</span> avec les routes enfants, <span class="control" id="-hngf24_194">s&eacute;curiser les acc&egrave;s</span> de votre application avec les gardes, et, surtout, la rendre <span class="control" id="-hngf24_195">extr&ecirc;mement performante</span> au chargement gr&acirc;ce au lazy loading.</p><p id="-hngf24_191">Ces comp&eacute;tences sont absolument fondamentales pour la cr&eacute;ation d'applications Angular d'envergure professionnelle. Elles garantissent une exp&eacute;rience utilisateur fluide, une s&eacute;curit&eacute; robuste et une structure de projet saine.</p><p id="-hngf24_192">Nous avons maintenant une application structur&eacute;e, navigable et s&eacute;curis&eacute;e. Il est temps de la connecter &agrave; votre backend Java ! Dans le prochain module, nous allons aborder le <code class="code" id="-hngf24_196">HttpClient</code> et la programmation r&eacute;active avec <span class="control" id="-hngf24_197">RxJS</span> pour effectuer des appels HTTP et g&eacute;rer des donn&eacute;es asynchrones.</p></section><div class="last-modified">10 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="007-00-routing.html" class="navigation-links__prev">Module 7 : L'essentiel - Navigation avec le Router Angular</a><a href="008-00-httpclient.html" class="navigation-links__next">Module 8 : L'essentiel - Communication avec le Backend : HttpClient et RxJS</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

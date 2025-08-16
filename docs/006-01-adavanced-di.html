@@ -1,0 +1,184 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-08-16T16:38:34.091068"><title>Module 6 : Pour aller plus loin - Ma&icirc;trise de l'Injection de D&eacute;pendances | Angular</title><script type="application/json" id="virtual-toc-data">[{"id":"objectifs-p-dagogiques","level":0,"title":"Objectifs pédagogiques","anchor":"#objectifs-p-dagogiques"},{"id":"introduction-au-del-du-singleton-global","level":0,"title":"Introduction : Au-delà du Singleton Global","anchor":"#introduction-au-del-du-singleton-global"},{"id":"1-la-port-e-des-services-et-les-fournisseurs-de-composants","level":0,"title":"1. La Portée des Services et les Fournisseurs de Composants","anchor":"#1-la-port-e-des-services-et-les-fournisseurs-de-composants"},{"id":"2-les-diff-rents-types-de-fournisseurs-providers","level":0,"title":"2. Les Différents Types de Fournisseurs (Providers)","anchor":"#2-les-diff-rents-types-de-fournisseurs-providers"},{"id":"3-injectiontoken-injecter-plus-que-des-classes","level":0,"title":"3. InjectionToken : Injecter plus que des Classes","anchor":"#3-injectiontoken-injecter-plus-que-des-classes"},{"id":"4-d-pendances-optionnelles-avec-optional","level":0,"title":"4. Dépendances Optionnelles avec @Optional","anchor":"#4-d-pendances-optionnelles-avec-optional"},{"id":"exercice-pratique","level":0,"title":"Exercice pratique","anchor":"#exercice-pratique"},{"id":"auto-valuation","level":0,"title":"Auto-évaluation","anchor":"#auto-valuation"},{"id":"conclusion-de-ce-chapitre","level":0,"title":"Conclusion de ce chapitre","anchor":"#conclusion-de-ce-chapitre"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Module 6 : Pour aller plus loin - Ma&icirc;trise de l'Injection de D&eacute;pendances | Angular"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Angular Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-01-adavanced-di.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Module 6 : Pour aller plus loin - Ma&icirc;trise de l'Injection de D&eacute;pendances | Angular"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/006-01-adavanced-di.html#webpage",
+    "url": "writerside-documentation/006-01-adavanced-di.html",
+    "name": "Module 6 : Pour aller plus loin - Ma&icirc;trise de l'Injection de D&eacute;pendances | Angular",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Angular Help"
+}</script><!-- End Schema.org --></head><body data-id="006-01-adavanced-di" data-main-title="Module 6 : Pour aller plus loin - Maîtrise de l'Injection de Dépendances" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="006-00-services-and-di.md|Module 6 : L'essentiel - Services et Injection de Dépendances"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Angular  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-01-adavanced-di" id="006-01-adavanced-di.md">Module 6 : Pour aller plus loin - Maîtrise de l'Injection de Dépendances</h1><section class="chapter"><h2 id="objectifs-p-dagogiques" data-toc="objectifs-p-dagogiques">Objectifs p&eacute;dagogiques</h2><p id="-gg4b05_12">&Agrave; la fin de cette partie, vous serez en mesure de :</p><ul class="list _bullet" id="-gg4b05_13"><li class="list__item" id="-gg4b05_14"><p id="-gg4b05_19"><span class="control" id="-gg4b05_20">Diff&eacute;rencier</span> les diff&eacute;rentes port&eacute;es (<code class="code" id="-gg4b05_21">scope</code>) d'un service : <code class="code" id="-gg4b05_22">root</code> ou au niveau d'un composant.</p></li><li class="list__item" id="-gg4b05_15"><p id="-gg4b05_23"><span class="control" id="-gg4b05_24">Fournir</span> un service au niveau d'un composant pour cr&eacute;er des instances multiples et isol&eacute;es.</p></li><li class="list__item" id="-gg4b05_16"><p id="-gg4b05_25"><span class="control" id="-gg4b05_26">Utiliser</span> des &quot;factory providers&quot; (<code class="code" id="-gg4b05_27">useFactory</code>) pour cr&eacute;er des instances de service de mani&egrave;re conditionnelle.</p></li><li class="list__item" id="-gg4b05_17"><p id="-gg4b05_28"><span class="control" id="-gg4b05_29">Comprendre et utiliser</span> <code class="code" id="-gg4b05_30">InjectionToken</code> pour injecter des valeurs qui ne sont pas des classes (comme des objets de configuration).</p></li><li class="list__item" id="-gg4b05_18"><p id="-gg4b05_31"><span class="control" id="-gg4b05_32">G&eacute;rer</span> les cas o&ugrave; une d&eacute;pendance pourrait ne pas exister avec le d&eacute;corateur <code class="code" id="-gg4b05_33">@Optional</code>.</p></li></ul></section><section class="chapter"><h2 id="introduction-au-del-du-singleton-global" data-toc="introduction-au-del-du-singleton-global">Introduction : Au-del&agrave; du Singleton Global</h2><p id="-gg4b05_34">Nous avons vu que <code class="code" id="-gg4b05_37">providedIn: 'root'</code> est la solution parfaite dans 90% des cas. C'est simple, efficace et cr&eacute;e un singleton pour toute l'application. Mais que se passe-t-il dans les 10% restants ?</p><ul class="list _bullet" id="-gg4b05_35"><li class="list__item" id="-gg4b05_38"><p id="-gg4b05_41">Et si chaque instance d'un composant <code class="code" id="-gg4b05_42">UserCardComponent</code> avait besoin de sa propre instance d'un service de &quot; logging&quot; ?</p></li><li class="list__item" id="-gg4b05_39"><p id="-gg4b05_43">Et si le service &agrave; injecter d&eacute;pendait d'une configuration qui n'est connue qu'au moment de l'ex&eacute;cution ?</p></li><li class="list__item" id="-gg4b05_40"><p id="-gg4b05_44">Et si vous vouliez injecter non pas une classe, mais une simple valeur de configuration, comme l'URL de base de votre API ?</p></li></ul><p id="-gg4b05_36">Le syst&egrave;me d'injection de d&eacute;pendances d'Angular est bien plus flexible qu'il n'y para&icirc;t. Cette section va vous donner les cl&eacute;s pour devenir un v&eacute;ritable ma&icirc;tre de la DI. Vous apprendrez &agrave; contr&ocirc;ler pr&eacute;cis&eacute;ment <span class="control" id="-gg4b05_45">o&ugrave;</span>, <span class="control" id="-gg4b05_46">quand</span> et * <span class="emphasis" id="-gg4b05_47">comment</span>* vos d&eacute;pendances sont cr&eacute;&eacute;es. C'est une comp&eacute;tence d'architecte qui vous permettra de concevoir des syst&egrave;mes modulaires et hautement configurables.</p></section><section class="chapter"><h2 id="1-la-port-e-des-services-et-les-fournisseurs-de-composants" data-toc="1-la-port-e-des-services-et-les-fournisseurs-de-composants">1. La Port&eacute;e des Services et les Fournisseurs de Composants</h2><p id="-gg4b05_48">Si <code class="code" id="-gg4b05_55">providedIn: 'root'</code> ne convient pas, vous pouvez omettre cette propri&eacute;t&eacute; et d&eacute;clarer le service dans le tableau <code class="code" id="-gg4b05_56">providers</code> d'un composant.</p><p id="-gg4b05_49"><span class="control" id="-gg4b05_57">Effets de cette d&eacute;claration :</span></p><ul class="list _bullet" id="-gg4b05_50"><li class="list__item" id="-gg4b05_58"><p id="-gg4b05_61">Une <span class="control" id="-gg4b05_62">nouvelle instance</span> du service sera cr&eacute;&eacute;e pour <span class="control" id="-gg4b05_63">chaque instance</span> de ce composant.</p></li><li class="list__item" id="-gg4b05_59"><p id="-gg4b05_64">Cette instance sera partag&eacute;e par le composant et tous ses enfants (dans le DOM).</p></li><li class="list__item" id="-gg4b05_60"><p id="-gg4b05_65">Quand le composant est d&eacute;truit, l'instance du service l'est aussi.</p></li></ul><p id="-gg4b05_51"><span class="control" id="-gg4b05_66">Sc&eacute;nario :</span> Un <code class="code" id="-gg4b05_67">CounterComponent</code> qui a son propre <code class="code" id="-gg4b05_68">CounterService</code> pour g&eacute;rer son &eacute;tat. Si on affiche trois <code class="code" id="-gg4b05_69">CounterComponent</code>, chacun aura son propre compteur ind&eacute;pendant.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/counter/counter.service.ts
+import {Injectable} from '@angular/core';
+
+// PAS de providedIn: 'root' ici !
+@Injectable()
+export class CounterService {
+    private count = 0;
+
+    public increment(): void {
+        this.count++;
+    }
+
+    public getCount(): number {
+        return this.count;
+    }
+}
+
+// Fichier: src/app/counter/counter.component.ts
+import {Component} from '@angular/core';
+import {CounterService} from './counter.service';
+
+@Component({
+    selector: 'app-counter',
+    standalone: true,
+    // On déclare ici que CE composant et ses enfants ont leur propre
+    // instance de CounterService.
+    providers: [CounterService],
+    template: `
+    &lt;div style=&quot;border: 1px solid blue; padding: 10px; margin: 5px;&quot;&gt;
+      &lt;button (click)=&quot;increment()&quot;&gt;Incrémenter ce compteur&lt;/button&gt;
+      &lt;p&gt;Compteur local : {{ getCount() }}&lt;/p&gt;
+    &lt;/div&gt;
+  `
+})
+export class CounterComponent {
+    constructor(private counterService: CounterService) {
+    }
+
+    public increment(): void {
+        this.counterService.increment();
+    }
+
+    public getCount(): number {
+        return this.counterService.getCount();
+    }
+}
+</div><p id="-gg4b05_53">Si vous placez <code class="code" id="-gg4b05_70">&lt;app-counter&gt;&lt;/app-counter&gt;&lt;app-counter&gt;&lt;/app-counter&gt;</code> dans votre <code class="code" id="-gg4b05_71">AppComponent</code>, chaque compteur sera ind&eacute;pendant.</p><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="549px" preserveAspectRatio="none" style="width:914px;height:549px;background:#FFFFFF;" version="1.1" viewBox="0 0 914 549" width="914px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="195" x="352.5" y="23.5352">Port&#233;e des Services (Scope)</text><!--cluster Injecteur Racine (Root)--><g id="cluster_Injecteur Racine (Root)"><rect fill="none" height="87.49" rx="3.5" ry="3.5" style="stroke:#696969;stroke-width:1.0;" width="204" x="169" y="44.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="164" x="189" y="60.0234">Injecteur Racine (Root)</text></g><!--cluster AppComponent--><g id="cluster_AppComponent"><rect fill="none" height="329.98" rx="3.5" ry="3.5" style="stroke:#696969;stroke-width:1.0;" width="333" x="284" y="155.9783"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="111" x="395" y="171.5134">AppComponent</text></g><!--cluster C1--><g id="cluster_C1"><rect fill="none" height="103.49" rx="3.5" ry="3.5" style="stroke:#696969;stroke-width:1.0;" width="269" x="316" y="206.9783"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="154" x="373.5" y="222.5134">CounterComponent 1</text></g><!--cluster C2--><g id="cluster_C2"><rect fill="none" height="103.49" rx="3.5" ry="3.5" style="stroke:#696969;stroke-width:1.0;" width="269" x="316" y="350.4683"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="154" x="373.5" y="366.0034">CounterComponent 2</text></g><g id="elem_RootService"><rect fill="#F1F1F1" height="36.4883" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="171" x="185.5" y="79.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="192.5" y="95.0234">UserService (singleton)</text><line style="stroke:#181818;stroke-width:0.5;" x1="186.5" x2="355.5" y1="99.9766" y2="99.9766"/></g><g id="elem_S1"><rect fill="#F1F1F1" height="36.4883" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="359" y="249.9783"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="366" y="265.5134">CounterService (instance 1)</text><line style="stroke:#181818;stroke-width:0.5;" x1="360" x2="560" y1="270.4666" y2="270.4666"/></g><g id="elem_S2"><rect fill="#F1F1F1" height="36.4883" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="340" y="393.4683"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="347" y="409.0034">CounterService (instance 2)</text><line style="stroke:#181818;stroke-width:0.5;" x1="341" x2="541" y1="413.9566" y2="413.9566"/></g><g id="elem_GMN12"><path d="M6,259.0683 L6,277.3788 A3.5,3.5 0 0 0 9.5,280.8788 L214.5,280.8788 A3.5,3.5 0 0 0 218,277.3788 L218,265.5683 L208,255.5683 L127.2,255.5683 L254.28,116.4483 L119.2,255.5683 L9.5,255.5683 A3.5,3.5 0 0 0 6,259.0683 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><path d="M208,255.5683 L208,263.8183 A1.75,1.75 0 0 0 209.75,265.5683 L218,265.5683 L208,255.5683 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="191" x="12" y="273.1366">Fourni par `providedIn: 'root'`</text></g><g id="elem_GMN15"><path d="M633,394.8983 L633,428.5194 A3.5,3.5 0 0 0 636.5,432.0194 L903.5,432.0194 A3.5,3.5 0 0 0 907,428.5194 L907,401.3983 L897,391.3983 L730.63,391.3983 L498.63,286.8583 L722.63,391.3983 L636.5,391.3983 A3.5,3.5 0 0 0 633,394.8983 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><path d="M897,391.3983 L897,399.6483 A1.75,1.75 0 0 0 898.75,401.3983 L907,401.3983 L897,391.3983 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="253" x="639" y="408.9666">Fourni par `providers: [CounterService]`</text><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="639" y="424.2772">de CounterComponent 1</text></g><g id="elem_GMN18"><path d="M304,505.4583 L304,539.0794 A3.5,3.5 0 0 0 307.5,542.5794 L574.5,542.5794 A3.5,3.5 0 0 0 578,539.0794 L578,511.9583 L568,501.9583 L445,501.9583 L441,430.1583 L437,501.9583 L307.5,501.9583 A3.5,3.5 0 0 0 304,505.4583 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><path d="M568,501.9583 L568,510.2083 A1.75,1.75 0 0 0 569.75,511.9583 L578,511.9583 L568,501.9583 " fill="#7FFFD4" style="stroke:#454645;stroke-width:1.5;"/><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="253" x="310" y="519.5266">Fourni par `providers: [CounterService]`</text><text fill="#454645" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="310" y="534.8372">de CounterComponent 2</text></g><!--link RootService to C1--><!--link RootService to C2--><!--link C1 to C2--><!--SRC=[fP7FRi8m3CRlUOfllL0E79eZjwdI96uJQ2U4H6cy4JJiAdLxcNYWFSTUR2bqZ8hzqRISdFZpxxET6ztIdj3wJIXOZNfz9YJt4lJjbU2ene92wyiOf8jIAXednWGgjU2dJZdZNRnG4p0lIi-4T2wYumGl1f1DbqJoK5FeCKXhtrMgS1GLDJfvdpE70VgsgdBPLyB4Uk815-bS6bOAPmco8o_FUcbtFXhejUSUFDSH4wFirCGYEvOSVlMm9m_x5m_RUzZU8qvvCJGcowrtZdWrYRr_cx4c3ZPyC2nAs8Ygx26FWqq2Tz84zgYAW7KLfFMEt8od68Ke6wqDiKC7kC8ST_55TQYdM0w7NAsZr16kl-87lFq_tdxYtm40]--></g></svg></div></section><section class="chapter"><h2 id="2-les-diff-rents-types-de-fournisseurs-providers" data-toc="2-les-diff-rents-types-de-fournisseurs-providers">2. Les Diff&eacute;rents Types de Fournisseurs (Providers)</h2><p id="-gg4b05_72">Le tableau <code class="code" id="-gg4b05_74">providers</code> est tr&egrave;s puissant et accepte des objets de configuration plus d&eacute;taill&eacute;s que le simple nom de la classe.</p><div class="tabs" id="-gg4b05_73" data-anchors="[-gg4b05_75,-gg4b05_76,-gg4b05_77,-gg4b05_78]"><div class="tabs__content" data-gtm="tab" id="-gg4b05_75" data-title="useClass (d&eacute;faut)"><p>Indique quelle classe instancier pour un `token` donn&eacute;. ```typescript // Fournir MyRealService quand on demande ILogger providers: [{ provide: ILogger, useClass: MyRealService }] ```</p></div><div class="tabs__content" data-gtm="tab" id="-gg4b05_76" data-title="useValue"><p>Lie un `token` &agrave; une valeur statique (objet, cha&icirc;ne, nombre...). Id&eacute;al pour les constantes de configuration. ```typescript // Fournir une cha&icirc;ne de caract&egrave;res quand on demande API_URL providers: [{ provide: 'API_URL', useValue: 'https://api.monsite.com' }] ```</p></div><div class="tabs__content" data-gtm="tab" id="-gg4b05_77" data-title="useFactory"><p>Le plus puissant. Permet de d&eacute;finir une fonction &quot;usine&quot; qui cr&eacute;era l'instance du service. Parfait pour la logique conditionnelle. **Analogie Java:** Pensez &agrave; une m&eacute;thode annot&eacute;e `@Bean` dans une classe `@Configuration` de Spring. ```typescript // Cr&eacute;e un LoggerService diff&eacute;rent si on est en mode debug. providers: [ { provide: LoggerService, useFactory: (configService: ConfigService) =&gt; { return configService.isDebugMode() ? new VerboseLoggerService() : new SimpleLoggerService(); }, deps: [ConfigService] // Les d&eacute;pendances de la factory elle-m&ecirc;me } ] ```</p></div><div class="tabs__content" data-gtm="tab" id="-gg4b05_78" data-title="useExisting"><p>Permet de cr&eacute;er un alias. Demander `OldLogger` renverra l'instance existante de `NewLogger`. ```typescript // Pour la r&eacute;trocompatibilit&eacute; providers: [NewLogger, { provide: OldLogger, useExisting: NewLogger }] ```</p></div></div></section><section class="chapter"><h2 id="3-injectiontoken-injecter-plus-que-des-classes" data-toc="3-injectiontoken-injecter-plus-que-des-classes">3. <code class="code" id="-gg4b05_84">InjectionToken</code>: Injecter plus que des Classes</h2><p id="-gg4b05_80">Dans l'exemple <code class="code" id="-gg4b05_85">useValue</code> ci-dessus, nous avons utilis&eacute; une cha&icirc;ne de caract&egrave;res <code class="code" id="-gg4b05_86">'API_URL'</code> comme &quot;cl&eacute;&quot; (token) d'injection. C'est possible, mais ce n'est pas une bonne pratique car cela peut cr&eacute;er des collisions.</p><p id="-gg4b05_81">La solution propre est d'utiliser un <code class="code" id="-gg4b05_87">InjectionToken</code>. C'est un objet unique qui sert de cl&eacute; d'injection s&eacute;curis&eacute;e pour les valeurs qui ne sont pas des classes.</p><p id="-gg4b05_82"><span class="control" id="-gg4b05_88">Sc&eacute;nario :</span> Injecter un objet de configuration de th&egrave;me.</p><section class="procedure-steps"><h3 id="use-injection-token" data-toc="use-injection-token">Utilisation d'un InjectionToken</h3><ol class="list _decimal"><li class="list__item" id="-gg4b05_89"><p><b id="-gg4b05_92">Cr&eacute;er le token :</b></p><p id="-gg4b05_93">On cr&eacute;e une constante export&eacute;e dans un fichier d&eacute;di&eacute;.</p><div class="code-block" data-lang="ts">
+ // Fichier: src/app/shared/theme.config.ts
+ import { InjectionToken } from '@angular/core';
+
+ export interface ThemeConfig {
+   primaryColor: string;
+   fontSize: number;
+ }
+
+ export const THEME_CONFIG = new InjectionToken&lt;ThemeConfig&gt;('Application Theme Configuration');
+</div></li><li class="list__item" id="-gg4b05_90"><p><b id="-gg4b05_95">Fournir la valeur avec le token :</b></p><p id="-gg4b05_96">Dans la configuration de l'application (<code class="code" id="-gg4b05_98">app.config.ts</code>), on utilise le token comme <code class="code" id="-gg4b05_99">provide</code>.</p><div class="code-block" data-lang="ts">
+// Fichier: src/app/app.config.ts
+import { ApplicationConfig } from '@angular/core';
+import { THEME_CONFIG, ThemeConfig } from './shared/theme.config';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    // ... autres providers
+    {
+      provide: THEME_CONFIG,
+      useValue: { primaryColor: 'blue', fontSize: 16 }
+    }
+  ]
+};
+</div></li><li class="list__item" id="-gg4b05_91"><p><b id="-gg4b05_100">Injecter la valeur :</b></p><p id="-gg4b05_101">Pour injecter, on ne peut pas utiliser le type, on doit utiliser le d&eacute;corateur <code class="code" id="-gg4b05_103">@Inject()</code> avec le token.</p><div class="code-block" data-lang="ts">
+// Fichier: some.component.ts
+import { Component, Inject } from '@angular/core';
+import { THEME_CONFIG, ThemeConfig } from '../shared/theme.config';
+
+@Component({ /* ... */ })
+export class SomeComponent {
+  constructor(@Inject(THEME_CONFIG) private theme: ThemeConfig) {
+    console.log(this.theme.primaryColor); // Affiche &quot;blue&quot;
+  }
+}
+</div></li></ol></section></section><section class="chapter"><h2 id="4-d-pendances-optionnelles-avec-optional" data-toc="4-d-pendances-optionnelles-avec-optional">4. D&eacute;pendances Optionnelles avec <code class="code" id="-gg4b05_108">@Optional</code></h2><p id="-gg4b05_105">Par d&eacute;faut, si Angular ne trouve pas de fournisseur pour une d&eacute;pendance demand&eacute;e, il l&egrave;ve une erreur <code class="code" id="-gg4b05_109">NullInjectorError</code> et l'application ne d&eacute;marre pas. Parfois, on veut qu'une d&eacute;pendance soit... optionnelle.</p><p id="-gg4b05_106">Le d&eacute;corateur <code class="code" id="-gg4b05_110">@Optional()</code> dit &agrave; l'injecteur : &quot;Essaie de trouver ce service. Si tu ne le trouves pas, ce n'est pas grave, injecte simplement <code class="code" id="-gg4b05_111">null</code> .&quot;</p><div class="code-block" data-lang="ts">
+import {Component, Optional} from '@angular/core';
+import {AnalyticsService} from './analytics.service';
+
+@Component({ /* ... */})
+export class FeatureComponent {
+    // Si AnalyticsService n'est pas fourni, this.analytics sera null
+    // au lieu de causer une erreur.
+    constructor(@Optional() private analytics: AnalyticsService | null) {
+        if (this.analytics) {
+            this.analytics.track('FeatureComponent Initialized');
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="exercice-pratique" data-toc="exercice-pratique">Exercice pratique</h2><section class="chapter"><h3 id="exercice-2-syst-me-de-th-me-configurable" data-toc="exercice-2-syst-me-de-th-me-configurable">Exercice 2 : Syst&egrave;me de Th&egrave;me Configurable</h3><p id="-gg4b05_114">Mettez en pratique <code class="code" id="-gg4b05_116">InjectionToken</code> et les fournisseurs au niveau composant.</p><ol class="list _decimal" id="-gg4b05_115" type="1"><li class="list__item" id="-gg4b05_117"><p id="-gg4b05_123">Cr&eacute;ez l'interface <code class="code" id="-gg4b05_124">ThemeConfig</code> et le <code class="code" id="-gg4b05_125">InjectionToken</code> <code class="code" id="-gg4b05_126">THEME_CONFIG</code> comme dans l'exemple ci-dessus.</p></li><li class="list__item" id="-gg4b05_118"><p id="-gg4b05_127">Fournissez une valeur <span class="control" id="-gg4b05_128">globale</span> pour ce token dans <code class="code" id="-gg4b05_129">app.config.ts</code> (ex: <code class="code" id="-gg4b05_130">primaryColor: 'blue'</code>, <code class="code" id="-gg4b05_131">fontSize: 16</code>).</p></li><li class="list__item" id="-gg4b05_119"><p id="-gg4b05_132">Cr&eacute;ez un composant <code class="code" id="-gg4b05_133">ThemedPanelComponent</code>. Ce composant doit injecter la configuration <code class="code" id="-gg4b05_134">THEME_CONFIG</code> et utiliser les valeurs pour styler un <code class="code" id="-gg4b05_135">div</code> (avec <code class="code" id="-gg4b05_136">[ngStyle]</code>).</p></li><li class="list__item" id="-gg4b05_120"><p id="-gg4b05_137">Cr&eacute;ez un autre composant &quot;wrapper&quot;, <code class="code" id="-gg4b05_138">SpecialThemedAreaComponent</code>.</p></li><li class="list__item" id="-gg4b05_121"><p id="-gg4b05_139">Dans <code class="code" id="-gg4b05_140">SpecialThemedAreaComponent</code>, <span class="control" id="-gg4b05_141">red&eacute;finissez le fournisseur</span> pour <code class="code" id="-gg4b05_142">THEME_CONFIG</code> au niveau du composant (dans son tableau <code class="code" id="-gg4b05_143">providers</code>) avec des valeurs diff&eacute;rentes (ex: <code class="code" id="-gg4b05_144">'red'</code>, <code class="code" id="-gg4b05_145">20</code>).</p></li><li class="list__item" id="-gg4b05_122"><p id="-gg4b05_146">Placez un <code class="code" id="-gg4b05_147">ThemedPanelComponent</code> &agrave; l'int&eacute;rieur du template de ce <code class="code" id="-gg4b05_148">SpecialThemedAreaComponent</code> pour voir s'il prend bien le th&egrave;me local plut&ocirc;t que le th&egrave;me global.</p></li></ol></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h3></div><div class="collapse__content"><ol class="list _decimal" id="-gg4b05_149" type="1"><li class="list__item" id="-gg4b05_150"><p id="-gg4b05_153">&amp; 2. <span class="control" id="-gg4b05_157">Interface et InjectionToken (d&eacute;j&agrave; fait dans l'exemple) :</span></p><div class="code-block" data-lang="ts">
+// Fichier: src/app/shared/theme.config.ts
+import { InjectionToken } from '@angular/core';
+
+export interface ThemeConfig {
+  primaryColor: string;
+  fontSize: number;
+}
+
+export const THEME_CONFIG = new InjectionToken&lt;ThemeConfig&gt;('Theme Configuration');
+</div><p id="-gg4b05_155"><span class="control" id="-gg4b05_158">Fournisseur Global (<code class="code" id="-gg4b05_159">app.config.ts</code>) :</span></p><div class="code-block" data-lang="ts">
+// Fichier: src/app/app.config.ts
+import { ApplicationConfig } from '@angular/core';
+import { THEME_CONFIG } from './shared/theme.config';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    {
+      provide: THEME_CONFIG,
+      useValue: { primaryColor: 'blue', fontSize: 16 }
+    }
+  ]
+};
+</div></li><li class="list__item" id="-gg4b05_151"><p id="-gg4b05_160"><span class="control" id="-gg4b05_162"><code class="code" id="-gg4b05_163">ThemedPanelComponent</code>:</span></p><div class="code-block" data-lang="ts">
+// Fichier: src/app/themed-panel/themed-panel.component.ts
+import { Component, Inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ThemeConfig, THEME_CONFIG } from '../shared/theme.config';
+
+@Component({
+  selector: 'app-themed-panel',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    &lt;div [ngStyle]=&quot;{
+      'color': config.primaryColor,
+      'font-size.px': config.fontSize,
+      'border': '1px solid ' + config.primaryColor,
+      'padding': '10px'
+    }&quot;&gt;
+      Ce panneau est stylé par la configuration injectée !
+    &lt;/div&gt;
+  `
+})
+export class ThemedPanelComponent {
+  constructor(@Inject(THEME_CONFIG) public config: ThemeConfig) {}
+}
+</div></li><li class="list__item" id="-gg4b05_152"><p id="-gg4b05_164">&amp; 5. &amp; 6. <span class="control" id="-gg4b05_167"><code class="code" id="-gg4b05_168">SpecialThemedAreaComponent</code>:</span></p><div class="code-block" data-lang="ts">
+// Fichier: src/app/special-themed-area/special-themed-area.component.ts
+import { Component } from '@angular/core';
+import { ThemedPanelComponent } from '../themed-panel/themed-panel.component';
+import { THEME_CONFIG } from '../shared/theme.config';
+
+@Component({
+  selector: 'app-special-themed-area',
+  standalone: true,
+  imports: [ThemedPanelComponent],
+  template: `
+    &lt;div style=&quot;background-color: #f5f5f5; padding: 15px;&quot;&gt;
+      &lt;h3&gt;Zone avec Thème Spécial&lt;/h3&gt;
+      &lt;app-themed-panel&gt;&lt;/app-themed-panel&gt;
+    &lt;/div&gt;
+  `,
+  // Fournisseur au niveau du composant qui surcharge le global !
+  providers: [
+    {
+      provide: THEME_CONFIG,
+      useValue: { primaryColor: 'red', fontSize: 20 }
+    }
+  ]
+})
+export class SpecialThemedAreaComponent {}
+</div><p id="-gg4b05_166">Si vous placez <code class="code" id="-gg4b05_169">&lt;app-themed-panel&gt;</code> et <code class="code" id="-gg4b05_170">&lt;app-special-themed-area&gt;</code> dans votre <code class="code" id="-gg4b05_171">AppComponent</code>, le premier sera bleu et le second contiendra un panneau rouge, car le fournisseur local a la priorit&eacute; sur le fournisseur global pour ses enfants.</p></li></ol></div></div></section></section><section class="chapter"><h2 id="auto-valuation" data-toc="auto-valuation">Auto-&eacute;valuation</h2><ol class="list _decimal" id="-gg4b05_172" type="1"><li class="list__item" id="-gg4b05_173"><p id="-gg4b05_178"><span class="control" id="-gg4b05_179">(Question ouverte)</span> Quand est-il appropri&eacute; de fournir un service au niveau d'un composant plut&ocirc;t qu'&agrave; la racine (<code class="code" id="-gg4b05_180">root</code>) ? Donnez un exemple concret.</p></li><li class="list__item" id="-gg4b05_174"><p id="-gg4b05_181"><span class="control" id="-gg4b05_182">(QCM)</span> Vous voulez fournir un objet de configuration simple <code class="code" id="-gg4b05_183">{ version: '1.0' }</code> via l'injection de d&eacute;pendances. Quel type de fournisseur est le plus adapt&eacute; ? a) <code class="code" id="-gg4b05_184">useClass</code> b) <code class="code" id="-gg4b05_185">useValue</code> c) <code class="code" id="-gg4b05_186">useFactory</code> d) <code class="code" id="-gg4b05_187">useExisting</code></p></li><li class="list__item" id="-gg4b05_175"><p id="-gg4b05_188"><span class="control" id="-gg4b05_189">(QCM)</span> Pour injecter une valeur fournie par un <code class="code" id="-gg4b05_190">InjectionToken</code> nomm&eacute; <code class="code" id="-gg4b05_191">MY_TOKEN</code>, quelle est la syntaxe correcte dans le constructeur ? a) <code class="code" id="-gg4b05_192">constructor(private value: MY_TOKEN)</code> b) <code class="code" id="-gg4b05_193">constructor(private value: any)</code> c) <code class="code" id="-gg4b05_194">constructor(@Optional() private value: any, token: MY_TOKEN)</code> d) <code class="code" id="-gg4b05_195">constructor(@Inject(MY_TOKEN) private value: any)</code></p></li><li class="list__item" id="-gg4b05_176"><p id="-gg4b05_196"><span class="control" id="-gg4b05_197">(Question ouverte)</span> Expliquez &agrave; quoi sert un fournisseur <code class="code" id="-gg4b05_198">useFactory</code>. Donnez un exemple de situation o&ugrave; il serait plus utile que <code class="code" id="-gg4b05_199">useClass</code> ou <code class="code" id="-gg4b05_200">useValue</code>.</p></li><li class="list__item" id="-gg4b05_177"><p id="-gg4b05_201"><span class="control" id="-gg4b05_202">(QCM)</span> Un composant a une d&eacute;pendance <code class="code" id="-gg4b05_203">@Optional() private service: MyService | null;</code>. Si <code class="code" id="-gg4b05_204">MyService</code> n'est fourni nulle part dans l'application, que se passera-t-il lors de la cr&eacute;ation du composant ? a) Angular l&egrave;vera une erreur <code class="code" id="-gg4b05_205">NullInjectorError</code>. b) Le composant ne sera pas cr&eacute;&eacute;. c) Le composant sera cr&eacute;&eacute; et la propri&eacute;t&eacute; <code class="code" id="-gg4b05_206">service</code> sera <code class="code" id="-gg4b05_207">null</code>. d) Le composant sera cr&eacute;&eacute; et la propri&eacute;t&eacute; <code class="code" id="-gg4b05_208">service</code> sera <code class="code" id="-gg4b05_209">undefined</code>.</p></li></ol></section><section class="chapter"><h2 id="conclusion-de-ce-chapitre" data-toc="conclusion-de-ce-chapitre">Conclusion de ce chapitre</h2><p id="-gg4b05_210">Un grand bravo ! Vous &ecirc;tes all&eacute; bien au-del&agrave; de la simple utilisation des services. Vous avez explor&eacute; les rouages internes du syst&egrave;me d'injection de d&eacute;pendances d'Angular, ce qui vous donne un contr&ocirc;le d'architecte sur vos applications.</p><p id="-gg4b05_211">Vous savez d&eacute;sormais instancier des services avec <span class="control" id="-gg4b05_213">diff&eacute;rentes port&eacute;es</span>, fournir des <span class="control" id="-gg4b05_214">valeurs complexes</span> ou des * <span class="emphasis" id="-gg4b05_215">factories</span>*, et utiliser des <span class="control" id="-gg4b05_216"><code class="code" id="-gg4b05_217">InjectionToken</code></span> pour des cas de DI avanc&eacute;s. Ces comp&eacute;tences sont essentielles pour construire des applications vastes, modulaires et hautement configurables.</p><p id="-gg4b05_212">Nous avons maintenant une structure solide pour notre logique m&eacute;tier. La prochaine &eacute;tape est de la faire communiquer avec le monde ext&eacute;rieur. Dans le module suivant, nous allons aborder la navigation entre les diff&eacute;rentes &quot;pages&quot; de notre SPA avec le <span class="control" id="-gg4b05_218">Router Angular</span>.</p></section><div class="last-modified">09 août 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="006-00-services-and-di.html" class="navigation-links__prev">Module 6 : L'essentiel - Services et Injection de D&eacute;pendances</a><a href="007-00-routing.html" class="navigation-links__next">Module 7 : L'essentiel - Navigation avec le Router Angular</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>
