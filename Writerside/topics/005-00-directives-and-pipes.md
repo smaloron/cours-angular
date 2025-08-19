@@ -400,8 +400,6 @@ export class ProductListComponent {
 </ul>
 ```
 
-Pour le `[ngClass]`, j'ai ajouté une classe `out-of-stock` sur le `<li>` pour montrer une autre façon de faire.
-
 ### Auto-évaluation
 
 1. **(Question ouverte)** Quelle est la différence fondamentale entre `*ngIf="false"` et l'utilisation de CSS
